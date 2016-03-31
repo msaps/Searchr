@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SCRCommsContextImpl.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    // configure engine
     SCRConfig *config = [SCRConfig configFromBundle:[NSBundle mainBundle]];
+    id<SCRCommsContext> commsContext = [SCRCommsContextImpl commsContextWithConfig:config];
+    SCREngine *engine = [SCREngine engineWithCommsContext:commsContext];
+    
+    _engine = engine;
     
     return YES;
 }

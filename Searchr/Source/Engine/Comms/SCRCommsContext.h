@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objectiveflickr/ObjectiveFlickr.h>
 
-@interface SCRCommsContext : NSObject
+@protocol SCRCommsContext <NSObject>
+
+@property (nonatomic, strong, readonly) OFFlickrAPIContext *flickrContext;
 
 @end
+

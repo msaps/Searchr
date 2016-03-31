@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SCRConfig.h"
 #import "SCRCommsContext.h"
 
 @interface SCREngine : NSObject
+
++ (instancetype)engineWithCommsContext:(id<SCRCommsContext>)commsContext;
 
 @end
