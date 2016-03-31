@@ -8,6 +8,8 @@
 
 #import "SCREngine.h"
 
+#import "SCRPhotosControllerImpl.h"
+
 @interface SCREngine ()
 
 @property (nonatomic, strong) id<SCRCommsContext> commsContext;
@@ -15,6 +17,8 @@
 @end
 
 @implementation SCREngine
+
+@synthesize photosController = _photosController;
 
 #pragma mark - Init
 
@@ -27,6 +31,15 @@
         _commsContext = commsContext;
     }
     return self;
+}
+
+#pragma mark - Controllers
+
+- (id<SCRPhotosController>)photosController {
+    if (!_photosController) {
+        _photosController = [[SCRPhotosControllerImpl alloc]initWithCommsContext:self.commsContext];
+    }
+    return _photosController;
 }
 
 @end

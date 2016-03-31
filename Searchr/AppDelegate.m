@@ -22,8 +22,9 @@
     SCRConfig *config = [SCRConfig configFromBundle:[NSBundle mainBundle]];
     id<SCRCommsContext> commsContext = [SCRCommsContextImpl commsContextWithConfig:config];
     SCREngine *engine = [SCREngine engineWithCommsContext:commsContext];
-    
     _engine = engine;
+    
+    
     
     return YES;
 }
