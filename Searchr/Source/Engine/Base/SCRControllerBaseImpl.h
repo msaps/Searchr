@@ -7,6 +7,7 @@
 //
 
 #import "SCRControllerBase.h"
+#import "SCRRequest.h"
 
 @interface SCRControllerBaseImpl : NSObject <SCRControllerBase>
 
