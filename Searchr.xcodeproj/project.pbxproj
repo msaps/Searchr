@@ -13,6 +13,9 @@
 		4675A5601CADA5BE009578F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A55E1CADA5BE009578F8 /* ViewController.m */; };
 		4675A5641CADA5C4009578F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4675A5621CADA5C4009578F8 /* Assets.xcassets */; };
 		4675A5651CADA5C4009578F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4675A5631CADA5C4009578F8 /* LaunchScreen.storyboard */; };
+		4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A56C1CADA91F009578F8 /* SCREngine.m */; };
+		4675A5721CADA93D009578F8 /* SCRCommsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5711CADA93D009578F8 /* SCRCommsContext.m */; };
+		4675A5751CADA951009578F8 /* SCRConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5741CADA951009578F8 /* SCRConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		4675A55E1CADA5BE009578F8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4675A5621CADA5C4009578F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4675A5631CADA5C4009578F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4675A56B1CADA91F009578F8 /* SCREngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCREngine.h; sourceTree = "<group>"; };
+		4675A56C1CADA91F009578F8 /* SCREngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCREngine.m; sourceTree = "<group>"; };
+		4675A5701CADA93D009578F8 /* SCRCommsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRCommsContext.h; sourceTree = "<group>"; };
+		4675A5711CADA93D009578F8 /* SCRCommsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRCommsContext.m; sourceTree = "<group>"; };
+		4675A5731CADA951009578F8 /* SCRConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRConfig.h; sourceTree = "<group>"; };
+		4675A5741CADA951009578F8 /* SCRConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +97,10 @@
 		4675A5591CADA5BE009578F8 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				4675A56E1CADA936009578F8 /* Comms */,
+				4675A56F1CADA936009578F8 /* Config */,
+				4675A56B1CADA91F009578F8 /* SCREngine.h */,
+				4675A56C1CADA91F009578F8 /* SCREngine.m */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -119,6 +132,24 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		4675A56E1CADA936009578F8 /* Comms */ = {
+			isa = PBXGroup;
+			children = (
+				4675A5701CADA93D009578F8 /* SCRCommsContext.h */,
+				4675A5711CADA93D009578F8 /* SCRCommsContext.m */,
+			);
+			path = Comms;
+			sourceTree = "<group>";
+		};
+		4675A56F1CADA936009578F8 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4675A5731CADA951009578F8 /* SCRConfig.h */,
+				4675A5741CADA951009578F8 /* SCRConfig.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +176,7 @@
 		4675A5361CADA535009578F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SCR;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Merrick Sapsford";
 				TargetAttributes = {
@@ -189,7 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
+				4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */,
 				4675A5601CADA5BE009578F8 /* ViewController.m in Sources */,
+				4675A5721CADA93D009578F8 /* SCRCommsContext.m in Sources */,
 				4675A5461CADA535009578F8 /* AppDelegate.m in Sources */,
 				4675A5431CADA535009578F8 /* main.m in Sources */,
 			);
