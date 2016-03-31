@@ -24,8 +24,6 @@
     SCREngine *engine = [SCREngine engineWithCommsContext:commsContext];
     _engine = engine;
     
-    
-    
     return YES;
 }
 

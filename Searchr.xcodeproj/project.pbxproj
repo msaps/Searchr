@@ -18,6 +18,7 @@
 		4675A5781CADACD9009578F8 /* SCRCommsContextImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5771CADACD9009578F8 /* SCRCommsContextImpl.m */; };
 		4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A57B1CADB1A1009578F8 /* SCRPhotosControllerImpl.m */; };
 		4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5801CADBB13009578F8 /* SCRControllerBaseImpl.m */; };
+		4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5851CADBF34009578F8 /* SCRWeakRef.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,8 @@
 		4675A57F1CADBB13009578F8 /* SCRControllerBaseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRControllerBaseImpl.h; sourceTree = "<group>"; };
 		4675A5801CADBB13009578F8 /* SCRControllerBaseImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRControllerBaseImpl.m; sourceTree = "<group>"; };
 		4675A5821CADBB1B009578F8 /* SCRControllerBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRControllerBase.h; sourceTree = "<group>"; };
+		4675A5841CADBF34009578F8 /* SCRWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRWeakRef.h; sourceTree = "<group>"; };
+		4675A5851CADBF34009578F8 /* SCRWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRWeakRef.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94B73588A9BBE7BAD1E25E0 /* Pods-Searchr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.debug.xcconfig"; sourceTree = "<group>"; };
 		AD698C6911E627CB4DF304D4 /* Pods-Searchr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 				4675A56E1CADA936009578F8 /* Comms */,
 				4675A56F1CADA936009578F8 /* Config */,
 				4675A5791CADB18F009578F8 /* Photos */,
+				4675A5831CADBE90009578F8 /* Utilities */,
 				4675A56B1CADA91F009578F8 /* SCREngine.h */,
 				4675A56C1CADA91F009578F8 /* SCREngine.m */,
 			);
@@ -195,6 +199,15 @@
 				4675A5801CADBB13009578F8 /* SCRControllerBaseImpl.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		4675A5831CADBE90009578F8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4675A5841CADBF34009578F8 /* SCRWeakRef.h */,
+				4675A5851CADBF34009578F8 /* SCRWeakRef.m */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		8022F3D2F76A050FAEA001A6 /* Pods */ = {
@@ -328,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */,
 				4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */,
 				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
 				4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */,

@@ -10,6 +10,4 @@
 
 @interface SCRControllerBaseImpl : NSObject <SCRControllerBase>
 
-
-
 @end
