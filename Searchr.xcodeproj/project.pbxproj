@@ -36,7 +36,7 @@
 		4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5801CADBB13009578F8 /* SCRControllerBaseImpl.m */; };
 		4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5851CADBF34009578F8 /* SCRWeakRef.m */; };
 		4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5891CADC28A009578F8 /* SCRRequest.m */; };
-		46F120891CB05D74009A5EAA /* SCRSearchResultsAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F120881CB05D74009A5EAA /* SCRSearchResultsAnimatedTransition.m */; };
+		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
 
@@ -99,8 +99,8 @@
 		4675A5851CADBF34009578F8 /* SCRWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRWeakRef.m; sourceTree = "<group>"; };
 		4675A5881CADC28A009578F8 /* SCRRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRRequest.h; sourceTree = "<group>"; };
 		4675A5891CADC28A009578F8 /* SCRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRRequest.m; sourceTree = "<group>"; };
-		46F120871CB05D74009A5EAA /* SCRSearchResultsAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultsAnimatedTransition.h; sourceTree = "<group>"; };
-		46F120881CB05D74009A5EAA /* SCRSearchResultsAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultsAnimatedTransition.m; sourceTree = "<group>"; };
+		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
+		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94B73588A9BBE7BAD1E25E0 /* Pods-Searchr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.debug.xcconfig"; sourceTree = "<group>"; };
 		AD698C6911E627CB4DF304D4 /* Pods-Searchr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,10 +184,9 @@
 		463AE3751CB01D4D00D194B0 /* SearchResults */ = {
 			isa = PBXGroup;
 			children = (
+				46F1208A1CB06919009A5EAA /* Views */,
 				463AE3761CB01D5700D194B0 /* SCRSearchResultsViewController.h */,
 				463AE3771CB01D5700D194B0 /* SCRSearchResultsViewController.m */,
-				46F120871CB05D74009A5EAA /* SCRSearchResultsAnimatedTransition.h */,
-				46F120881CB05D74009A5EAA /* SCRSearchResultsAnimatedTransition.m */,
 			);
 			path = SearchResults;
 			sourceTree = "<group>";
@@ -372,6 +371,15 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
+		46F1208A1CB06919009A5EAA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */,
+				46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8022F3D2F76A050FAEA001A6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,10 +514,10 @@
 			files = (
 				4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */,
 				463AE3711CB0191600D194B0 /* UIColor+SCRColorPalette.m in Sources */,
+				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
 				4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */,
 				463AE3741CB01D3700D194B0 /* SCRSearchViewController.m in Sources */,
 				463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */,
-				46F120891CB05D74009A5EAA /* SCRSearchResultsAnimatedTransition.m in Sources */,
 				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
 				463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */,
 				4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */,

@@ -22,6 +22,13 @@
         [self doSetImage:cachedImage animated:NO];
     } else {
         
+        // set placeholder temporarily
+        static UIImage *_placeholderImage;
+        if (!_placeholderImage) {
+            _placeholderImage = [UIImage new];
+        }
+        self.image = _placeholderImage;
+        
         NSOperationQueue *queue = [[NSOperationQueue alloc]init];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:urlRequest];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
@@ -36,7 +43,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[[UIImageView class]sharedImageCache]cacheImage:image
                                                           forRequest:urlRequest];
-                    [self doSetImage:image animated:YES];
+                    [self doSetImage:image animated:!self.image];
                 });
             });
             

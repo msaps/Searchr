@@ -8,6 +8,8 @@
 
 #import "SCRViewControllerBase.h"
 
+extern NSString *const SCRSearchViewControllerStopLoadingNotification;
+
 @interface SCRSearchViewController : SCRViewControllerBase
 
 @end

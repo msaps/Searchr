@@ -9,6 +9,8 @@
 #import "SCRSearchViewController.h"
 #import "SCRSearchButton.h"
 
+NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchViewControllerStopLoadingNotification";
+
 @interface SCRSearchViewController () <SCRPhotosControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -18,6 +20,8 @@
 
 @property (nonatomic, strong) SCRSearchBuilder *searchBuilder;
 
+@property (nonatomic, assign) BOOL isLoading;
+
 @end
 
 @implementation SCRSearchViewController
@@ -26,6 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self
+                                            selector:@selector(stopLoadingNotificationReceived:)
+                                                name:SCRSearchViewControllerStopLoadingNotification object:nil];
     
     self.titleLabel.textColor = [UIColor scr_flickrBlue];
     NSMutableAttributedString *title = [[NSMutableAttributedString alloc]initWithString:NSLocalizedString(@"Searchr", nil)];
@@ -66,34 +74,47 @@
 }
 
 - (void)beginLoadingAnimated:(BOOL)animated {
-    [self.searchButton startLoadingAnimated:animated];
-    if (animated) {
-        [UIView animateWithDuration:0.25f animations:^{
-            self.searchTextField.alpha = 0.0f;
-            self.searchTextField.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
-        } completion:^(BOOL finished) {
+    if (!self.isLoading) {
+        self.isLoading = YES;
+        
+        [self.searchButton startLoadingAnimated:animated];
+        if (animated) {
+            [UIView animateWithDuration:0.25f animations:^{
+                self.searchTextField.alpha = 0.0f;
+                self.searchTextField.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
+            } completion:^(BOOL finished) {
+                self.searchTextField.hidden = YES;
+                self.searchTextField.alpha = 1.0f;
+                self.searchTextField.transform = CGAffineTransformIdentity;
+            }];
+        } else {
             self.searchTextField.hidden = YES;
-            self.searchTextField.alpha = 1.0f;
-            self.searchTextField.transform = CGAffineTransformIdentity;
-        }];
-    } else {
-        self.searchTextField.hidden = YES;
+        }
     }
 }
 
 - (void)stopLoadingAnimated:(BOOL)animated {
-    [self.searchButton stopLoadingAnimated:animated];
-    if (animated) {
-        self.searchTextField.alpha = 0.0f;
-        self.searchTextField.hidden = NO;
-        self.searchTextField.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
-        [UIView animateWithDuration:0.25f animations:^{
-            self.searchTextField.alpha = 1.0f;
-            self.searchTextField.transform = CGAffineTransformIdentity;
-        }];
-    } else {
-        self.searchTextField.hidden = NO;
+    if (self.isLoading) {
+        [self.searchButton stopLoadingAnimated:animated];
+        if (animated) {
+            self.searchTextField.alpha = 0.0f;
+            self.searchTextField.hidden = NO;
+            self.searchTextField.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
+            [UIView animateWithDuration:0.25f animations:^{
+                self.searchTextField.alpha = 1.0f;
+                self.searchTextField.transform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished) {
+                self.isLoading = NO;
+            }];
+        } else {
+            self.searchTextField.hidden = NO;
+            self.isLoading = NO;
+        }
     }
+}
+
+- (void)stopLoadingNotificationReceived:(NSNotification *)notification {
+    [self stopLoadingAnimated:NO];
 }
 
 #pragma mark - SCRPhotosControllerDelegate
@@ -101,7 +122,6 @@
 - (void)photosController:(id<SCRPhotosController>)photosController
         didPerformSearch:(SCRSearchBuilder *)search
              withResults:(SCRPagedList<SCRPhotoModel *> *)searchResults {
-    [self stopLoadingAnimated:NO];
     [self.parentViewController performSegueWithIdentifier:@"showSearchResultsSegue" sender:self];
 }
 
