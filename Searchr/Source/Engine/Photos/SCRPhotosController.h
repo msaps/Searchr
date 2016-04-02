@@ -8,7 +8,15 @@
 
 #import "SCRControllerBase.h"
 
+@protocol SCRPhotosControllerDelegate <NSObject>
+
+
+
+@end
+
 @protocol SCRPhotosController <SCRControllerBase>
+
+- (void)loadInterestingPhotos;
 
 - (void)testMethod;
 

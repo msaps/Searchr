@@ -8,28 +8,21 @@
 
 #import "SCRPhotosControllerImpl.h"
 
-@interface SCRPhotosControllerImpl () <SCRRequestDelegate>
+@interface SCRPhotosControllerImpl ()
 
-@property (nonatomic, strong) SCRRequestGet *request;
+@property (nonatomic, strong) SCRRequest *request;
 
 @end
 
 @implementation SCRPhotosControllerImpl
 
 - (void)testMethod {
-    SCRRequestGet *request = [SCRRequestGet requestWithContext:[self.commsContext flickrContext]
-                                                          path:@"flickr.interestingness.getList"];
-    self.request = request;
-    request.delegate = self;
-    [request send];
-}
-
-- (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didCompleteWithResponse:(NSDictionary *)inResponseDictionary {
     
-}
-
-- (void)flickrAPIRequest:(OFFlickrAPIRequest *)inRequest didFailWithError:(NSError *)inError {
-    
+    [[self.commsContext photosApi]getInterestingPhotosWithPage:1 pageSize:10 success:^(SCRPhotoListModel * _Nullable popularPhotos) {
+        
+    } failure:^(NSError * _Nullable error) {
+        
+    }];
 }
 
 @end

@@ -11,6 +11,7 @@
 @implementation SCRCommsContextImpl
 
 @synthesize flickrContext = _flickrContext;
+@synthesize photosApi = _photosApi;
 
 #pragma mark - Init
 
@@ -25,6 +26,15 @@
                                                       sharedSecret:config.flickrApiSecret];
     }
     return self;
+}
+
+#pragma mark - Public
+
+- (SCRPhotosApi *)photosApi {
+    if (!_photosApi) {
+        _photosApi = [[SCRPhotosApi alloc]initWithFlickrContext:self.flickrContext];
+    }
+    return _photosApi;
 }
 
 @end
