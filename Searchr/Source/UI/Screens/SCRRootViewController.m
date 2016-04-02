@@ -14,7 +14,6 @@
 @interface SCRRootViewController () <SCRPhotosControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -24,13 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.engine.photosController addListener:self];
-    
-    self.titleLabel.textColor = [UIColor scr_flickrBlue];
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc]initWithString:NSLocalizedString(@"Searchr", nil)];
-    [title addAttribute:NSForegroundColorAttributeName value:[UIColor scr_flickrPink] range:NSMakeRange(title.length - 1, 1)];
-    [self.titleLabel setAttributedText:title];
-    
+    [self.engine.photosController addListener:self];    
 }
 
 - (void)viewDidAppear:(BOOL)animated {

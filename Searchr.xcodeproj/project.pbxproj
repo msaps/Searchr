@@ -20,6 +20,8 @@
 		463AE3691CB014FA00D194B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 463AE3681CB014FA00D194B0 /* Localizable.strings */; };
 		463AE36E1CB018A900D194B0 /* SCRSearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE36D1CB018A900D194B0 /* SCRSearchButton.m */; };
 		463AE3711CB0191600D194B0 /* UIColor+SCRColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3701CB0191600D194B0 /* UIColor+SCRColorPalette.m */; };
+		463AE3741CB01D3700D194B0 /* SCRSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3731CB01D3700D194B0 /* SCRSearchViewController.m */; };
+		463AE3781CB01D5700D194B0 /* SCRSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3771CB01D5700D194B0 /* SCRSearchResultsViewController.m */; };
 		4675A5431CADA535009578F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5421CADA535009578F8 /* main.m */; };
 		4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5451CADA535009578F8 /* SCRAppDelegate.m */; };
 		4675A55F1CADA5BE009578F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4675A55C1CADA5BE009578F8 /* Main.storyboard */; };
@@ -62,6 +64,10 @@
 		463AE36D1CB018A900D194B0 /* SCRSearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchButton.m; sourceTree = "<group>"; };
 		463AE36F1CB0191600D194B0 /* UIColor+SCRColorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SCRColorPalette.h"; sourceTree = "<group>"; };
 		463AE3701CB0191600D194B0 /* UIColor+SCRColorPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SCRColorPalette.m"; sourceTree = "<group>"; };
+		463AE3721CB01D3700D194B0 /* SCRSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchViewController.h; sourceTree = "<group>"; };
+		463AE3731CB01D3700D194B0 /* SCRSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchViewController.m; sourceTree = "<group>"; };
+		463AE3761CB01D5700D194B0 /* SCRSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultsViewController.h; sourceTree = "<group>"; };
+		463AE3771CB01D5700D194B0 /* SCRSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultsViewController.m; sourceTree = "<group>"; };
 		4675A53E1CADA535009578F8 /* Searchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4675A5421CADA535009578F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4675A5441CADA535009578F8 /* SCRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRAppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				463AE36B1CB0189B00D194B0 /* Views */,
+				463AE3721CB01D3700D194B0 /* SCRSearchViewController.h */,
+				463AE3731CB01D3700D194B0 /* SCRSearchViewController.m */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -161,6 +169,15 @@
 				463AE36D1CB018A900D194B0 /* SCRSearchButton.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		463AE3751CB01D4D00D194B0 /* SearchResults */ = {
+			isa = PBXGroup;
+			children = (
+				463AE3761CB01D5700D194B0 /* SCRSearchResultsViewController.h */,
+				463AE3771CB01D5700D194B0 /* SCRSearchResultsViewController.m */,
+			);
+			path = SearchResults;
 			sourceTree = "<group>";
 		};
 		4675A5351CADA535009578F8 = {
@@ -246,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				463AE36A1CB0189000D194B0 /* Search */,
+				463AE3751CB01D4D00D194B0 /* SearchResults */,
 				4675A55C1CADA5BE009578F8 /* Main.storyboard */,
 				463AE35E1CAFF6D500D194B0 /* SCRRootViewController.h */,
 				463AE35F1CAFF6D500D194B0 /* SCRRootViewController.m */,
@@ -459,10 +477,12 @@
 				4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */,
 				463AE3711CB0191600D194B0 /* UIColor+SCRColorPalette.m in Sources */,
 				4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */,
+				463AE3741CB01D3700D194B0 /* SCRSearchViewController.m in Sources */,
 				463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */,
 				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
 				463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */,
 				4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */,
+				463AE3781CB01D5700D194B0 /* SCRSearchResultsViewController.m in Sources */,
 				463AE36E1CB018A900D194B0 /* SCRSearchButton.m in Sources */,
 				4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */,
 				463AE3641CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m in Sources */,
