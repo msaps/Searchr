@@ -8,12 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SCRConfig.h"
 #import "SCRPhotosController.h"
 
 @interface SCREngine : NSObject
 
+@property (nonatomic, strong, readonly) SCRConfig *config;
+
+@property (nonatomic, strong, readonly) id<SCRCommsContext> commsContext;
+
 @property (nonatomic, strong, readonly) id<SCRPhotosController> photosController;
 
-+ (instancetype)engineWithCommsContext:(id<SCRCommsContext>)commsContext;
-
++ (instancetype)engineWithCommsContext:(id<SCRCommsContext>)commsContext
+                                config:(SCRConfig *)config;
 @end

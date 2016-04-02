@@ -13,6 +13,7 @@
 @protocol SCRPhotosController;
 
 @protocol SCRPhotosControllerDelegate <NSObject>
+@optional
 
 /**
  The photos controller has loaded a new set of interesting photos

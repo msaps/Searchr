@@ -10,9 +10,19 @@
 
 @interface SCRConfig : NSObject
 
-@property (nonatomic, copy, readonly) NSString *flickrApiKey;
-@property (nonatomic, copy, readonly) NSString *flickrApiSecret;
+/**
+ Searchr Flickr API key.
+ */
+@property (nonatomic, copy, readonly, nonnull) NSString *flickrApiKey;
+/**
+ Searchr Flickr API Secret.
+ */
+@property (nonatomic, copy, readonly, nonnull) NSString *flickrApiSecret;
+/**
+ Flickr image url format.
+ */
+@property (nonatomic, copy, readonly, nonnull) NSString *flickrImageUrlFormat;
 
-+ (instancetype)configFromBundle:(NSBundle *)bundle;
++ (nullable instancetype)configFromBundle:(nonnull NSBundle *)bundle;
 
 @end

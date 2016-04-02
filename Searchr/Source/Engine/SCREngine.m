@@ -10,25 +10,22 @@
 
 #import "SCRPhotosControllerImpl.h"
 
-@interface SCREngine ()
-
-@property (nonatomic, strong) id<SCRCommsContext> commsContext;
-
-@end
-
 @implementation SCREngine
 
 @synthesize photosController = _photosController;
 
 #pragma mark - Init
 
-+ (instancetype)engineWithCommsContext:(id<SCRCommsContext>)commsContext {
-    return [[SCREngine alloc]initWithCommsContext:commsContext];
++ (instancetype)engineWithCommsContext:(id<SCRCommsContext>)commsContext
+                                config:(SCRConfig *)config {
+    return [[SCREngine alloc]initWithCommsContext:commsContext config:config];
 }
 
-- (instancetype)initWithCommsContext:(id<SCRCommsContext>)commsContext {
+- (instancetype)initWithCommsContext:(id<SCRCommsContext>)commsContext
+                              config:(SCRConfig *)config {
     if (self = [super init]) {
         _commsContext = commsContext;
+        _config = config;
     }
     return self;
 }

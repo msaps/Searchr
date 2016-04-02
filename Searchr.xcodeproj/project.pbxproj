@@ -13,10 +13,13 @@
 		463AE3521CAFE61500D194B0 /* SCRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3511CAFE61500D194B0 /* SCRModel.m */; };
 		463AE3551CAFE82700D194B0 /* SCRPagedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3541CAFE82700D194B0 /* SCRPagedModel.m */; };
 		463AE3581CAFE96500D194B0 /* SCRPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3571CAFE96500D194B0 /* SCRPhotoModel.m */; };
+		463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE35C1CAFF61B00D194B0 /* SCRViewControllerBase.m */; };
+		463AE3601CAFF6D500D194B0 /* SCRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE35F1CAFF6D500D194B0 /* SCRRootViewController.m */; };
+		463AE3641CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3631CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m */; };
+		463AE3671CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3661CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.m */; };
 		4675A5431CADA535009578F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5421CADA535009578F8 /* main.m */; };
-		4675A5461CADA535009578F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5451CADA535009578F8 /* AppDelegate.m */; };
+		4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5451CADA535009578F8 /* SCRAppDelegate.m */; };
 		4675A55F1CADA5BE009578F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4675A55C1CADA5BE009578F8 /* Main.storyboard */; };
-		4675A5601CADA5BE009578F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A55E1CADA5BE009578F8 /* ViewController.m */; };
 		4675A5641CADA5C4009578F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4675A5621CADA5C4009578F8 /* Assets.xcassets */; };
 		4675A5651CADA5C4009578F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4675A5631CADA5C4009578F8 /* LaunchScreen.storyboard */; };
 		4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A56C1CADA91F009578F8 /* SCREngine.m */; };
@@ -43,14 +46,20 @@
 		463AE3561CAFE96500D194B0 /* SCRPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModel.h; sourceTree = "<group>"; };
 		463AE3571CAFE96500D194B0 /* SCRPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModel.m; sourceTree = "<group>"; };
 		463AE3591CAFF38D00D194B0 /* SCRWeakSelf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRWeakSelf.h; sourceTree = "<group>"; };
+		463AE35B1CAFF61B00D194B0 /* SCRViewControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRViewControllerBase.h; sourceTree = "<group>"; };
+		463AE35C1CAFF61B00D194B0 /* SCRViewControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRViewControllerBase.m; sourceTree = "<group>"; };
+		463AE35E1CAFF6D500D194B0 /* SCRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRRootViewController.h; sourceTree = "<group>"; };
+		463AE35F1CAFF6D500D194B0 /* SCRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRRootViewController.m; sourceTree = "<group>"; };
+		463AE3621CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SCRFlickrLoading.h"; sourceTree = "<group>"; };
+		463AE3631CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SCRFlickrLoading.m"; sourceTree = "<group>"; };
+		463AE3651CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModelWithUrl.h; sourceTree = "<group>"; };
+		463AE3661CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModelWithUrl.m; sourceTree = "<group>"; };
 		4675A53E1CADA535009578F8 /* Searchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4675A5421CADA535009578F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4675A5441CADA535009578F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4675A5451CADA535009578F8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4675A5441CADA535009578F8 /* SCRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRAppDelegate.h; sourceTree = "<group>"; };
+		4675A5451CADA535009578F8 /* SCRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRAppDelegate.m; sourceTree = "<group>"; };
 		4675A5521CADA535009578F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4675A55C1CADA5BE009578F8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		4675A55D1CADA5BE009578F8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4675A55E1CADA5BE009578F8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4675A5621CADA5C4009578F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4675A5631CADA5C4009578F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4675A56B1CADA91F009578F8 /* SCREngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCREngine.h; sourceTree = "<group>"; };
@@ -102,9 +111,30 @@
 				463AE34E1CAFE60300D194B0 /* SCRPhotoListModel.m */,
 				463AE3561CAFE96500D194B0 /* SCRPhotoModel.h */,
 				463AE3571CAFE96500D194B0 /* SCRPhotoModel.m */,
+				463AE3651CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.h */,
+				463AE3661CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
+		};
+		463AE35A1CAFF60F00D194B0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				463AE35B1CAFF61B00D194B0 /* SCRViewControllerBase.h */,
+				463AE35C1CAFF61B00D194B0 /* SCRViewControllerBase.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		463AE3611CAFF8C300D194B0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				463AE3621CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.h */,
+				463AE3631CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m */,
+			);
+			name = Utilities;
+			path = Searchr/Source/Utilities;
+			sourceTree = SOURCE_ROOT;
 		};
 		4675A5351CADA535009578F8 = {
 			isa = PBXGroup;
@@ -127,8 +157,8 @@
 		4675A5401CADA535009578F8 /* Searchr */ = {
 			isa = PBXGroup;
 			children = (
-				4675A5441CADA535009578F8 /* AppDelegate.h */,
-				4675A5451CADA535009578F8 /* AppDelegate.m */,
+				4675A5441CADA535009578F8 /* SCRAppDelegate.h */,
+				4675A5451CADA535009578F8 /* SCRAppDelegate.m */,
 				4675A5581CADA5BE009578F8 /* Source */,
 				4675A5611CADA5C4009578F8 /* Resource */,
 				4675A5411CADA535009578F8 /* Supporting Files */,
@@ -178,7 +208,9 @@
 		4675A55A1CADA5BE009578F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				463AE35A1CAFF60F00D194B0 /* Base */,
 				4675A55B1CADA5BE009578F8 /* Screens */,
+				463AE3611CAFF8C300D194B0 /* Utilities */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -187,8 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				4675A55C1CADA5BE009578F8 /* Main.storyboard */,
-				4675A55D1CADA5BE009578F8 /* ViewController.h */,
-				4675A55E1CADA5BE009578F8 /* ViewController.m */,
+				463AE35E1CAFF6D500D194B0 /* SCRRootViewController.h */,
+				463AE35F1CAFF6D500D194B0 /* SCRRootViewController.m */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -401,15 +433,18 @@
 				463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */,
 				4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */,
 				4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */,
+				463AE3641CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m in Sources */,
 				463AE3551CAFE82700D194B0 /* SCRPagedModel.m in Sources */,
 				4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */,
+				463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */,
 				463AE3521CAFE61500D194B0 /* SCRModel.m in Sources */,
-				4675A5601CADA5BE009578F8 /* ViewController.m in Sources */,
 				463AE3481CAFDC2B00D194B0 /* SCRPhotosApi.m in Sources */,
-				4675A5461CADA535009578F8 /* AppDelegate.m in Sources */,
+				4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */,
+				463AE3601CAFF6D500D194B0 /* SCRRootViewController.m in Sources */,
 				463AE3581CAFE96500D194B0 /* SCRPhotoModel.m in Sources */,
 				4675A5431CADA535009578F8 /* main.m in Sources */,
 				4675A5781CADACD9009578F8 /* SCRCommsContextImpl.m in Sources */,
+				463AE3671CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

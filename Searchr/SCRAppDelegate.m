@@ -1,19 +1,19 @@
 //
-//  AppDelegate.m
+//  SCRAppDelegate.m
 //  Searchr
 //
 //  Created by Merrick Sapsford on 31/03/2016.
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SCRAppDelegate.h"
 #import "SCRCommsContextImpl.h"
 
-@interface AppDelegate ()
+@interface SCRAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation SCRAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -21,7 +21,7 @@
     // configure engine
     SCRConfig *config = [SCRConfig configFromBundle:[NSBundle mainBundle]];
     id<SCRCommsContext> commsContext = [SCRCommsContextImpl commsContextWithConfig:config];
-    SCREngine *engine = [SCREngine engineWithCommsContext:commsContext];
+    SCREngine *engine = [SCREngine engineWithCommsContext:commsContext config:config];
     _engine = engine;
     
     return YES;
