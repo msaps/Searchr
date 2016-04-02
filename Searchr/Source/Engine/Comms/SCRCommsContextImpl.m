@@ -30,7 +30,7 @@
 
 #pragma mark - Public
 
-- (SCRFlickrApi *)photosApi {
+- (SCRFlickrApi *)flickrApi {
     if (!_flickrApi) {
         _flickrApi = [[SCRFlickrApi alloc]initWithFlickrContext:self.flickrContext];
     }

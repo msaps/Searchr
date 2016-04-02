@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SCREngine.h"
 #import "UIImageView+SCRFlickrLoading.h"
+#import "UIColor+SCRColorPalette.h"
 
 @interface SCRViewControllerBase : UIViewController
 
