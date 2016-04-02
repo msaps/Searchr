@@ -6,12 +6,12 @@
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
-#import "SCRPhotosApi.h"
+#import "SCRFlickrApi.h"
 
-NSString *const kSCRPhotosApiParameterPerPageKey = @"per_page";
-NSString *const kSCRPhotosApiParameterPageKey = @"page";
+NSString *const kSCRFlickrApiParameterPerPageKey = @"per_page";
+NSString *const kSCRFlickrApiParameterPageKey = @"page";
 
-@interface SCRPhotosApi ()
+@interface SCRFlickrApi ()
 
 @property (nonatomic, strong) OFFlickrAPIContext *flickrContext;
 
@@ -19,7 +19,7 @@ NSString *const kSCRPhotosApiParameterPageKey = @"page";
 
 @end
 
-@implementation SCRPhotosApi
+@implementation SCRFlickrApi
 
 #pragma mark - Init
 
@@ -34,14 +34,14 @@ NSString *const kSCRPhotosApiParameterPageKey = @"page";
 
 - (SCRRequest *)getInterestingPhotosWithPage:(NSInteger)page
                                     pageSize:(NSInteger)pageSize
-                                     success:(SCRPhotosApiPopularPhotoSuccessBlock)success
-                                     failure:(SCRPhotosApiFailureBlock)failure {
+                                     success:(SCRFlickrApiPopularPhotoSuccessBlock)success
+                                     failure:(SCRFlickrApiFailureBlock)failure {
     if (self.interestingPhotosRequest) {
         [self.interestingPhotosRequest cancel];
     }
     
-    NSDictionary *parameters = @{kSCRPhotosApiParameterPerPageKey : @(pageSize),
-                                 kSCRPhotosApiParameterPageKey : @(page)};
+    NSDictionary *parameters = @{kSCRFlickrApiParameterPerPageKey : @(pageSize),
+                                 kSCRFlickrApiParameterPageKey : @(page)};
     
     _interestingPhotosRequest = [SCRRequest requestOfType:SCRRequestTypeGet
                                               withContext:self.flickrContext

@@ -11,7 +11,7 @@
 @implementation SCRCommsContextImpl
 
 @synthesize flickrContext = _flickrContext;
-@synthesize photosApi = _photosApi;
+@synthesize flickrApi = _flickrApi;
 
 #pragma mark - Init
 
@@ -30,11 +30,11 @@
 
 #pragma mark - Public
 
-- (SCRPhotosApi *)photosApi {
-    if (!_photosApi) {
-        _photosApi = [[SCRPhotosApi alloc]initWithFlickrContext:self.flickrContext];
+- (SCRFlickrApi *)photosApi {
+    if (!_flickrApi) {
+        _flickrApi = [[SCRFlickrApi alloc]initWithFlickrContext:self.flickrContext];
     }
-    return _photosApi;
+    return _flickrApi;
 }
 
 @end

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		463AE3481CAFDC2B00D194B0 /* SCRPhotosApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3471CAFDC2B00D194B0 /* SCRPhotosApi.m */; };
+		463AE3481CAFDC2B00D194B0 /* SCRFlickrApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3471CAFDC2B00D194B0 /* SCRFlickrApi.m */; };
 		463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE34A1CAFDED100D194B0 /* SCRPagedList.m */; };
 		463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE34E1CAFE60300D194B0 /* SCRPhotoListModel.m */; };
 		463AE3521CAFE61500D194B0 /* SCRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3511CAFE61500D194B0 /* SCRModel.m */; };
@@ -33,8 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		463AE3461CAFDC2B00D194B0 /* SCRPhotosApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotosApi.h; sourceTree = "<group>"; };
-		463AE3471CAFDC2B00D194B0 /* SCRPhotosApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotosApi.m; sourceTree = "<group>"; };
+		463AE3461CAFDC2B00D194B0 /* SCRFlickrApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRFlickrApi.h; sourceTree = "<group>"; };
+		463AE3471CAFDC2B00D194B0 /* SCRFlickrApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRFlickrApi.m; sourceTree = "<group>"; };
 		463AE3491CAFDED100D194B0 /* SCRPagedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPagedList.h; sourceTree = "<group>"; };
 		463AE34A1CAFDED100D194B0 /* SCRPagedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedList.m; sourceTree = "<group>"; };
 		463AE34D1CAFE60300D194B0 /* SCRPhotoListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoListModel.h; sourceTree = "<group>"; };
@@ -260,8 +260,8 @@
 				4675A57D1CADBA1F009578F8 /* SCRPhotosController.h */,
 				4675A57A1CADB1A1009578F8 /* SCRPhotosControllerImpl.h */,
 				4675A57B1CADB1A1009578F8 /* SCRPhotosControllerImpl.m */,
-				463AE3461CAFDC2B00D194B0 /* SCRPhotosApi.h */,
-				463AE3471CAFDC2B00D194B0 /* SCRPhotosApi.m */,
+				463AE3461CAFDC2B00D194B0 /* SCRFlickrApi.h */,
+				463AE3471CAFDC2B00D194B0 /* SCRFlickrApi.m */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -438,7 +438,7 @@
 				4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */,
 				463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */,
 				463AE3521CAFE61500D194B0 /* SCRModel.m in Sources */,
-				463AE3481CAFDC2B00D194B0 /* SCRPhotosApi.m in Sources */,
+				463AE3481CAFDC2B00D194B0 /* SCRFlickrApi.m in Sources */,
 				4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */,
 				463AE3601CAFF6D500D194B0 /* SCRRootViewController.m in Sources */,
 				463AE3581CAFE96500D194B0 /* SCRPhotoModel.m in Sources */,

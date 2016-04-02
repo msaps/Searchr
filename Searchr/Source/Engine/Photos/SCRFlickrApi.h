@@ -11,16 +11,16 @@
 #import "SCRRequest.h"
 #import "SCRPhotoListModel.h"
 
-typedef void(^SCRPhotosApiFailureBlock)(NSError * _Nullable error);
-typedef void(^SCRPhotosApiPopularPhotoSuccessBlock)(SCRPhotoListModel * _Nullable popularPhotos);
+typedef void(^SCRFlickrApiFailureBlock)(NSError * _Nullable error);
+typedef void(^SCRFlickrApiPopularPhotoSuccessBlock)(SCRPhotoListModel * _Nullable popularPhotos);
 
-@interface SCRPhotosApi : NSObject
+@interface SCRFlickrApi : NSObject
 
 - (nonnull instancetype)initWithFlickrContext:(nonnull OFFlickrAPIContext *)flickrContext;
 
 - (nullable SCRRequest *)getInterestingPhotosWithPage:(NSInteger)page
                                              pageSize:(NSInteger)pageSize
-                                              success:(nullable SCRPhotosApiPopularPhotoSuccessBlock)success
-                                              failure:(nullable SCRPhotosApiFailureBlock)failure;
+                                              success:(nullable SCRFlickrApiPopularPhotoSuccessBlock)success
+                                              failure:(nullable SCRFlickrApiFailureBlock)failure;
 
 @end

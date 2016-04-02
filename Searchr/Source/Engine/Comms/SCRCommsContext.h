@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <objectiveflickr/ObjectiveFlickr.h>
-#import "SCRPhotosApi.h"
+#import "SCRFlickrApi.h"
 #import "SCRRequest.h"
 
 @protocol SCRCommsContext <NSObject>
 
 @property (nonatomic, strong, readonly) OFFlickrAPIContext *flickrContext;
 
-@property (nonatomic, strong, readonly) SCRPhotosApi *photosApi;
+@property (nonatomic, strong, readonly) SCRFlickrApi *flickrApi;
 
 @end
 

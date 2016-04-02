@@ -30,7 +30,7 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
     }
     
     SCRWeakSelfCreate;
-    [[self.commsContext photosApi]getInterestingPhotosWithPage:self.interestingPhotos.page + 1
+    [[self.commsContext flickrApi]getInterestingPhotosWithPage:self.interestingPhotos.page + 1
                                                       pageSize:kSCRPhotosControllerImplPageSize
                                                        success:
      ^(SCRPhotoListModel * _Nullable popularPhotos) {
