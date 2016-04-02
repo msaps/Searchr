@@ -18,6 +18,8 @@
     
     self.imageView.image = [self.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.imageView.tintColor = [UIColor scr_flickrBlue];
+    
+    self.activityIndicator.color = [UIColor scr_flickrBlue];
 }
 
 - (void)layoutSubviews {
@@ -32,6 +34,42 @@
     [UIView animateWithDuration:0.3f animations:^{
         self.transform = highlighted ? CGAffineTransformMakeScale(0.9f, 0.9f) : CGAffineTransformIdentity;
     }];
+}
+
+#pragma mark - Public
+
+- (void)startLoadingAnimated:(BOOL)animated {
+    if (animated) {
+        self.activityIndicator.alpha = 0.0f;
+        [self.activityIndicator startAnimating];
+        [UIView animateWithDuration:0.25f animations:^{
+            self.activityIndicator.alpha = 1.0f;
+            self.imageView.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            self.imageView.hidden = YES;
+            self.imageView.alpha = 1.0f;
+        }];
+    } else {
+        [self.activityIndicator startAnimating];
+        self.imageView.hidden = YES;
+    }
+}
+
+- (void)stopLoadingAnimated:(BOOL)animated {
+    if (animated) {
+        self.imageView.alpha = 0.0f;
+        self.imageView.hidden = NO;
+        [UIView animateWithDuration:0.25f animations:^{
+            self.activityIndicator.alpha = 0.0f;
+            self.imageView.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            [self.activityIndicator stopAnimating];
+            self.activityIndicator.alpha = 1.0f;
+        }];
+    } else {
+        [self.activityIndicator stopAnimating];
+        self.imageView.hidden = NO;
+    }
 }
 
 @end

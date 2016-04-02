@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.engine.photosController addListener:self];    
+    [self.engine.photosController addListener:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
