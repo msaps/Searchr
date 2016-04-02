@@ -101,7 +101,7 @@
 - (void)photosController:(id<SCRPhotosController>)photosController
         didPerformSearch:(SCRSearchBuilder *)search
              withResults:(SCRPagedList<SCRPhotoModel *> *)searchResults {
-    [self stopLoadingAnimated:YES];
+    [self stopLoadingAnimated:NO];
     [self.parentViewController performSegueWithIdentifier:@"showSearchResultsSegue" sender:self];
 }
 

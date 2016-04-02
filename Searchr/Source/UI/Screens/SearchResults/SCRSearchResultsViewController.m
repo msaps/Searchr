@@ -10,4 +10,18 @@
 
 @implementation SCRSearchResultsViewController
 
+#pragma mark - Lifecycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = NSLocalizedString(@"Search Results", nil);
+}
+
+#pragma mark - Interaction
+
+- (IBAction)closeButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

@@ -10,8 +10,9 @@
 #import "SCRPhotoModelWithUrl.h"
 #import "UIImageView+AFNetworking.h"
 #import <AFNetworking/AFNetworking.h>
+#import "SCRSearchResultsAnimatedTransition.h"
 
-@interface SCRRootViewController () <SCRPhotosControllerDelegate>
+@interface SCRRootViewController () <SCRPhotosControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
@@ -29,6 +30,14 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.engine.photosController getInterestingPhotos];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    UIViewController *detailViewController = segue.destinationViewController;
+    detailViewController.transitioningDelegate = self;
+    detailViewController.modalPresentationStyle = UIModalPresentationCustom;
 }
 
 #pragma mark - Internal
@@ -49,6 +58,20 @@
 
 - (void)photosController:(id<SCRPhotosController>)photosController didFailToLoadInterestingPhotos:(NSError *)error {
     
+}
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    SCRSearchResultsAnimatedTransition *transition = [SCRSearchResultsAnimatedTransition new];
+    transition.isPresenting = YES;
+    return transition;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return [SCRSearchResultsAnimatedTransition new];
 }
 
 @end

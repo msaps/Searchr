@@ -47,7 +47,7 @@
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZO-ih-Nov">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                     <connections>
-                                                        <segue destination="RqY-PN-6qk" kind="embed" id="d6C-hE-vCt"/>
+                                                        <segue destination="RqY-PN-6qk" kind="embed" id="uYm-xS-sMo"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -85,7 +85,7 @@
                     <navigationItem key="navigationItem" id="owR-Rl-JpJ"/>
                     <connections>
                         <outlet property="imageView" destination="d70-dF-7aW" id="lmW-qG-XDo"/>
-                        <segue destination="Imz-H0-oWe" kind="presentation" identifier="showSearchResultsSegue" id="hFd-RY-tKx"/>
+                        <segue destination="UMM-wV-g3w" kind="showDetail" identifier="showSearchResultsSegue" id="NLi-xx-snH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -179,6 +179,22 @@
             </objects>
             <point key="canvasLocation" x="392" y="1213"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nhI-wi-dHr">
+            <objects>
+                <navigationController id="UMM-wV-g3w" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XOZ-lI-HPf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Imz-H0-oWe" kind="relationship" relationship="rootViewController" id="tgs-kH-cOu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zmN-Fn-XMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1387" y="449"/>
+        </scene>
         <!--Search Results View Controller-->
         <scene sceneID="EZE-FK-2le">
             <objects>
@@ -190,12 +206,34 @@
                     <view key="view" contentMode="scaleToFill" id="gZq-kp-LYb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCq-Ip-QEy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KTZ-ps-QHM">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VCq-Ip-QEy" firstAttribute="top" secondItem="gZq-kp-LYb" secondAttribute="top" id="XwL-OD-Zyq"/>
+                            <constraint firstItem="VCq-Ip-QEy" firstAttribute="leading" secondItem="gZq-kp-LYb" secondAttribute="leading" id="YGw-9M-JVV"/>
+                            <constraint firstAttribute="trailing" secondItem="VCq-Ip-QEy" secondAttribute="trailing" id="fLA-Rf-WdN"/>
+                            <constraint firstItem="bNa-u6-U3X" firstAttribute="top" secondItem="VCq-Ip-QEy" secondAttribute="bottom" id="ngt-B8-twK"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8cn-8I-rWR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="Kia-mc-w3C">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="Imz-H0-oWe" id="vtR-vu-LyR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGq-QT-GNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="1213"/>
+            <point key="canvasLocation" x="1387" y="1213"/>
         </scene>
     </scenes>
     <resources>
