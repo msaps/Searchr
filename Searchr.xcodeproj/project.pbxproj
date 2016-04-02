@@ -42,6 +42,7 @@
 		463AE3541CAFE82700D194B0 /* SCRPagedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedModel.m; sourceTree = "<group>"; };
 		463AE3561CAFE96500D194B0 /* SCRPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModel.h; sourceTree = "<group>"; };
 		463AE3571CAFE96500D194B0 /* SCRPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModel.m; sourceTree = "<group>"; };
+		463AE3591CAFF38D00D194B0 /* SCRWeakSelf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRWeakSelf.h; sourceTree = "<group>"; };
 		4675A53E1CADA535009578F8 /* Searchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4675A5421CADA535009578F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4675A5441CADA535009578F8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -248,6 +249,7 @@
 			children = (
 				4675A5841CADBF34009578F8 /* SCRWeakRef.h */,
 				4675A5851CADBF34009578F8 /* SCRWeakRef.m */,
+				463AE3591CAFF38D00D194B0 /* SCRWeakSelf.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

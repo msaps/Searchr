@@ -7,6 +7,9 @@
 //
 
 #import "SCRPhotosControllerImpl.h"
+#import "SCRWeakSelf.h"
+
+NSInteger const kSCRPhotosControllerImplPageSize = 20;
 
 @interface SCRPhotosControllerImpl ()
 
@@ -16,13 +19,45 @@
 
 @implementation SCRPhotosControllerImpl
 
-- (void)testMethod {
+@synthesize interestingPhotos = _interestingPhotos;
+
+#pragma mark - Public
+
+- (void)getInterestingPhotos {
     
-    [[self.commsContext photosApi]getInterestingPhotosWithPage:1 pageSize:10 success:^(SCRPhotoListModel * _Nullable popularPhotos) {
-        
-    } failure:^(NSError * _Nullable error) {
-        
+    if (!self.interestingPhotos) {
+        _interestingPhotos = [SCRPagedList new];
+    }
+    
+    SCRWeakSelfCreate;
+    [[self.commsContext photosApi]getInterestingPhotosWithPage:self.interestingPhotos.page + 1
+                                                      pageSize:kSCRPhotosControllerImplPageSize
+                                                       success:
+     ^(SCRPhotoListModel * _Nullable popularPhotos) {
+         SCRStrongSelfStart;
+         
+         strongSelf.interestingPhotos.pageSize = popularPhotos.perPage;
+         [strongSelf.interestingPhotos addPageWithData:popularPhotos.data
+                                            pageNumber:popularPhotos.page];
+         
+         [strongSelf enumerateListenersWithBlock:^(id  _Nonnull listener, NSUInteger index, BOOL * _Nonnull stop) {
+             if ([listener respondsToSelector:@selector(photosController:didLoadInterestingPhotos:)]) {
+                 [listener photosController:strongSelf didLoadInterestingPhotos:strongSelf.interestingPhotos];
+             }
+         }];
+
+         SCRStrongSelfEnd;
+     } failure:
+     ^(NSError * _Nullable error) {
+         SCRStrongSelfStart;
+         [self enumerateListenersWithBlock:^(id  _Nonnull listener, NSUInteger index, BOOL * _Nonnull stop) {
+             if ([listener respondsToSelector:@selector(photosController:didFailToLoadInterestingPhotos:)]) {
+                 [listener photosController:strongSelf didFailToLoadInterestingPhotos:error];
+             }
+         }];
+         SCRStrongSelfEnd;
     }];
+    
 }
 
 @end

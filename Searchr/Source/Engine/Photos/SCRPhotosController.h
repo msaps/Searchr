@@ -7,17 +7,48 @@
 //
 
 #import "SCRControllerBase.h"
+#import "SCRPhotoModel.h"
+#import "SCRPagedList.h"
+
+@protocol SCRPhotosController;
 
 @protocol SCRPhotosControllerDelegate <NSObject>
 
-
+/**
+ The photos controller has loaded a new set of interesting photos
+ 
+ @param photosController
+ The photos controller.
+ 
+ @param interestingPhotos
+ The interesting photos list.
+ */
+- (void)photosController:(nonnull id<SCRPhotosController>)photosController
+didLoadInterestingPhotos:(nonnull SCRPagedList<SCRPhotoModel *> *)interestingPhotos;
+/**
+ The photos controller has failde to load a new set of interesting photos
+ 
+ @param photosController
+ The photos controller.
+ 
+ @param error
+ The error that caused the failure.
+ */
+- (void)photosController:(nonnull id<SCRPhotosController>)photosController
+didFailToLoadInterestingPhotos:(nonnull NSError *)error;
 
 @end
 
 @protocol SCRPhotosController <SCRControllerBase>
 
-- (void)loadInterestingPhotos;
+/**
+ Interesting photos.
+ */
+@property (nonatomic, strong, readonly, nullable) SCRPagedList<SCRPhotoModel *> *interestingPhotos;
 
-- (void)testMethod;
+/**
+ Load the next interesting photos page from Flickr.
+ */
+- (void)getInterestingPhotos;
 
 @end

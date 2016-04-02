@@ -23,9 +23,15 @@
 
 - (instancetype)initListWithData:(id)data pageSize:(NSInteger)pageSize currentPage:(NSInteger)currentPage {
     if (self = [super init]) {
-        _page = currentPage;
         _pageSize = pageSize;
-        _data = [[NSMutableArray alloc]initWithArray:data];
+        [self addPageWithData:data pageNumber:currentPage];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _data = [NSMutableArray array];
     }
     return self;
 }
