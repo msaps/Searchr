@@ -31,7 +31,6 @@
 #pragma mark - Interaction
 
 - (IBAction)searchButtonPressed:(id)sender {
-    
 }
 
 @end

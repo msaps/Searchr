@@ -13,6 +13,7 @@
 
 typedef void(^SCRFlickrApiFailureBlock)(NSError * _Nullable error);
 typedef void(^SCRFlickrApiPopularPhotoSuccessBlock)(SCRPhotoListModel * _Nullable popularPhotos);
+typedef void(^SCRFlickrApiSearchResultsSuccessBlock)(SCRPhotoListModel * _Nullable searchResults);
 
 @interface SCRFlickrApi : NSObject
 
@@ -22,5 +23,11 @@ typedef void(^SCRFlickrApiPopularPhotoSuccessBlock)(SCRPhotoListModel * _Nullabl
                                              pageSize:(NSInteger)pageSize
                                               success:(nullable SCRFlickrApiPopularPhotoSuccessBlock)success
                                               failure:(nullable SCRFlickrApiFailureBlock)failure;
+
+- (nullable SCRRequest *)getSearchResultsForParameters:(nonnull NSDictionary *)parameters
+                                                  page:(NSInteger)page
+                                              pageSize:(NSInteger)pageSize
+                                               success:(nullable SCRFlickrApiSearchResultsSuccessBlock)success
+                                               failure:(nullable SCRFlickrApiFailureBlock)failure;
 
 @end

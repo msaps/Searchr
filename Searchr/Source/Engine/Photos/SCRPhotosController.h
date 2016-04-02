@@ -9,6 +9,7 @@
 #import "SCRControllerBase.h"
 #import "SCRPhotoModel.h"
 #import "SCRPagedList.h"
+#import "SCRSearchBuilder.h"
 
 @protocol SCRPhotosController;
 
@@ -16,7 +17,7 @@
 @optional
 
 /**
- The photos controller has loaded a new set of interesting photos
+ The photos controller has loaded a new set of interesting photos.
  
  @param photosController
  The photos controller.
@@ -27,7 +28,7 @@
 - (void)photosController:(nonnull id<SCRPhotosController>)photosController
 didLoadInterestingPhotos:(nonnull SCRPagedList<SCRPhotoModel *> *)interestingPhotos;
 /**
- The photos controller has failde to load a new set of interesting photos
+ The photos controller has failed to load a new set of interesting photos.
  
  @param photosController
  The photos controller.
@@ -37,6 +38,37 @@ didLoadInterestingPhotos:(nonnull SCRPagedList<SCRPhotoModel *> *)interestingPho
  */
 - (void)photosController:(nonnull id<SCRPhotosController>)photosController
 didFailToLoadInterestingPhotos:(nonnull NSError *)error;
+
+/**
+ The photos controller has performed a successful search.
+ 
+ @param photosController
+ The photos controller.
+ 
+ @param search
+ The search.
+ 
+ @param searchResults
+ The results from the search.
+ */
+- (void)photosController:(nonnull id<SCRPhotosController>)photosController
+        didPerformSearch:(nonnull SCRSearchBuilder *)search
+             withResults:(nonnull SCRPagedList<SCRPhotoModel *> *)searchResults;
+/**
+ The photos controller has failed to perform a search
+ 
+ @param photosController
+ The photos controller.
+ 
+ @param search
+ The search.
+ 
+ @param error
+ The error that caused the failure.
+ */
+- (void)photosController:(nonnull id<SCRPhotosController>)photosController
+  didFailToPerformSearch:(nonnull SCRSearchBuilder *)search
+               withError:(nonnull NSError *)error;
 
 @end
 
@@ -48,8 +80,21 @@ didFailToLoadInterestingPhotos:(nonnull NSError *)error;
 @property (nonatomic, strong, readonly, nullable) SCRPagedList<SCRPhotoModel *> *interestingPhotos;
 
 /**
+ The results for the current search.
+ */
+@property (nonatomic, strong, readonly, nullable) SCRPagedList<SCRPhotoModel *> *currentSearchResults;
+/**
+ The current search.
+ */
+@property (nonatomic, strong, readonly, nullable) SCRSearchBuilder *currentSearch;
+
+/**
  Load the next interesting photos page from Flickr.
  */
 - (void)getInterestingPhotos;
+/**
+ Perform a search for photos on Flickr.
+ */
+- (void)getSearchResultsForSearch:(nonnull SCRSearchBuilder *)search;
 
 @end
