@@ -43,4 +43,10 @@
     self.page = page;
 }
 
+- (void)removeAllData {
+    self.page = 0;
+    self.pageSize = 0;
+    [_data removeAllObjects];
+}
+
 @end

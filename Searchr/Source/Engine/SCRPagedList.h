@@ -19,4 +19,6 @@
 
 - (void)addPageWithData:(nullable T)data pageNumber:(NSInteger)page;
 
+- (void)removeAllData;
+
 @end

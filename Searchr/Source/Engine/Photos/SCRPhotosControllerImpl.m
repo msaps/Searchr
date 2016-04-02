@@ -58,7 +58,8 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
 - (void)getSearchResultsForSearch:(SCRSearchBuilder *)search {
     
     if (![search isEqual:self.currentSearch]) {
-        // reset current search results
+        _currentSearch = search;
+        [self.currentSearchResults removeAllData];
     }
     
     SCRWeakSelfCreate;
