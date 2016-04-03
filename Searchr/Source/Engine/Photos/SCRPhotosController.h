@@ -70,6 +70,33 @@ didFailToLoadInterestingPhotos:(nonnull NSError *)error;
   didFailToPerformSearch:(nonnull SCRSearchBuilder *)search
                withError:(nonnull NSError *)error;
 
+/**
+ The photos controller has successfully loaded information for a photo.
+ 
+ @param photosController
+ The photos controller.
+ 
+ @param photo
+ The loaded photo with information.
+ */
+- (void)photosController:(nonnull id<SCRPhotosController>)photosController
+        didLoadPhotoInfo:(nonnull SCRPhotoModelWithInfo *)photo;
+/**
+ The photos controller has failed load information for a photo.
+ 
+ @param photosController
+ The photos controller.
+ 
+ @param photo
+ The photo to get information from.
+ 
+ @param error
+ The error that caused the failure.
+ */
+- (void)photosController:(nonnull id<SCRPhotosController>)photosController
+didFailToLoadPhotoInfoForPhoto:(nonnull SCRPhotoModel *)photo
+               withError:(nonnull NSError *)error;
+
 @end
 
 @protocol SCRPhotosController <SCRControllerBase>
@@ -96,5 +123,9 @@ didFailToLoadInterestingPhotos:(nonnull NSError *)error;
  Perform a search for photos on Flickr.
  */
 - (void)getSearchResultsForSearch:(nonnull SCRSearchBuilder *)search;
+/**
+ Load information for a photo from Flickr.
+ */
+- (nullable SCRPhotoModelWithInfo *)getPhotoInfoForPhoto:(nonnull SCRPhotoModel *)photo;
 
 @end

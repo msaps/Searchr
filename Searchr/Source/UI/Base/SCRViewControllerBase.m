@@ -15,4 +15,11 @@
     return ((SCRAppDelegate *)[UIApplication sharedApplication].delegate).engine;
 }
 
+- (SCRViewSizer *)viewSizer {
+    if (!_viewSizer) {
+        _viewSizer = [SCRViewSizer new];
+    }
+    return _viewSizer;
+}
+
 @end

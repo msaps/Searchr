@@ -15,12 +15,27 @@
 - (void)scr_setImageWithModel:(SCRPhotoModelWithUrl *)photoModel {
     
     NSURL *url = photoModel.photoUrl;
+    [self doSetImageWithUrl:url];
+}
+
+- (void)scr_setImageWithUrl:(NSURL *)url {
+    [self doSetImageWithUrl:url];
+}
+
+- (void)doSetImageWithUrl:(NSURL *)url {
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     UIImage *cachedImage = [[[UIImageView class]sharedImageCache]cachedImageForRequest:urlRequest];
     
     if (cachedImage) {
         [self doSetImage:cachedImage animated:NO];
     } else {
+        
+        // set placeholder temporarily
+        static UIImage *_placeholderImage;
+        if (!_placeholderImage) {
+            _placeholderImage = [UIImage new];
+        }
+        self.image = _placeholderImage;
         
         NSOperationQueue *queue = [[NSOperationQueue alloc]init];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:urlRequest];
@@ -36,13 +51,14 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[[UIImageView class]sharedImageCache]cacheImage:image
                                                           forRequest:urlRequest];
-                    [self doSetImage:image animated:YES];
+                    [self doSetImage:image animated:!self.image];
                 });
             });
             
         } failure:nil];
         [queue addOperation:operation];
     }
+
 }
 
 - (void)doSetImage:(UIImage *)image animated:(BOOL)animated {

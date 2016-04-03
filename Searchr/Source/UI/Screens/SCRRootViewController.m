@@ -23,12 +23,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.engine.photosController addListener:self];    
+    [self.engine.photosController addListener:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.engine.photosController getInterestingPhotos];
+    
+    if (!self.imageView.image) {
+        [self.engine.photosController getInterestingPhotos];
+    }
 }
 
 #pragma mark - Internal

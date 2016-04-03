@@ -13,6 +13,8 @@ NSString *const kSCRConfigKey = @"SCRConfig";
 NSString *const kSCRConfigFlickrApiKey = @"flickrApiKey";
 NSString *const kSCRConfigFlickrApiSecretKey = @"flickrApiSecret";
 NSString *const kSCRConfigFlickrImageUrlFormatKey = @"flickrImageUrlFormat";
+NSString *const kSCRConfigFlickrBuddyIconUrlFormatKey = @"flickrBuddyIconUrlFormat";
+NSString *const kSCRConfigFlickrBuddyIconDefaultUrl = @"flickrBuddyIconDefaultUrl";
 
 @implementation SCRConfig
 
@@ -29,6 +31,8 @@ NSString *const kSCRConfigFlickrImageUrlFormatKey = @"flickrImageUrlFormat";
         _flickrApiKey = configDictionary[kSCRConfigFlickrApiKey];
         _flickrApiSecret = configDictionary[kSCRConfigFlickrApiSecretKey];
         _flickrImageUrlFormat = configDictionary[kSCRConfigFlickrImageUrlFormatKey];
+        _flickrBuddyIconUrlFormat = configDictionary[kSCRConfigFlickrBuddyIconUrlFormatKey];
+        _flickrBuddyIconDefaultUrl = configDictionary[kSCRConfigFlickrBuddyIconDefaultUrl];
     }
     return self;
 }

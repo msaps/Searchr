@@ -14,4 +14,7 @@ IB_DESIGNABLE
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+- (void)startLoadingAnimated:(BOOL)animated;
+- (void)stopLoadingAnimated:(BOOL)animated;
+
 @end
