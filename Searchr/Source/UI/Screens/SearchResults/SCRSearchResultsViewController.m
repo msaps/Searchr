@@ -10,10 +10,17 @@
 #import "SCRSearchResultCollectionViewCell.h"
 #import "SCRSearchViewController.h"
 #import "SCRWeakSelf.h"
+#import "SCRSearchResultsFooterView.h"
+
+NSString *const kSCRSearchResultsViewControllerReuseIdentifierPictureCell = @"pictureCell";
+NSString *const kSCRSearchResultsViewControllerReuseIdentifierFooter = @"spinnerFooter";
+
+CGFloat const kSCRSearchResultsViewControllerFooterHeight = 44.0f;
 
 @interface SCRSearchResultsViewController () <SCRPhotosControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) SCRSearchResultsFooterView *currentFooterView;
 
 @property (nonatomic, strong) SCRPagedList *searchResults;
 
@@ -31,8 +38,13 @@
     
     self.title = NSLocalizedString(@"Search Results", nil);
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"SCRSearchResultCollectionViewCell" bundle:[NSBundle mainBundle]]
-          forCellWithReuseIdentifier:@"pictureCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultCollectionViewCell class])
+                                                    bundle:[NSBundle mainBundle]]
+          forCellWithReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierPictureCell];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultsFooterView class])
+                                                    bundle:[NSBundle mainBundle]]
+          forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                 withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -119,7 +131,9 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SCRSearchResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pictureCell" forIndexPath:indexPath];
+    SCRSearchResultCollectionViewCell *cell =
+    [collectionView dequeueReusableCellWithReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierPictureCell
+                                              forIndexPath:indexPath];
     SCRPhotoModel *photo = self.searchResults.data[indexPath.row];
     
     [self populateCell:cell withPhotoModel:photo];
@@ -146,6 +160,29 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
                        SCRStrongSelfEnd;
     }];
     return size;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath {
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+        _currentFooterView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter
+                                                                       forIndexPath:indexPath];
+        return _currentFooterView;
+    }
+    return nil;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewFlowLayout *)collectionViewLayout
+referenceSizeForFooterInSection:(NSInteger)section {
+    
+    if (self.searchResults.page != self.searchResults.totalPagesAvailable) {
+        return CGSizeMake(0.0f, kSCRSearchResultsViewControllerFooterHeight + collectionViewLayout.sectionInset.bottom);
+    }
+    return CGSizeZero;
 }
 
 @end
