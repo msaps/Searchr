@@ -18,10 +18,19 @@
  Searchr Flickr API Secret.
  */
 @property (nonatomic, copy, readonly, nonnull) NSString *flickrApiSecret;
+
 /**
  Flickr image url format.
  */
 @property (nonatomic, copy, readonly, nonnull) NSString *flickrImageUrlFormat;
+/**
+ Flickr buddy icon url format.
+ */
+@property (nonatomic, copy, readonly, nonnull) NSString *flickrBuddyIconUrlFormat;
+/**
+ Default Flickr buddy icon url.
+ */
+@property (nonatomic, copy, readonly, nonnull) NSString *flickrBuddyIconDefaultUrl;
 
 + (nullable instancetype)configFromBundle:(nonnull NSBundle *)bundle;
 

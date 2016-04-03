@@ -33,14 +33,12 @@ NSString *const kSCRPhotoModelWithUrlFileFormat = @"{format}";
 
 - (instancetype)initWithModel:(SCRPhotoModel *)photoModel
                        config:(nonnull SCRConfig *)config {
-    if (self = [super init]) {
-        _photoModel = photoModel;
-        _config = config;
-        if (photoModel) {
+    if (photoModel && config) {
+        if (self = [super init]) {
+            _photoModel = photoModel;
+            _config = config;
             [self buildUrl];
         }
-    }
-    if (_photoModel) {
         return self;
     }
     return nil;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SCRPhotoModelWithUrl.h"
 #import "SCRPhotoModelWithInfo.h"
+#import "SCRPhotoOwnerModelWithUrl.h"
 
 IB_DESIGNABLE
 @interface SCRSearchResultCollectionViewCell : UICollectionViewCell
@@ -18,5 +19,9 @@ IB_DESIGNABLE
 
 - (void)setPhotoWithUrl:(SCRPhotoModelWithUrl *)photoWithUrl;
 - (void)setPhotoWithInfo:(SCRPhotoModelWithInfo *)photoWithInfo;
+- (void)setPhotoOwnerWithUrl:(SCRPhotoOwnerModelWithUrl *)photoOwnerWithUrl;
+
+- (void)startLoadingAnimated:(BOOL)animated;
+- (void)stopLoadingAnimated:(BOOL)animated;
 
 @end

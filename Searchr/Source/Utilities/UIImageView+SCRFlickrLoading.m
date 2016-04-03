@@ -15,6 +15,14 @@
 - (void)scr_setImageWithModel:(SCRPhotoModelWithUrl *)photoModel {
     
     NSURL *url = photoModel.photoUrl;
+    [self doSetImageWithUrl:url];
+}
+
+- (void)scr_setImageWithUrl:(NSURL *)url {
+    [self doSetImageWithUrl:url];
+}
+
+- (void)doSetImageWithUrl:(NSURL *)url {
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     UIImage *cachedImage = [[[UIImageView class]sharedImageCache]cachedImageForRequest:urlRequest];
     
@@ -50,6 +58,7 @@
         } failure:nil];
         [queue addOperation:operation];
     }
+
 }
 
 - (void)doSetImage:(UIImage *)image animated:(BOOL)animated {

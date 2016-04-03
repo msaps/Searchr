@@ -13,4 +13,6 @@
 
 - (void)scr_setImageWithModel:(nonnull SCRPhotoModelWithUrl *)photoModel;
 
+- (void)scr_setImageWithUrl:(nonnull NSURL *)url;
+
 @end

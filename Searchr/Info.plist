@@ -22,6 +22,24 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>SCRConfig</key>
+	<dict>
+		<key>flickrApiKey</key>
+		<string>00a1d6f479574840e4c33d249ee8ca06</string>
+		<key>flickrApiSecret</key>
+		<string>ea02ac5f992c0af9</string>
+		<key>flickrBuddyIconDefaultUrl</key>
+		<string>https://www.flickr.com/images/buddyicon.gif</string>
+		<key>flickrBuddyIconUrlFormat</key>
+		<string>http://farm{icon-farm}.staticflickr.com/{icon-server}/buddyicons/{nsid}.jpg</string>
+		<key>flickrImageUrlFormat</key>
+		<string>https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{o-secret}_{size}{format}</string>
+	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -36,14 +54,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>SCRConfig</key>
-	<dict>
-		<key>flickrApiKey</key>
-		<string>00a1d6f479574840e4c33d249ee8ca06</string>
-		<key>flickrApiSecret</key>
-		<string>ea02ac5f992c0af9</string>
-		<key>flickrImageUrlFormat</key>
-		<string>https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{o-secret}_{size}{format}</string>
-	</dict>
 </dict>
 </plist>

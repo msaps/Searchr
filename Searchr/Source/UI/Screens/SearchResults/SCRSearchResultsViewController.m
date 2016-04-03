@@ -9,6 +9,7 @@
 #import "SCRSearchResultsViewController.h"
 #import "SCRSearchResultCollectionViewCell.h"
 #import "SCRSearchViewController.h"
+#import "SCRWeakSelf.h"
 
 @interface SCRSearchResultsViewController () <SCRPhotosControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 
@@ -70,13 +71,35 @@
     return nil;
 }
 
+- (void)populateCell:(SCRSearchResultCollectionViewCell *)cell withPhotoModel:(SCRPhotoModel *)photoModel {
+    
+    SCRPhotoModelWithUrl *photoWithUrl = [SCRPhotoModelWithUrl photoModelWithModel:photoModel
+                                                                            config:self.engine.config];
+    [cell setPhotoWithUrl:photoWithUrl];
+    
+    SCRPhotoModelWithInfo *photoWithInfo = [self.engine.photosController getPhotoInfoForPhoto:photoModel];
+    if (photoWithInfo) {
+        [self populateCell:cell withPhotoModelWithInfo:photoWithInfo];
+    } else { // start loading info
+        [cell startLoadingAnimated:YES];
+    }
+}
+
+- (void)populateCell:(SCRSearchResultCollectionViewCell *)cell withPhotoModelWithInfo:(SCRPhotoModelWithInfo *)photoModelWithInfo {
+    [cell setPhotoWithInfo:photoModelWithInfo];
+    
+    SCRPhotoOwnerModelWithUrl *photoOwnerWithUrl = [SCRPhotoOwnerModelWithUrl photoOwnerModelWithModel:photoModelWithInfo.ownerModel
+                                                                                                config:self.engine.config];
+    [cell setPhotoOwnerWithUrl:photoOwnerWithUrl];
+}
+
 #pragma mark - SCRPhotosControllerDelegate
 
 - (void)photosController:(id<SCRPhotosController>)photosController
         didLoadPhotoInfo:(SCRPhotoModelWithInfo *)photo {
     NSIndexPath *indexPath = [self indexPathForPhotoWithIdentifier:photo.identifier];
     SCRSearchResultCollectionViewCell *cell = (SCRSearchResultCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    [cell setPhotoWithInfo:photo];
+    [self populateCell:cell withPhotoModelWithInfo:photo];
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController
@@ -98,16 +121,8 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SCRSearchResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pictureCell" forIndexPath:indexPath];
     SCRPhotoModel *photo = self.searchResults.data[indexPath.row];
-    SCRPhotoModelWithUrl *photoWithUrl = [SCRPhotoModelWithUrl photoModelWithModel:photo
-                                                                            config:self.engine.config];
     
-    [cell setPhotoWithUrl:photoWithUrl];
-    SCRPhotoModelWithInfo *photoWithInfo = [self.engine.photosController getPhotoInfoForPhoto:photo];
-    if (photoWithInfo) {
-        [cell setPhotoWithInfo:photoWithInfo];
-    } else { // start loading info
-        
-    }
+    [self populateCell:cell withPhotoModel:photo];
     
     return cell;
 }
@@ -119,13 +134,16 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
     CGFloat width = collectionView.bounds.size.width - (sectionInset.left + sectionInset.right);
     SCRPhotoModel *photo = self.searchResults.data[indexPath.row];
     
+    SCRWeakSelfCreate;
     CGSize size = [self.viewSizer autoSizeNibViewWithRequiredWidth:width
                                                       sizeViewType:[SCRSearchResultCollectionViewCell class]
                                                         identifier:indexPath
                                                    populationBlock:
                    ^(UIView * _Nonnull view) {
+                       SCRStrongSelfStart;
                        SCRSearchResultCollectionViewCell *cell = (SCRSearchResultCollectionViewCell *)view;
-                       cell.titleLabel.text = photo.title;
+                       [strongSelf populateCell:cell withPhotoModel:photo];
+                       SCRStrongSelfEnd;
     }];
     return size;
 }
