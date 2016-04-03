@@ -43,21 +43,10 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
     self.searchBuilder.text = @"Vulcan";
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    [self.engine.photosController addListener:self];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self.engine.photosController removeListener:self];
-}
-
 #pragma mark - Interaction
 
 - (IBAction)searchButtonPressed:(id)sender {
-    
+    [self.engine.photosController addListener:self];
     if (self.searchBuilder.components.count > 0) {
         [self.engine.photosController getSearchResultsForSearch:self.searchBuilder];
         [self beginLoadingAnimated:YES];
@@ -122,6 +111,7 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 - (void)photosController:(id<SCRPhotosController>)photosController
         didPerformSearch:(SCRSearchBuilder *)search
              withResults:(SCRPagedList<SCRPhotoModel *> *)searchResults {
+    [photosController removeListener:self];
     [self.parentViewController performSegueWithIdentifier:@"showSearchResultsSegue" sender:self];
 }
 

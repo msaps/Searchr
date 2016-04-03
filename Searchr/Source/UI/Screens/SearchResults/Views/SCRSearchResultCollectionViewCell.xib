@@ -45,7 +45,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merrick Sapsford" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaA-yX-faz">
-                                        <rect key="frame" x="24" y="0.5" width="111" height="17"/>
+                                        <rect key="frame" x="24" y="0.0" width="111" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 Jun 94" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3u-bl-Qlt">
-                                        <rect key="frame" x="24" y="0.5" width="64" height="17"/>
+                                        <rect key="frame" x="24" y="0.0" width="64" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -121,6 +121,7 @@
                             <constraint firstItem="rf9-mm-woO" firstAttribute="top" secondItem="x5D-Xb-g9Q" secondAttribute="bottom" constant="12" id="0ko-Rj-Fsb"/>
                             <constraint firstItem="rf9-mm-woO" firstAttribute="leading" secondItem="TvT-Yv-dD4" secondAttribute="leading" constant="12" id="7Q0-eA-3Nu"/>
                             <constraint firstItem="Jqy-Py-ljc" firstAttribute="leading" secondItem="TvT-Yv-dD4" secondAttribute="leading" constant="12" id="7tj-on-QBr"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jlS-Fq-g0f" secondAttribute="trailing" constant="12" id="HXW-4g-brg"/>
                             <constraint firstItem="x5D-Xb-g9Q" firstAttribute="top" secondItem="Jqy-Py-ljc" secondAttribute="bottom" constant="12" id="MkB-Mi-kzA"/>
                             <constraint firstItem="2z0-kf-vPy" firstAttribute="leading" secondItem="TvT-Yv-dD4" secondAttribute="leading" id="Tak-Ag-KDL"/>
                             <constraint firstAttribute="trailing" secondItem="Jqy-Py-ljc" secondAttribute="trailing" constant="12" id="aQE-BD-jlz"/>
