@@ -10,8 +10,11 @@
 #import "SCREngine.h"
 #import "UIImageView+SCRFlickrLoading.h"
 #import "UIColor+SCRColorPalette.h"
+#import "SCRViewSizer.h"
 
 @interface SCRViewControllerBase : UIViewController
+
+@property (nonatomic, strong) SCRViewSizer *viewSizer;
 
 - (SCREngine *)engine;
 

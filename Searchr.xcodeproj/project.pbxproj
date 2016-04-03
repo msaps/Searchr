@@ -36,6 +36,8 @@
 		4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5801CADBB13009578F8 /* SCRControllerBaseImpl.m */; };
 		4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5851CADBF34009578F8 /* SCRWeakRef.m */; };
 		4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5891CADC28A009578F8 /* SCRRequest.m */; };
+		468D9CDA1CB127A400AD5452 /* SCRViewSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CD91CB127A400AD5452 /* SCRViewSizer.m */; };
+		468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,9 @@
 		4675A5851CADBF34009578F8 /* SCRWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRWeakRef.m; sourceTree = "<group>"; };
 		4675A5881CADC28A009578F8 /* SCRRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRRequest.h; sourceTree = "<group>"; };
 		4675A5891CADC28A009578F8 /* SCRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRRequest.m; sourceTree = "<group>"; };
+		468D9CD81CB127A400AD5452 /* SCRViewSizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRViewSizer.h; sourceTree = "<group>"; };
+		468D9CD91CB127A400AD5452 /* SCRViewSizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRViewSizer.m; sourceTree = "<group>"; };
+		468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +162,8 @@
 				463AE3631CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m */,
 				463AE36F1CB0191600D194B0 /* UIColor+SCRColorPalette.h */,
 				463AE3701CB0191600D194B0 /* UIColor+SCRColorPalette.m */,
+				468D9CD81CB127A400AD5452 /* SCRViewSizer.h */,
+				468D9CD91CB127A400AD5452 /* SCRViewSizer.m */,
 			);
 			name = Utilities;
 			path = Searchr/Source/Utilities;
@@ -376,6 +383,7 @@
 			children = (
 				46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */,
 				46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */,
+				468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -450,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */,
 				4675A5651CADA5C4009578F8 /* LaunchScreen.storyboard in Resources */,
 				463AE3691CB014FA00D194B0 /* Localizable.strings in Resources */,
 				4675A5641CADA5C4009578F8 /* Assets.xcassets in Resources */,
@@ -515,6 +524,7 @@
 				4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */,
 				463AE3711CB0191600D194B0 /* UIColor+SCRColorPalette.m in Sources */,
 				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
+				468D9CDA1CB127A400AD5452 /* SCRViewSizer.m in Sources */,
 				4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */,
 				463AE3741CB01D3700D194B0 /* SCRSearchViewController.m in Sources */,
 				463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */,

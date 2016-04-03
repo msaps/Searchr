@@ -28,6 +28,9 @@
     self.searchResults = [self.engine.photosController currentSearchResults];
     
     self.title = NSLocalizedString(@"Search Results", nil);
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"SCRSearchResultCollectionViewCell" bundle:[NSBundle mainBundle]]
+          forCellWithReuseIdentifier:@"pictureCell"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -37,7 +40,7 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:SCRSearchViewControllerStopLoadingNotification object:self];
 }
 
-- (void) viewDidLayoutSubviews {
+- (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
     // account for nav bar insets as collection view is not root view
@@ -70,6 +73,7 @@
                                                                             config:self.engine.config];
     
     [cell.imageView scr_setImageWithModel:photoWithUrl];
+    cell.titleLabel.text = photo.title;
     
     return cell;
 }
@@ -79,7 +83,17 @@
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     UIEdgeInsets sectionInset = collectionViewLayout.sectionInset;
     CGFloat width = collectionView.bounds.size.width - (sectionInset.left + sectionInset.right);
-    return CGSizeMake(width, width + 56.0f);
+    SCRPhotoModel *photo = self.searchResults.data[indexPath.row];
+    
+    CGSize size = [self.viewSizer autoSizeNibViewWithRequiredWidth:width
+                                                      sizeViewType:[SCRSearchResultCollectionViewCell class]
+                                                        identifier:indexPath
+                                                   populationBlock:
+                   ^(UIView * _Nonnull view) {
+                       SCRSearchResultCollectionViewCell *cell = (SCRSearchResultCollectionViewCell *)view;
+                       cell.titleLabel.text = photo.title;
+    }];
+    return size;
 }
 
 @end
