@@ -10,10 +10,12 @@
 #import <objectiveflickr/ObjectiveFlickr.h>
 #import "SCRRequest.h"
 #import "SCRPhotoListModel.h"
+#import "SCRPhotoModelWithInfo.h"
 
 typedef void(^SCRFlickrApiFailureBlock)(NSError * _Nullable error);
 typedef void(^SCRFlickrApiPopularPhotoSuccessBlock)(SCRPhotoListModel * _Nullable popularPhotos);
 typedef void(^SCRFlickrApiSearchResultsSuccessBlock)(SCRPhotoListModel * _Nullable searchResults);
+typedef void(^SCRFlickrApiPhotoInfoSuccessBlock)(SCRPhotoModelWithInfo * _Nullable photoWithInfo);
 
 @interface SCRFlickrApi : NSObject
 
@@ -29,5 +31,10 @@ typedef void(^SCRFlickrApiSearchResultsSuccessBlock)(SCRPhotoListModel * _Nullab
                                               pageSize:(NSInteger)pageSize
                                                success:(nullable SCRFlickrApiSearchResultsSuccessBlock)success
                                                failure:(nullable SCRFlickrApiFailureBlock)failure;
+
+- (nullable SCRRequest *)getPhotoInfoForPhotoWithId:(nonnull NSString *)photoId
+                                        photoSecret:(nonnull NSString *)photoSecret
+                                            success:(nullable SCRFlickrApiPhotoInfoSuccessBlock)success
+                                            failure:(nullable SCRFlickrApiFailureBlock)failure;
 
 @end

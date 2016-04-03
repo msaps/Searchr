@@ -13,6 +13,8 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
 
 @interface SCRPhotosControllerImpl ()
 
+@property (nonatomic, strong) NSMutableDictionary<NSString *, SCRPhotoModelWithInfo *> *photoInfo;
+
 @end
 
 @implementation SCRPhotosControllerImpl
@@ -94,6 +96,44 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
      }];
 }
 
+- (SCRPhotoModelWithInfo *)getPhotoInfoForPhoto:(SCRPhotoModel *)photo {
+    
+    SCRPhotoModelWithInfo *photoWithInfo = [self.photoInfo objectForKey:photo.identifier];
+    if (!photoWithInfo) { // need to download info
+        
+        SCRWeakSelfCreate;
+        [[self.commsContext flickrApi]getPhotoInfoForPhotoWithId:photo.identifier
+                                                     photoSecret:photo.secret
+                                                         success:
+         ^(SCRPhotoModelWithInfo * _Nullable photoWithInfo) {
+             SCRStrongSelfStart;
+             
+             [strongSelf.photoInfo setObject:photoWithInfo forKey:photo.identifier];
+             
+             [strongSelf enumerateListenersWithBlock:^(id  _Nonnull listener, NSUInteger index, BOOL * _Nonnull stop) {
+                 if ([listener respondsToSelector:@selector(photosController:didLoadPhotoInfo:)]) {
+                     [listener photosController:strongSelf didLoadPhotoInfo:photoWithInfo];
+                 }
+             }];
+             
+             SCRStrongSelfEnd;
+         } failure:^(NSError * _Nullable error) {
+             SCRStrongSelfStart;
+             [self enumerateListenersWithBlock:^(id  _Nonnull listener, NSUInteger index, BOOL * _Nonnull stop) {
+                 if ([listener respondsToSelector:@selector(photosController:didFailToLoadPhotoInfoForPhoto:withError:)]) {
+                     [listener photosController:strongSelf didFailToLoadPhotoInfoForPhoto:photo withError:error];
+                 }
+             }];
+             SCRStrongSelfEnd;
+        }];
+        
+        return nil;
+        
+    } else { // info already loaded
+        return photoWithInfo;
+    }
+}
+
 - (SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
     if (!_interestingPhotos) {
         _interestingPhotos = [SCRPagedList new];
@@ -106,6 +146,13 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
         _currentSearchResults = [SCRPagedList new];
     }
     return _currentSearchResults;
+}
+
+- (NSMutableDictionary<NSString *,SCRPhotoModelWithInfo *> *)photoInfo {
+    if (!_photoInfo) {
+        _photoInfo = [NSMutableDictionary new];
+    }
+    return _photoInfo;
 }
 
 @end

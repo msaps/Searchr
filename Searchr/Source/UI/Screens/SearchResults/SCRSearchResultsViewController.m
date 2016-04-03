@@ -10,7 +10,7 @@
 #import "SCRSearchResultCollectionViewCell.h"
 #import "SCRSearchViewController.h"
 
-@interface SCRSearchResultsViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+@interface SCRSearchResultsViewController () <SCRPhotosControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.engine.photosController addListener:self];
     self.searchResults = [self.engine.photosController currentSearchResults];
     
     self.title = NSLocalizedString(@"Search Results", nil);
@@ -56,6 +57,34 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - Internal
+
+- (NSIndexPath *)indexPathForPhotoWithIdentifier:(NSString *)identifier {
+    NSInteger itemIndex = 0;
+    for (SCRPhotoModel *photo in self.searchResults.data) {
+        if ([photo.identifier isEqualToString:identifier]) {
+            return [NSIndexPath indexPathForItem:itemIndex inSection:0];
+        }
+        itemIndex++;
+    }
+    return nil;
+}
+
+#pragma mark - SCRPhotosControllerDelegate
+
+- (void)photosController:(id<SCRPhotosController>)photosController
+        didLoadPhotoInfo:(SCRPhotoModelWithInfo *)photo {
+    NSIndexPath *indexPath = [self indexPathForPhotoWithIdentifier:photo.identifier];
+    SCRSearchResultCollectionViewCell *cell = (SCRSearchResultCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    [cell setPhotoWithInfo:photo];
+}
+
+- (void)photosController:(id<SCRPhotosController>)photosController
+didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
+               withError:(NSError *)error {
+    
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -72,8 +101,13 @@
     SCRPhotoModelWithUrl *photoWithUrl = [SCRPhotoModelWithUrl photoModelWithModel:photo
                                                                             config:self.engine.config];
     
-    [cell.imageView scr_setImageWithModel:photoWithUrl];
-    cell.titleLabel.text = photo.title;
+    [cell setPhotoWithUrl:photoWithUrl];
+    SCRPhotoModelWithInfo *photoWithInfo = [self.engine.photosController getPhotoInfoForPhoto:photo];
+    if (photoWithInfo) {
+        [cell setPhotoWithInfo:photoWithInfo];
+    } else { // start loading info
+        
+    }
     
     return cell;
 }

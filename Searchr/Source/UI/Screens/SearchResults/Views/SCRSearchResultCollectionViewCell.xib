@@ -125,7 +125,9 @@
             <size key="customSize" width="400" height="493"/>
             <connections>
                 <outlet property="authorImageView" destination="MEe-KI-lMc" id="ego-em-19O"/>
+                <outlet property="authorLabel" destination="OaA-yX-faz" id="VWG-6A-R9F"/>
                 <outlet property="dateImageView" destination="eWw-uy-xOe" id="liq-MC-Pgz"/>
+                <outlet property="dateLabel" destination="M3u-bl-Qlt" id="G2o-wd-M3G"/>
                 <outlet property="imageView" destination="IrR-3e-4rk" id="1dQ-JD-6Lo"/>
                 <outlet property="separatorHeight" destination="z8z-zL-VZ7" id="huu-pU-Eeu"/>
                 <outlet property="titleLabel" destination="Jqy-Py-ljc" id="2Ir-jM-lx3"/>

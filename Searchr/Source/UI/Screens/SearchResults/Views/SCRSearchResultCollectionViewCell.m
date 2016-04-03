@@ -7,17 +7,22 @@
 //
 
 #import "SCRSearchResultCollectionViewCell.h"
+#import "UIImageView+SCRFlickrLoading.h"
 
 @interface SCRSearchResultCollectionViewCell ()
 
 @property (nonatomic, weak) IBOutlet UIImageView *authorImageView;
+@property (nonatomic, weak) IBOutlet UILabel *authorLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *dateImageView;
+@property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *separatorHeight;
 
 @end
 
 @implementation SCRSearchResultCollectionViewCell
+
+#pragma mark - Lifecycle
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -33,13 +38,26 @@
     self.layer.shadowOpacity = 0.25f;
     self.layer.shadowRadius = 3.0f;
     self.layer.shadowOffset = CGSizeZero;
-    self.layer.shouldRasterize = YES;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     
     self.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
+}
+
+#pragma mark - Public
+
+- (void)setPhotoWithUrl:(SCRPhotoModelWithUrl *)photoWithUrl {
+    SCRPhotoModel *photo = photoWithUrl.photoModel;
+    
+    [self.imageView scr_setImageWithModel:photoWithUrl];
+    self.titleLabel.text = photo.title;
+}
+
+- (void)setPhotoWithInfo:(SCRPhotoModelWithInfo *)photoWithInfo {
+    
+    self.authorLabel.text = photoWithInfo.ownerModel.username;
 }
 
 @end

@@ -10,6 +10,8 @@
 
 NSString *const kSCRFlickrApiParameterPerPageKey = @"per_page";
 NSString *const kSCRFlickrApiParameterPageKey = @"page";
+NSString *const kSCRFlickrApiParameterPhotoIdKey = @"photo_id";
+NSString *const kSCRFlickrApiParameterPhotoSecretKey = @"secret";
 
 @interface SCRFlickrApi ()
 
@@ -17,6 +19,7 @@ NSString *const kSCRFlickrApiParameterPageKey = @"page";
 
 @property (nonatomic, strong) SCRRequest *interestingPhotosRequest;
 @property (nonatomic, strong) SCRRequest *searchRequest;
+@property (nonatomic, strong) NSMutableDictionary <NSString *, SCRRequest *> *photoInfoRequests;
 
 @end
 
@@ -59,9 +62,8 @@ NSString *const kSCRFlickrApiParameterPageKey = @"page";
                                              failure(error);
                                          }
                                      }];
-        return _interestingPhotosRequest;
     }
-    return nil;
+    return _interestingPhotosRequest;
 }
 
 - (SCRRequest *)getSearchResultsForParameters:(NSDictionary *)parameters
@@ -95,9 +97,49 @@ NSString *const kSCRFlickrApiParameterPageKey = @"page";
                                   failure(error);
                               }
                           }];
-        return _searchRequest;
     }
-    return nil;
+    return _searchRequest;
+}
+
+- (SCRRequest *)getPhotoInfoForPhotoWithId:(NSString *)photoId
+                               photoSecret:(NSString *)photoSecret
+                                   success:(SCRFlickrApiPhotoInfoSuccessBlock)success
+                                   failure:(SCRFlickrApiFailureBlock)failure {
+    
+    SCRRequest *infoRequest = [self.photoInfoRequests objectForKey:photoId];
+    if (!infoRequest.isRunning) {
+        NSDictionary *parameters = @{kSCRFlickrApiParameterPhotoIdKey : photoId,
+                                     kSCRFlickrApiParameterPhotoSecretKey : photoSecret};
+        
+        infoRequest = [SCRRequest requestOfType:SCRRequestTypeGet
+                                    withContext:self.flickrContext
+                                           path:@"flickr.photos.getInfo"
+                                     parameters:parameters
+                                        success:
+                       ^(NSDictionary * _Nullable responseData) {
+                           SCRPhotoModelWithInfo *photoModel = [SCRPhotoModelWithInfo modelWithDictionary:responseData];
+                           if (photoModel && success) {
+                               success(photoModel);
+                           }
+                       }
+                                        failure:
+                       ^(NSError * _Nullable error) {
+                           if (failure) {
+                               failure(error);
+                           }
+                       }];
+        [self.photoInfoRequests setObject:infoRequest forKey:photoId];
+    }
+    return infoRequest;
+}
+
+#pragma mark - Internal
+
+- (NSMutableDictionary<NSString *, SCRRequest *> *)photoInfoRequests {
+    if (!_photoInfoRequests) {
+        _photoInfoRequests = [NSMutableDictionary new];
+    }
+    return _photoInfoRequests;
 }
 
 @end
