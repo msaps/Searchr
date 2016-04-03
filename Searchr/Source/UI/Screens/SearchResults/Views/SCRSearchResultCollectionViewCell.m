@@ -13,10 +13,15 @@
 
 @interface SCRSearchResultCollectionViewCell ()
 
+@property (nonatomic, weak) IBOutlet UIView *authorContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *authorImageView;
 @property (nonatomic, weak) IBOutlet UILabel *authorLabel;
+
+@property (nonatomic, weak) IBOutlet UIView *dateContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *dateImageView;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
+
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *separatorHeight;
 
@@ -37,8 +42,8 @@
     // add shadow
     self.layer.masksToBounds = NO;
     self.layer.contentsScale = [UIScreen mainScreen].scale;
-    self.layer.shadowOpacity = 0.25f;
-    self.layer.shadowRadius = 3.0f;
+    self.layer.shadowOpacity = 0.2f;
+    self.layer.shadowRadius = 2.0f;
     self.layer.shadowOffset = CGSizeZero;
 }
 
@@ -58,6 +63,7 @@
 }
 
 - (void)setPhotoWithInfo:(SCRPhotoModelWithInfo *)photoWithInfo {
+    [self stopLoadingAnimated:YES];
     
     self.authorLabel.text = photoWithInfo.ownerModel.username;
     self.dateLabel.text = [photoWithInfo.datesModel.posted scr_shortDateString];
@@ -68,11 +74,51 @@
 }
 
 - (void)startLoadingAnimated:(BOOL)animated {
-    
+    [self.layer removeAllAnimations];
+    if (animated) {
+        self.activityIndicator.alpha = 0.0f;
+        [self.activityIndicator startAnimating];
+        [UIView animateWithDuration:0.25f animations:^{
+            self.activityIndicator.alpha = 1.0f;
+            self.authorContainerView.alpha = 0.0f;
+            self.dateContainerView.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                self.authorContainerView.hidden = YES;
+                self.dateContainerView.hidden = YES;
+                self.authorContainerView.alpha = 1.0f;
+                self.dateContainerView.alpha = 1.0f;
+            }
+        }];
+    } else {
+        [self.activityIndicator startAnimating];
+        self.authorContainerView.hidden = YES;
+        self.dateContainerView.hidden = YES;
+    }
 }
 
 - (void)stopLoadingAnimated:(BOOL)animated {
-    
+    [self.layer removeAllAnimations];
+    if (animated) {
+        self.authorContainerView.alpha = 0.0f;
+        self.dateContainerView.alpha = 0.0f;
+        self.authorContainerView.hidden = NO;
+        self.dateContainerView.hidden = NO;
+        [UIView animateWithDuration:0.25f animations:^{
+            self.activityIndicator.alpha = 0.0f;
+            self.authorContainerView.alpha = 1.0f;
+            self.dateContainerView.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.alpha = 1.0f;
+            }
+        }];
+    } else {
+        [self.activityIndicator stopAnimating];
+        self.authorContainerView.hidden = NO;
+        self.dateContainerView.hidden = NO;
+    }
 }
 
 @end

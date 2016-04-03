@@ -102,6 +102,19 @@
                                     <constraint firstAttribute="height" constant="1" id="z8z-zL-VZ7"/>
                                 </constraints>
                             </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2z0-kf-vPy" userLabel="Loading Container View">
+                                <rect key="frame" x="0.0" y="51" width="400" height="42"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OAa-We-1jy">
+                                        <rect key="frame" x="190" y="11" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="OAa-We-1jy" firstAttribute="centerX" secondItem="2z0-kf-vPy" secondAttribute="centerX" id="Nbf-tn-dMR"/>
+                                    <constraint firstItem="OAa-We-1jy" firstAttribute="centerY" secondItem="2z0-kf-vPy" secondAttribute="centerY" id="l3k-Xq-kJ2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -109,12 +122,16 @@
                             <constraint firstItem="rf9-mm-woO" firstAttribute="leading" secondItem="TvT-Yv-dD4" secondAttribute="leading" constant="12" id="7Q0-eA-3Nu"/>
                             <constraint firstItem="Jqy-Py-ljc" firstAttribute="leading" secondItem="TvT-Yv-dD4" secondAttribute="leading" constant="12" id="7tj-on-QBr"/>
                             <constraint firstItem="x5D-Xb-g9Q" firstAttribute="top" secondItem="Jqy-Py-ljc" secondAttribute="bottom" constant="12" id="MkB-Mi-kzA"/>
+                            <constraint firstItem="2z0-kf-vPy" firstAttribute="leading" secondItem="TvT-Yv-dD4" secondAttribute="leading" id="Tak-Ag-KDL"/>
                             <constraint firstAttribute="trailing" secondItem="Jqy-Py-ljc" secondAttribute="trailing" constant="12" id="aQE-BD-jlz"/>
                             <constraint firstAttribute="bottom" secondItem="jlS-Fq-g0f" secondAttribute="bottom" constant="12" id="cFE-ct-VjJ"/>
                             <constraint firstAttribute="trailing" secondItem="x5D-Xb-g9Q" secondAttribute="trailing" constant="12" id="eCy-Lh-IuT"/>
+                            <constraint firstItem="2z0-kf-vPy" firstAttribute="top" secondItem="x5D-Xb-g9Q" secondAttribute="bottom" id="oY9-AL-I92"/>
+                            <constraint firstAttribute="trailing" secondItem="2z0-kf-vPy" secondAttribute="trailing" id="pnI-kh-d7A"/>
                             <constraint firstItem="jlS-Fq-g0f" firstAttribute="leading" secondItem="rf9-mm-woO" secondAttribute="trailing" constant="16" id="rfd-vN-3AC"/>
                             <constraint firstAttribute="bottom" secondItem="rf9-mm-woO" secondAttribute="bottom" constant="12" id="sjD-QV-hqX"/>
                             <constraint firstItem="x5D-Xb-g9Q" firstAttribute="leading" secondItem="TvT-Yv-dD4" secondAttribute="leading" constant="12" id="u6P-7A-2nv"/>
+                            <constraint firstAttribute="bottom" secondItem="2z0-kf-vPy" secondAttribute="bottom" id="xwi-lt-eGQ"/>
                             <constraint firstItem="Jqy-Py-ljc" firstAttribute="top" secondItem="TvT-Yv-dD4" secondAttribute="top" constant="12" id="zKw-3p-oEa"/>
                         </constraints>
                     </view>
@@ -133,8 +150,11 @@
             </constraints>
             <size key="customSize" width="400" height="493"/>
             <connections>
+                <outlet property="activityIndicator" destination="OAa-We-1jy" id="Ukb-62-nGc"/>
+                <outlet property="authorContainerView" destination="rf9-mm-woO" id="pGj-C7-8tg"/>
                 <outlet property="authorImageView" destination="MEe-KI-lMc" id="ego-em-19O"/>
                 <outlet property="authorLabel" destination="OaA-yX-faz" id="VWG-6A-R9F"/>
+                <outlet property="dateContainerView" destination="jlS-Fq-g0f" id="Djj-PS-zJm"/>
                 <outlet property="dateImageView" destination="eWw-uy-xOe" id="liq-MC-Pgz"/>
                 <outlet property="dateLabel" destination="M3u-bl-Qlt" id="G2o-wd-M3G"/>
                 <outlet property="imageView" destination="IrR-3e-4rk" id="1dQ-JD-6Lo"/>
