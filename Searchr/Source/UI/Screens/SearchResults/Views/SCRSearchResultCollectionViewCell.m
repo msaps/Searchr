@@ -8,6 +8,7 @@
 
 #import "SCRSearchResultCollectionViewCell.h"
 #import "UIImageView+SCRFlickrLoading.h"
+#import "NSDate+SCRStringUtilities.h"
 
 @interface SCRSearchResultCollectionViewCell ()
 
@@ -58,6 +59,7 @@
 - (void)setPhotoWithInfo:(SCRPhotoModelWithInfo *)photoWithInfo {
     
     self.authorLabel.text = photoWithInfo.ownerModel.username;
+    self.dateLabel.text = [photoWithInfo.datesModel.posted scr_shortDateString];
 }
 
 @end

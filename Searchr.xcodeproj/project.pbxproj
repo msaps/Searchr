@@ -41,6 +41,7 @@
 		468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */; };
 		468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE71CB1676900AD5452 /* SCRPhotoOwnerModel.m */; };
 		468D9CEB1CB169CD00AD5452 /* SCRPhotoDatesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CEA1CB169CD00AD5452 /* SCRPhotoDatesModel.m */; };
+		468D9CF11CB1752400AD5452 /* NSDate+SCRStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CF01CB1752400AD5452 /* NSDate+SCRStringUtilities.m */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,8 @@
 		468D9CE71CB1676900AD5452 /* SCRPhotoOwnerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoOwnerModel.m; sourceTree = "<group>"; };
 		468D9CE91CB169CD00AD5452 /* SCRPhotoDatesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoDatesModel.h; sourceTree = "<group>"; };
 		468D9CEA1CB169CD00AD5452 /* SCRPhotoDatesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoDatesModel.m; sourceTree = "<group>"; };
+		468D9CEF1CB1752400AD5452 /* NSDate+SCRStringUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+SCRStringUtilities.h"; sourceTree = "<group>"; };
+		468D9CF01CB1752400AD5452 /* NSDate+SCRStringUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+SCRStringUtilities.m"; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +182,8 @@
 				463AE3701CB0191600D194B0 /* UIColor+SCRColorPalette.m */,
 				468D9CD81CB127A400AD5452 /* SCRViewSizer.h */,
 				468D9CD91CB127A400AD5452 /* SCRViewSizer.m */,
+				468D9CEF1CB1752400AD5452 /* NSDate+SCRStringUtilities.h */,
+				468D9CF01CB1752400AD5452 /* NSDate+SCRStringUtilities.m */,
 			);
 			name = Utilities;
 			path = Searchr/Source/Utilities;
@@ -551,6 +556,7 @@
 				463AE3781CB01D5700D194B0 /* SCRSearchResultsViewController.m in Sources */,
 				468D9CEB1CB169CD00AD5452 /* SCRPhotoDatesModel.m in Sources */,
 				463AE36E1CB018A900D194B0 /* SCRSearchButton.m in Sources */,
+				468D9CF11CB1752400AD5452 /* NSDate+SCRStringUtilities.m in Sources */,
 				4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */,
 				463AE3641CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m in Sources */,
 				463AE3551CAFE82700D194B0 /* SCRPagedModel.m in Sources */,
