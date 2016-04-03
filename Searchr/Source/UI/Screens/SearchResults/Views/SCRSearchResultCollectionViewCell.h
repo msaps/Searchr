@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface SCRSearchResultCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
