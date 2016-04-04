@@ -38,13 +38,6 @@
     
     self.authorImageView.image = [self.authorImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.dateImageView.image = [self.dateImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    
-    // add shadow
-    self.layer.masksToBounds = NO;
-    self.layer.contentsScale = [UIScreen mainScreen].scale;
-    self.layer.shadowOpacity = 0.2f;
-    self.layer.shadowRadius = 2.0f;
-    self.layer.shadowOffset = CGSizeZero;
 }
 
 - (void)layoutSubviews {

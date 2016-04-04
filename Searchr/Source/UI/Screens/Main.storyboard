@@ -108,7 +108,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searchr Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BdZ-Km-uzv">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="57.5"/>
+                                        <rect key="frame" x="0.0" y="64" width="600" height="58"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="48"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -213,27 +213,37 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zFz-e4-LcV">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CJc-DH-QHv">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="10" id="rYR-Hh-DDK">
-                                                <size key="itemSize" width="0.0" height="0.0"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="0.0" id="5e3-dG-Jag">
+                                                <size key="itemSize" width="50" height="50"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                <inset key="sectionInset" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
                                             </collectionViewFlowLayout>
-                                            <cells/>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aP7-3P-rdG">
+                                                    <rect key="frame" x="0.0" y="80" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                </collectionViewCell>
+                                            </cells>
                                             <connections>
-                                                <outlet property="dataSource" destination="Imz-H0-oWe" id="3iW-kK-Tp2"/>
-                                                <outlet property="delegate" destination="Imz-H0-oWe" id="9ZQ-C3-PMT"/>
+                                                <outlet property="dataSource" destination="Imz-H0-oWe" id="ulv-cU-hQs"/>
+                                                <outlet property="delegate" destination="Imz-H0-oWe" id="Jy8-XS-JUA"/>
                                             </connections>
                                         </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="zFz-e4-LcV" firstAttribute="top" secondItem="KTZ-ps-QHM" secondAttribute="top" id="XaM-13-Jom"/>
-                                        <constraint firstItem="zFz-e4-LcV" firstAttribute="leading" secondItem="KTZ-ps-QHM" secondAttribute="leading" id="hmt-ly-dlZ"/>
-                                        <constraint firstAttribute="bottom" secondItem="zFz-e4-LcV" secondAttribute="bottom" id="mSa-Hk-YhN"/>
-                                        <constraint firstAttribute="trailing" secondItem="zFz-e4-LcV" secondAttribute="trailing" id="mXw-Ui-Lz5"/>
+                                        <constraint firstItem="CJc-DH-QHv" firstAttribute="top" secondItem="KTZ-ps-QHM" secondAttribute="top" id="3ii-Yr-7ur"/>
+                                        <constraint firstItem="CJc-DH-QHv" firstAttribute="leading" secondItem="KTZ-ps-QHM" secondAttribute="leading" id="7i1-IP-01A"/>
+                                        <constraint firstAttribute="trailing" secondItem="CJc-DH-QHv" secondAttribute="trailing" id="Wca-pR-Iy8"/>
+                                        <constraint firstAttribute="bottom" secondItem="CJc-DH-QHv" secondAttribute="bottom" id="WzD-Ur-vNH"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="extraLight"/>
@@ -255,7 +265,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="zFz-e4-LcV" id="ryR-Vr-TNG"/>
+                        <outlet property="collectionView" destination="CJc-DH-QHv" id="sNb-yA-USN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGq-QT-GNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
