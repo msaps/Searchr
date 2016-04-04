@@ -10,4 +10,8 @@
 
 @interface SCRSearchResultsFooterView : UICollectionReusableView
 
+@property (weak, nonatomic) IBOutlet UIButton *errorButton;
+
+@property (nonatomic, assign) BOOL errorViewVisible;
+
 @end

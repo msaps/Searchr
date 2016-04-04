@@ -108,6 +108,13 @@ CGFloat const kSCRSearchResultsViewControllerFooterHeight = 44.0f;
     [cell setPhotoOwnerWithUrl:photoOwnerWithUrl];
 }
 
+- (void)footerTryAgainButtonPressed:(id)sender {
+    
+    // retry search
+    [self.currentFooterView setErrorViewVisible:NO];
+    [self.engine.photosController getSearchResultsForSearch:[self.engine.photosController currentSearch]];
+}
+
 #pragma mark - SCRPhotosControllerDelegate
 
 - (void)photosController:(id<SCRPhotosController>)photosController
@@ -126,6 +133,7 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 - (void)photosController:(id<SCRPhotosController>)photosController
         didPerformSearch:(SCRSearchBuilder *)search
              withResults:(SCRPagedList<SCRPhotoModel *> *)searchResults {
+
     CGFloat newItemsOffset = searchResults.data.count - (searchResults.data.count - self.items.count);
     
     NSMutableArray *indexPaths = [NSMutableArray new];
@@ -149,6 +157,7 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
                withError:(NSError *)error {
 #warning TODO - footer error button
     self.isPaging = NO;
+    self.currentFooterView.errorViewVisible = YES;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -198,10 +207,12 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
                                  atIndexPath:(NSIndexPath *)indexPath {
     
     if (kind == UICollectionElementKindSectionFooter) {
-        _currentFooterView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                                withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter
-                                                                       forIndexPath:indexPath];
-        return _currentFooterView;
+        SCRSearchResultsFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                                    withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter
+                                                                                           forIndexPath:indexPath];
+        [footerView.errorButton addTarget:self action:@selector(footerTryAgainButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        _currentFooterView = footerView;
+        return footerView;
     }
     return nil;
 }
