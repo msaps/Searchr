@@ -52,9 +52,13 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 - (IBAction)searchButtonPressed:(id)sender {
     [self.engine.photosController addListener:self];
     if (self.searchBuilder.components.count > 0) {
-        [self.engine.photosController getSearchResultsForSearch:self.searchBuilder];
-        self.searchBuilder = nil;
-        [self beginLoadingAnimated:YES];
+        
+        if ([self.searchBuilder isEqual:[self.engine.photosController currentSearch]]) { // if results already exist for current search
+            [self showSearchResultsScreen];
+        } else { // new search required
+            [self.engine.photosController getSearchResultsForSearch:self.searchBuilder];
+            [self beginLoadingAnimated:YES];
+        }
     }
 }
 
@@ -111,13 +115,17 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
     [self stopLoadingAnimated:NO];
 }
 
+- (void)showSearchResultsScreen {
+    [self.engine.photosController removeListener:self];
+    [self.parentViewController performSegueWithIdentifier:@"showSearchResultsSegue" sender:self];
+}
+
 #pragma mark - SCRPhotosControllerDelegate
 
 - (void)photosController:(id<SCRPhotosController>)photosController
         didPerformSearch:(SCRSearchBuilder *)search
              withResults:(SCRPagedList<SCRPhotoModel *> *)searchResults {
-    [photosController removeListener:self];
-    [self.parentViewController performSegueWithIdentifier:@"showSearchResultsSegue" sender:self];
+    [self showSearchResultsScreen];
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController
@@ -131,6 +139,10 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 - (BOOL)textField:(UITextField *)textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string {
+    
+    if ([[self.engine.photosController currentSearch]isEqual:self.searchBuilder]) {
+        _searchBuilder = nil;
+    }
     
     // update search text
     NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
