@@ -166,7 +166,6 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 - (void)photosController:(id<SCRPhotosController>)photosController
   didFailToPerformSearch:(SCRSearchBuilder *)search
                withError:(NSError *)error {
-#warning TODO - footer error button
     self.isPaging = NO;
     self.currentFooterView.errorViewVisible = YES;
 }

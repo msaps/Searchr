@@ -11,6 +11,17 @@
 
 @implementation SCRViewControllerBase
 
+#pragma mark - Lifecycle
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController respondsToSelector:@selector(requiredForegroundColor)]) {
+        ((SCRViewControllerBase *)segue.destinationViewController).requiredForegroundColor = self.requiredForegroundColor;
+    }
+    [super prepareForSegue:segue sender:sender];
+}
+
+#pragma mark - Public
+
 - (SCREngine *)engine {
     return ((SCRAppDelegate *)[UIApplication sharedApplication].delegate).engine;
 }

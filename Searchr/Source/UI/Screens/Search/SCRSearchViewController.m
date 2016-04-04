@@ -37,14 +37,18 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
                                             selector:@selector(stopLoadingNotificationReceived:)
                                                 name:SCRSearchViewControllerStopLoadingNotification object:nil];
     
-    self.titleLabel.textColor = [UIColor scr_flickrBlue];
-    NSMutableAttributedString *title = [[NSMutableAttributedString alloc]initWithString:NSLocalizedString(@"Searchr", nil)];
-    [title addAttribute:NSForegroundColorAttributeName value:[UIColor scr_flickrPink] range:NSMakeRange(title.length - 1, 1)];
-    [self.titleLabel setAttributedText:title];
+    [self updateTitleLabelForegroundColor];
     
     // set text field appearance
     self.searchTextField.placeholder = NSLocalizedString(@"Search Flickr...", nil);
     self.searchTextField.tintColor = [UIColor scr_flickrPink];
+}
+
+- (void)setRequiredForegroundColor:(UIReadableForegroundColor)requiredForegroundColor {
+    [super setRequiredForegroundColor:requiredForegroundColor];
+    [UIView animateWithDuration:0.25f animations:^{
+        [self updateTitleLabelForegroundColor];
+    }];
 }
 
 #pragma mark - Interaction
@@ -118,6 +122,21 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 - (void)showSearchResultsScreen {
     [self.engine.photosController removeListener:self];
     [self.parentViewController performSegueWithIdentifier:@"showSearchResultsSegue" sender:self];
+}
+
+- (void)updateTitleLabelForegroundColor {
+    
+    BOOL requiresWhite = (self.requiredForegroundColor == UIReadableForegroundColorWhite);
+    
+    self.titleLabel.textColor = requiresWhite ? [UIColor whiteColor] : [UIColor scr_flickrBlue];
+    if (requiresWhite) {
+        self.titleLabel.shadowColor = [[UIColor blackColor]colorWithAlphaComponent:0.15f];
+    }
+    
+    // highlight last letter
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc]initWithString:NSLocalizedString(@"Searchr", nil)];
+    [title addAttribute:NSForegroundColorAttributeName value:[UIColor scr_flickrPink] range:NSMakeRange(title.length - 1, 1)];
+    [self.titleLabel setAttributedText:title];
 }
 
 #pragma mark - SCRPhotosControllerDelegate

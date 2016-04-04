@@ -11,6 +11,7 @@
 @interface UIColor (SCRColorPalette)
 
 + (UIColor *)scr_flickrBlue;
+
 + (UIColor *)scr_flickrPink;
 
 @end

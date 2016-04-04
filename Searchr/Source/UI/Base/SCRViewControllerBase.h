@@ -11,10 +11,12 @@
 #import "UIImageView+SCRFlickrLoading.h"
 #import "UIColor+SCRColorPalette.h"
 #import "SCRViewSizer.h"
+#import "UIImage+SCRColorDetection.h"
 
 @interface SCRViewControllerBase : UIViewController
 
 @property (nonatomic, strong) SCRViewSizer *viewSizer;
+@property (nonatomic, assign) UIReadableForegroundColor requiredForegroundColor;
 
 - (SCREngine *)engine;
 

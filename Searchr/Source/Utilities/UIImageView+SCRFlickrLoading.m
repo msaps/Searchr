@@ -23,11 +23,21 @@
 }
 
 - (void)doSetImageWithUrl:(NSURL *)url {
+    [self scr_loadImageWithUrl:url completion:^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
+        if (image) {
+            [self setImage:image animated:!fromCache];
+        }
+    }];
+}
+
+- (void)scr_loadImageWithUrl:(NSURL *)url completion:(SCRFlickrImageLoadingCompletionBlock)completion {
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     UIImage *cachedImage = [[[UIImageView class]sharedImageCache]cachedImageForRequest:urlRequest];
     
     if (cachedImage) {
-        [self doSetImage:cachedImage animated:NO];
+        if (completion) {
+            completion(cachedImage, YES, nil);
+        }
     } else {
         
         // set placeholder temporarily
@@ -51,17 +61,22 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[[UIImageView class]sharedImageCache]cacheImage:image
                                                           forRequest:urlRequest];
-                    [self doSetImage:image animated:!self.image];
+                    if (completion) {
+                        completion(image, NO, nil);
+                    }
                 });
             });
             
-        } failure:nil];
+        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+            if (completion) {
+                completion(nil, NO, error);
+            }
+        }];
         [queue addOperation:operation];
     }
-
 }
 
-- (void)doSetImage:(UIImage *)image animated:(BOOL)animated {
+- (void)setImage:(UIImage *)image animated:(BOOL)animated {
     if (animated) {
         [UIView transitionWithView:self
                           duration:0.5f
