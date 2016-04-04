@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger pageSize;
+@property (nonatomic, assign) NSInteger totalPagesAvailable;
 
 @property (nonatomic, strong, nullable) NSArray<T> *data;
 

@@ -44,6 +44,10 @@
 		468D9CF11CB1752400AD5452 /* NSDate+SCRStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CF01CB1752400AD5452 /* NSDate+SCRStringUtilities.m */; };
 		468D9CF41CB1789B00AD5452 /* SCRPhotoOwnerModelWithUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CF31CB1789B00AD5452 /* SCRPhotoOwnerModelWithUrl.m */; };
 		468D9CFC1CB1817500AD5452 /* SCRCircularImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CFB1CB1817500AD5452 /* SCRCircularImageView.m */; };
+		468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CFE1CB198D600AD5452 /* SCRSearchResultsFooterView.m */; };
+		468D9D011CB198E100AD5452 /* SCRSearchResultsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9D001CB198E100AD5452 /* SCRSearchResultsFooterView.xib */; };
+		469421BE1CB2D2AC00A460FF /* SCRControlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421BD1CB2D2AC00A460FF /* SCRControlBase.m */; };
+		469421C11CB2D2EF00A460FF /* SCRNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421C01CB2D2EF00A460FF /* SCRNibLoader.m */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
@@ -122,6 +126,13 @@
 		468D9CF31CB1789B00AD5452 /* SCRPhotoOwnerModelWithUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoOwnerModelWithUrl.m; sourceTree = "<group>"; };
 		468D9CFA1CB1817500AD5452 /* SCRCircularImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRCircularImageView.h; sourceTree = "<group>"; };
 		468D9CFB1CB1817500AD5452 /* SCRCircularImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRCircularImageView.m; sourceTree = "<group>"; };
+		468D9CFD1CB198D600AD5452 /* SCRSearchResultsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultsFooterView.h; sourceTree = "<group>"; };
+		468D9CFE1CB198D600AD5452 /* SCRSearchResultsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultsFooterView.m; sourceTree = "<group>"; };
+		468D9D001CB198E100AD5452 /* SCRSearchResultsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultsFooterView.xib; sourceTree = "<group>"; };
+		469421BC1CB2D2AC00A460FF /* SCRControlBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRControlBase.h; sourceTree = "<group>"; };
+		469421BD1CB2D2AC00A460FF /* SCRControlBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRControlBase.m; sourceTree = "<group>"; };
+		469421BF1CB2D2EF00A460FF /* SCRNibLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRNibLoader.h; sourceTree = "<group>"; };
+		469421C01CB2D2EF00A460FF /* SCRNibLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRNibLoader.m; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +188,8 @@
 			children = (
 				463AE35B1CAFF61B00D194B0 /* SCRViewControllerBase.h */,
 				463AE35C1CAFF61B00D194B0 /* SCRViewControllerBase.m */,
+				469421BC1CB2D2AC00A460FF /* SCRControlBase.h */,
+				469421BD1CB2D2AC00A460FF /* SCRControlBase.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -192,6 +205,8 @@
 				468D9CD91CB127A400AD5452 /* SCRViewSizer.m */,
 				468D9CEF1CB1752400AD5452 /* NSDate+SCRStringUtilities.h */,
 				468D9CF01CB1752400AD5452 /* NSDate+SCRStringUtilities.m */,
+				469421BF1CB2D2EF00A460FF /* SCRNibLoader.h */,
+				469421C01CB2D2EF00A460FF /* SCRNibLoader.m */,
 			);
 			name = Utilities;
 			path = Searchr/Source/Utilities;
@@ -430,6 +445,9 @@
 				46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */,
 				46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */,
 				468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */,
+				468D9CFD1CB198D600AD5452 /* SCRSearchResultsFooterView.h */,
+				468D9CFE1CB198D600AD5452 /* SCRSearchResultsFooterView.m */,
+				468D9D001CB198E100AD5452 /* SCRSearchResultsFooterView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -505,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */,
+				468D9D011CB198E100AD5452 /* SCRSearchResultsFooterView.xib in Resources */,
 				4675A5651CADA5C4009578F8 /* LaunchScreen.storyboard in Resources */,
 				463AE3691CB014FA00D194B0 /* Localizable.strings in Resources */,
 				4675A5641CADA5C4009578F8 /* Assets.xcassets in Resources */,
@@ -571,9 +590,11 @@
 				468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */,
 				463AE3711CB0191600D194B0 /* UIColor+SCRColorPalette.m in Sources */,
 				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
+				468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */,
 				468D9CDA1CB127A400AD5452 /* SCRViewSizer.m in Sources */,
 				4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */,
 				463AE3741CB01D3700D194B0 /* SCRSearchViewController.m in Sources */,
+				469421BE1CB2D2AC00A460FF /* SCRControlBase.m in Sources */,
 				468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */,
 				463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */,
 				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
@@ -585,6 +606,7 @@
 				463AE36E1CB018A900D194B0 /* SCRSearchButton.m in Sources */,
 				468D9CF41CB1789B00AD5452 /* SCRPhotoOwnerModelWithUrl.m in Sources */,
 				468D9CF11CB1752400AD5452 /* NSDate+SCRStringUtilities.m in Sources */,
+				469421C11CB2D2EF00A460FF /* SCRNibLoader.m in Sources */,
 				4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */,
 				463AE3641CAFF99600D194B0 /* UIImageView+SCRFlickrLoading.m in Sources */,
 				463AE3551CAFE82700D194B0 /* SCRPagedModel.m in Sources */,

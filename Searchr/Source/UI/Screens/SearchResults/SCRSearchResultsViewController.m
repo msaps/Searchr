@@ -10,12 +10,21 @@
 #import "SCRSearchResultCollectionViewCell.h"
 #import "SCRSearchViewController.h"
 #import "SCRWeakSelf.h"
+#import "SCRSearchResultsFooterView.h"
+
+NSString *const kSCRSearchResultsViewControllerReuseIdentifierPictureCell = @"pictureCell";
+NSString *const kSCRSearchResultsViewControllerReuseIdentifierFooter = @"spinnerFooter";
+
+CGFloat const kSCRSearchResultsViewControllerFooterHeight = 44.0f;
 
 @interface SCRSearchResultsViewController () <SCRPhotosControllerDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) SCRSearchResultsFooterView *currentFooterView;
 
-@property (nonatomic, strong) SCRPagedList *searchResults;
+@property (nonatomic, strong) NSMutableArray *items;
+
+@property (nonatomic, assign) BOOL isPaging;
 
 @end
 
@@ -27,12 +36,17 @@
     [super viewDidLoad];
     
     [self.engine.photosController addListener:self];
-    self.searchResults = [self.engine.photosController currentSearchResults];
+    self.items = [[self.engine.photosController currentSearchResults].data mutableCopy];
     
     self.title = NSLocalizedString(@"Search Results", nil);
     
-    [self.collectionView registerNib:[UINib nibWithNibName:@"SCRSearchResultCollectionViewCell" bundle:[NSBundle mainBundle]]
-          forCellWithReuseIdentifier:@"pictureCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultCollectionViewCell class])
+                                                    bundle:[NSBundle mainBundle]]
+          forCellWithReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierPictureCell];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultsFooterView class])
+                                                    bundle:[NSBundle mainBundle]]
+          forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                 withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -50,6 +64,7 @@
     CGFloat bottom = self.bottomLayoutGuide.length;
     UIEdgeInsets newInsets = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.collectionView.contentInset = newInsets;
+    self.collectionView.scrollIndicatorInsets = newInsets;
 }
 
 #pragma mark - Interaction
@@ -62,7 +77,7 @@
 
 - (NSIndexPath *)indexPathForPhotoWithIdentifier:(NSString *)identifier {
     NSInteger itemIndex = 0;
-    for (SCRPhotoModel *photo in self.searchResults.data) {
+    for (SCRPhotoModel *photo in self.items) {
         if ([photo.identifier isEqualToString:identifier]) {
             return [NSIndexPath indexPathForItem:itemIndex inSection:0];
         }
@@ -93,6 +108,13 @@
     [cell setPhotoOwnerWithUrl:photoOwnerWithUrl];
 }
 
+- (void)footerTryAgainButtonPressed:(id)sender {
+    
+    // retry search
+    [self.currentFooterView setErrorViewVisible:NO];
+    [self.engine.photosController getSearchResultsForSearch:[self.engine.photosController currentSearch]];
+}
+
 #pragma mark - SCRPhotosControllerDelegate
 
 - (void)photosController:(id<SCRPhotosController>)photosController
@@ -108,6 +130,36 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
     
 }
 
+- (void)photosController:(id<SCRPhotosController>)photosController
+        didPerformSearch:(SCRSearchBuilder *)search
+             withResults:(SCRPagedList<SCRPhotoModel *> *)searchResults {
+
+    CGFloat newItemsOffset = searchResults.data.count - (searchResults.data.count - self.items.count);
+    
+    NSMutableArray *indexPaths = [NSMutableArray new];
+    for (NSInteger i = newItemsOffset; i < searchResults.data.count; i++) {
+        SCRPhotoModel *photoModel = searchResults.data[i];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        
+        [self.items addObject:photoModel];
+        [indexPaths addObject:indexPath];
+    }
+    
+    [self.collectionView performBatchUpdates:^{
+        [self.collectionView insertItemsAtIndexPaths:indexPaths];
+    } completion:^(BOOL finished) {
+        self.isPaging = NO;
+    }];
+}
+
+- (void)photosController:(id<SCRPhotosController>)photosController
+  didFailToPerformSearch:(SCRSearchBuilder *)search
+               withError:(NSError *)error {
+#warning TODO - footer error button
+    self.isPaging = NO;
+    self.currentFooterView.errorViewVisible = YES;
+}
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -115,12 +167,14 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.searchResults.data.count;
+    return self.items.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SCRSearchResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"pictureCell" forIndexPath:indexPath];
-    SCRPhotoModel *photo = self.searchResults.data[indexPath.row];
+    SCRSearchResultCollectionViewCell *cell =
+    [collectionView dequeueReusableCellWithReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierPictureCell
+                                              forIndexPath:indexPath];
+    SCRPhotoModel *photo = self.items[indexPath.row];
     
     [self populateCell:cell withPhotoModel:photo];
     
@@ -132,7 +186,7 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     UIEdgeInsets sectionInset = collectionViewLayout.sectionInset;
     CGFloat width = collectionView.bounds.size.width - (sectionInset.left + sectionInset.right);
-    SCRPhotoModel *photo = self.searchResults.data[indexPath.row];
+    SCRPhotoModel *photo = self.items[indexPath.row];
     
     SCRWeakSelfCreate;
     CGSize size = [self.viewSizer autoSizeNibViewWithRequiredWidth:width
@@ -146,6 +200,42 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
                        SCRStrongSelfEnd;
     }];
     return size;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath {
+    
+    if (kind == UICollectionElementKindSectionFooter) {
+        SCRSearchResultsFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                                    withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter
+                                                                                           forIndexPath:indexPath];
+        [footerView.errorButton addTarget:self action:@selector(footerTryAgainButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        _currentFooterView = footerView;
+        return footerView;
+    }
+    return nil;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewFlowLayout *)collectionViewLayout
+referenceSizeForFooterInSection:(NSInteger)section {
+    
+    SCRPagedList *currentSearchResults = [self.engine.photosController currentSearchResults];
+    if (currentSearchResults.page != currentSearchResults.totalPagesAvailable) {
+        return CGSizeMake(0.0f, kSCRSearchResultsViewControllerFooterHeight + collectionViewLayout.sectionInset.bottom);
+    }
+    self.currentFooterView = nil;
+    return CGSizeZero;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y >= (roundf(scrollView.contentSize.height - scrollView.frame.size.height)) - kSCRSearchResultsViewControllerFooterHeight && self.currentFooterView && !self.isPaging) {
+        self.isPaging = YES;
+        [self.engine.photosController getSearchResultsForSearch:[self.engine.photosController currentSearch]];
+    }
 }
 
 @end

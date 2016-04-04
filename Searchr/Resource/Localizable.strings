@@ -6,5 +6,10 @@
   Copyright © 2016 Merrick Sapsford. All rights reserved.
 */
 
+// General
 "Searchr" = "Searchr";
+
+// Search Results
 "Search Results" = "Search Results";
+"Could not load photos" = "Could not load photos";
+"Try again" = "Try again";

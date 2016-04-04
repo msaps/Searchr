@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="spinnerFooter" id="z3g-7J-4Fs" customClass="SCRSearchResultsFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="388" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXF-Nt-NdB" userLabel="Container View">
+                    <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Yyu-8k-FK8">
+                            <rect key="frame" x="184" y="12" width="20" height="20"/>
+                        </activityIndicatorView>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pu-Dd-OsD">
+                            <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Failed label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYP-uL-X0y">
+                                    <rect key="frame" x="8" y="0.0" width="372" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btl-ZY-Oeb">
+                                    <rect key="frame" x="137" y="14" width="114" height="30"/>
+                                    <state key="normal" title="Try Again button"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="btl-ZY-Oeb" firstAttribute="centerX" secondItem="9Pu-Dd-OsD" secondAttribute="centerX" id="Coa-kY-KCh"/>
+                                <constraint firstItem="IYP-uL-X0y" firstAttribute="top" secondItem="9Pu-Dd-OsD" secondAttribute="top" id="HKH-1F-1jW"/>
+                                <constraint firstItem="IYP-uL-X0y" firstAttribute="leading" secondItem="9Pu-Dd-OsD" secondAttribute="leading" constant="8" id="K0R-Rx-bA8"/>
+                                <constraint firstAttribute="bottom" secondItem="btl-ZY-Oeb" secondAttribute="bottom" id="Lma-tT-Ob7"/>
+                                <constraint firstAttribute="trailing" secondItem="IYP-uL-X0y" secondAttribute="trailing" constant="8" id="xNz-Mp-HQl"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="91T-lm-PRx"/>
+                        <constraint firstItem="9Pu-Dd-OsD" firstAttribute="top" secondItem="RXF-Nt-NdB" secondAttribute="top" id="ArI-jC-AsG"/>
+                        <constraint firstItem="Yyu-8k-FK8" firstAttribute="centerY" secondItem="RXF-Nt-NdB" secondAttribute="centerY" id="KzA-Bq-4Hu"/>
+                        <constraint firstItem="Yyu-8k-FK8" firstAttribute="centerX" secondItem="RXF-Nt-NdB" secondAttribute="centerX" id="N8j-gr-P0I"/>
+                        <constraint firstAttribute="bottom" secondItem="9Pu-Dd-OsD" secondAttribute="bottom" id="n1u-nk-Rc5"/>
+                        <constraint firstAttribute="trailing" secondItem="9Pu-Dd-OsD" secondAttribute="trailing" id="uwo-LP-QB1"/>
+                        <constraint firstItem="9Pu-Dd-OsD" firstAttribute="leading" secondItem="RXF-Nt-NdB" secondAttribute="leading" id="yjV-9a-z54"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RXF-Nt-NdB" secondAttribute="trailing" id="G7d-cq-GK0"/>
+                <constraint firstItem="RXF-Nt-NdB" firstAttribute="top" secondItem="z3g-7J-4Fs" secondAttribute="top" id="m6s-Ag-Ldd"/>
+                <constraint firstItem="RXF-Nt-NdB" firstAttribute="leading" secondItem="z3g-7J-4Fs" secondAttribute="leading" id="wbw-gC-BTf"/>
+            </constraints>
+            <connections>
+                <outlet property="activityIndicator" destination="Yyu-8k-FK8" id="k0X-HC-lsl"/>
+                <outlet property="errorButton" destination="btl-ZY-Oeb" id="hQF-Y8-yvO"/>
+                <outlet property="errorLabel" destination="IYP-uL-X0y" id="nh9-w1-ETz"/>
+                <outlet property="errorView" destination="9Pu-Dd-OsD" id="aF3-ae-I3n"/>
+            </connections>
+            <point key="canvasLocation" x="398" y="453.5"/>
+        </collectionReusableView>
+    </objects>
+</document>
