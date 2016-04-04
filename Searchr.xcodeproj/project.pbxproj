@@ -49,6 +49,7 @@
 		469421BE1CB2D2AC00A460FF /* SCRControlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421BD1CB2D2AC00A460FF /* SCRControlBase.m */; };
 		469421C11CB2D2EF00A460FF /* SCRNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421C01CB2D2EF00A460FF /* SCRNibLoader.m */; };
 		469421C61CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421C51CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m */; };
+		469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421CC1CB2E89800A460FF /* SCRNavigationBar.m */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
@@ -136,6 +137,8 @@
 		469421C01CB2D2EF00A460FF /* SCRNibLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRNibLoader.m; sourceTree = "<group>"; };
 		469421C41CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SCRKeyboardDismiss.h"; sourceTree = "<group>"; };
 		469421C51CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SCRKeyboardDismiss.m"; sourceTree = "<group>"; };
+		469421CB1CB2E89800A460FF /* SCRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRNavigationBar.h; sourceTree = "<group>"; };
+		469421CC1CB2E89800A460FF /* SCRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRNavigationBar.m; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -431,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				468D9CF91CB1817500AD5452 /* CircularImageView */,
+				469421CA1CB2E89800A460FF /* NavigationBar */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -442,6 +446,15 @@
 				468D9CFB1CB1817500AD5452 /* SCRCircularImageView.m */,
 			);
 			path = CircularImageView;
+			sourceTree = "<group>";
+		};
+		469421CA1CB2E89800A460FF /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				469421CB1CB2E89800A460FF /* SCRNavigationBar.h */,
+				469421CC1CB2E89800A460FF /* SCRNavigationBar.m */,
+			);
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 		46F1208A1CB06919009A5EAA /* Views */ = {
@@ -595,6 +608,7 @@
 				468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */,
 				463AE3711CB0191600D194B0 /* UIColor+SCRColorPalette.m in Sources */,
 				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
+				469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */,
 				468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */,
 				468D9CDA1CB127A400AD5452 /* SCRViewSizer.m in Sources */,
 				4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */,

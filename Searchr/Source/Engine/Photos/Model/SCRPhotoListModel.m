@@ -12,6 +12,7 @@ NSString *const kSCRPhotoListModelPhotosKey = @"photos";
 NSString *const kSCRPhotoListModelPageKey = @"page";
 NSString *const kSCRPhotoListModelPagesKey = @"pages";
 NSString *const kSCRPhotoListModelPerPageKey = @"perpage";
+NSString *const kSCRPhotoListModelTotalItemsKey = @"total";
 NSString *const kSCRPhotoListModelPhotoArrayKey = @"photo";
 
 @implementation SCRPhotoListModel
@@ -22,6 +23,7 @@ NSString *const kSCRPhotoListModelPhotoArrayKey = @"photo";
     self.page = [data[kSCRPhotoListModelPageKey]integerValue];
     self.totalPages = [data[kSCRPhotoListModelPagesKey]integerValue];
     self.perPage = [data[kSCRPhotoListModelPerPageKey]integerValue];
+    self.totalItems = [data[kSCRPhotoListModelTotalItemsKey]integerValue];
     
     NSArray *photos = data[kSCRPhotoListModelPhotoArrayKey];
     NSMutableArray *photoModels = [NSMutableArray new];

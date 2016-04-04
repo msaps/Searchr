@@ -22,6 +22,10 @@
  The total number of available pages
  */
 @property (nonatomic, assign) NSInteger totalPagesAvailable;
+/**
+ The total number of items in the paged list.
+ */
+@property (nonatomic, assign) NSInteger totalItems;
 
 /**
  Data in the paged list.

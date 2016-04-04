@@ -35,6 +35,7 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
          SCRStrongSelfStart;
          
          strongSelf.interestingPhotos.pageSize = popularPhotos.perPage;
+         strongSelf.interestingPhotos.totalItems = popularPhotos.totalItems;
          strongSelf.interestingPhotos.totalPagesAvailable = popularPhotos.totalPages;
          [strongSelf.interestingPhotos addPageWithData:popularPhotos.data
                                             pageNumber:popularPhotos.page];
@@ -74,6 +75,7 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
          SCRStrongSelfStart;
          
          strongSelf.currentSearchResults.pageSize = searchResults.perPage;
+         strongSelf.currentSearchResults.totalItems = searchResults.totalItems;
          strongSelf.currentSearchResults.totalPagesAvailable = searchResults.totalPages;
          [strongSelf.currentSearchResults addPageWithData:searchResults.data
                                                pageNumber:searchResults.page];

@@ -15,7 +15,6 @@
 
 @implementation SCRAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // configure engine

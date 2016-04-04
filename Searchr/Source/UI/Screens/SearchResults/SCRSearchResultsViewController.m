@@ -36,17 +36,17 @@ CGFloat const kSCRSearchResultsViewControllerFooterHeight = 44.0f;
     [super viewDidLoad];
     
     [self.engine.photosController addListener:self];
-    self.items = [[self.engine.photosController currentSearchResults].data mutableCopy];
     
-    self.title = NSLocalizedString(@"Search Results", nil);
+    SCRSearchBuilder *currentSearch = [self.engine.photosController currentSearch];
+    SCRPagedList *currentSearchResults = [self.engine.photosController currentSearchResults];
+    self.items = [currentSearchResults.data mutableCopy];
     
-    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultCollectionViewCell class])
-                                                    bundle:[NSBundle mainBundle]]
-          forCellWithReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierPictureCell];
-    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultsFooterView class])
-                                                    bundle:[NSBundle mainBundle]]
-          forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                 withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter];
+    self.title = [NSString stringWithFormat:@"%@ - %li %@",
+                  currentSearch.text,
+                  currentSearchResults.totalItems,
+                  NSLocalizedString(@"results", nil)];
+    
+    [self registerCollectionViewNibs];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -113,6 +113,17 @@ CGFloat const kSCRSearchResultsViewControllerFooterHeight = 44.0f;
     // retry search
     [self.currentFooterView setErrorViewVisible:NO];
     [self.engine.photosController getSearchResultsForSearch:[self.engine.photosController currentSearch]];
+}
+
+- (void)registerCollectionViewNibs {
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultCollectionViewCell class])
+                                                    bundle:[NSBundle mainBundle]]
+          forCellWithReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierPictureCell];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SCRSearchResultsFooterView class])
+                                                    bundle:[NSBundle mainBundle]]
+          forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                 withReuseIdentifier:kSCRSearchResultsViewControllerReuseIdentifierFooter];
 }
 
 #pragma mark - SCRPhotosControllerDelegate

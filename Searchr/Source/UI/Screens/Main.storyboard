@@ -187,7 +187,7 @@
         <scene sceneID="nhI-wi-dHr">
             <objects>
                 <navigationController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="UMM-wV-g3w" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XOZ-lI-HPf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XOZ-lI-HPf" customClass="SCRNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

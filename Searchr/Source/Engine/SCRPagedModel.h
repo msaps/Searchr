@@ -13,6 +13,7 @@
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger totalPages;
 @property (nonatomic, assign) NSInteger perPage;
+@property (nonatomic, assign) NSInteger totalItems;
 
 @property (nonatomic, strong) T data;
 
