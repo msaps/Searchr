@@ -48,6 +48,7 @@
 		468D9D011CB198E100AD5452 /* SCRSearchResultsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9D001CB198E100AD5452 /* SCRSearchResultsFooterView.xib */; };
 		469421BE1CB2D2AC00A460FF /* SCRControlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421BD1CB2D2AC00A460FF /* SCRControlBase.m */; };
 		469421C11CB2D2EF00A460FF /* SCRNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421C01CB2D2EF00A460FF /* SCRNibLoader.m */; };
+		469421C61CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421C51CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
@@ -133,6 +134,8 @@
 		469421BD1CB2D2AC00A460FF /* SCRControlBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRControlBase.m; sourceTree = "<group>"; };
 		469421BF1CB2D2EF00A460FF /* SCRNibLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRNibLoader.h; sourceTree = "<group>"; };
 		469421C01CB2D2EF00A460FF /* SCRNibLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRNibLoader.m; sourceTree = "<group>"; };
+		469421C41CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SCRKeyboardDismiss.h"; sourceTree = "<group>"; };
+		469421C51CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SCRKeyboardDismiss.m"; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +210,8 @@
 				468D9CF01CB1752400AD5452 /* NSDate+SCRStringUtilities.m */,
 				469421BF1CB2D2EF00A460FF /* SCRNibLoader.h */,
 				469421C01CB2D2EF00A460FF /* SCRNibLoader.m */,
+				469421C41CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.h */,
+				469421C51CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m */,
 			);
 			name = Utilities;
 			path = Searchr/Source/Utilities;
@@ -613,6 +618,7 @@
 				4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */,
 				463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */,
 				463AE3521CAFE61500D194B0 /* SCRModel.m in Sources */,
+				469421C61CB2E06C00A460FF /* UIView+SCRKeyboardDismiss.m in Sources */,
 				4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */,
 				463AE3601CAFF6D500D194B0 /* SCRRootViewController.m in Sources */,
 				463AE3801CB0229300D194B0 /* SCRSearchBuilder.m in Sources */,

@@ -8,10 +8,11 @@
 
 #import "SCRSearchViewController.h"
 #import "SCRSearchButton.h"
+#import "UIView+SCRKeyboardDismiss.h"
 
 NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchViewControllerStopLoadingNotification";
 
-@interface SCRSearchViewController () <SCRPhotosControllerDelegate>
+@interface SCRSearchViewController () <SCRPhotosControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIView *contentView;
@@ -30,6 +31,7 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view becomeKeyboardDismissalResponder];
     
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(stopLoadingNotificationReceived:)
@@ -40,7 +42,9 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
     [title addAttribute:NSForegroundColorAttributeName value:[UIColor scr_flickrPink] range:NSMakeRange(title.length - 1, 1)];
     [self.titleLabel setAttributedText:title];
     
-    self.searchBuilder.text = @"Vulcan";
+    // set text field appearance
+    self.searchTextField.placeholder = NSLocalizedString(@"Search Flickr...", nil);
+    self.searchTextField.tintColor = [UIColor scr_flickrPink];
 }
 
 #pragma mark - Interaction
@@ -49,6 +53,7 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
     [self.engine.photosController addListener:self];
     if (self.searchBuilder.components.count > 0) {
         [self.engine.photosController getSearchResultsForSearch:self.searchBuilder];
+        self.searchBuilder = nil;
         [self beginLoadingAnimated:YES];
     }
 }
@@ -119,6 +124,19 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
   didFailToPerformSearch:(SCRSearchBuilder *)search
                withError:(NSError *)error {
     
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField
+shouldChangeCharactersInRange:(NSRange)range
+replacementString:(NSString *)string {
+    
+    // update search text
+    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    self.searchBuilder.text = text;
+    
+    return YES;
 }
 
 @end

@@ -9,6 +9,9 @@
 // General
 "Searchr" = "Searchr";
 
+// Search
+"Search Flickr..." = "Search Flickr...";
+
 // Search Results
 "Search Results" = "Search Results";
 "Could not load photos" = "Could not load photos";
