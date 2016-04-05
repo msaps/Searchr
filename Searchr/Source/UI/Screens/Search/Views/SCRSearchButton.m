@@ -19,6 +19,9 @@
     self.imageView.image = [self.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.imageView.tintColor = [UIColor scr_flickrBlue];
     
+    self.layer.borderWidth = 0.5f;
+    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
     self.activityIndicator.color = [UIColor scr_flickrBlue];
 }
 
@@ -46,8 +49,10 @@
             self.activityIndicator.alpha = 1.0f;
             self.imageView.alpha = 0.0f;
         } completion:^(BOOL finished) {
-            self.imageView.hidden = YES;
-            self.imageView.alpha = 1.0f;
+            if (finished) {
+                self.imageView.hidden = YES;
+                self.imageView.alpha = 1.0f;
+            }
         }];
     } else {
         [self.activityIndicator startAnimating];
@@ -63,8 +68,10 @@
             self.activityIndicator.alpha = 0.0f;
             self.imageView.alpha = 1.0f;
         } completion:^(BOOL finished) {
-            [self.activityIndicator stopAnimating];
-            self.activityIndicator.alpha = 1.0f;
+            if (finished) {
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.alpha = 1.0f;
+            }
         }];
     } else {
         [self.activityIndicator stopAnimating];

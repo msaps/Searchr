@@ -11,6 +11,8 @@
 
 // Search
 "Search Flickr..." = "Search Flickr...";
+"Search Failed" = "Search Failed";
+"Could not load photos, please check your connection" = "Could not load photos, please check your connection";
 
 // Search Results
 "results" = "results";

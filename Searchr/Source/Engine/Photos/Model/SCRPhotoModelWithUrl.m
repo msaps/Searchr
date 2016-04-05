@@ -57,10 +57,10 @@ NSString *const kSCRPhotoModelWithUrlFileFormat = @"{format}";
     NSMutableString *urlString = [self.config.flickrImageUrlFormat mutableCopy];
     
     [urlString replaceOccurrencesOfString:kSCRPhotoModelWithUrlFarmIdFormat
-                               withString:[NSString stringWithFormat:@"%li", self.photoModel.farm]
+                               withString:[NSString stringWithFormat:@"%li", (long)self.photoModel.farm]
                                   options:NSLiteralSearch range:NSMakeRange(0, urlString.length)];
     [urlString replaceOccurrencesOfString:kSCRPhotoModelWithUrlServerIdFormat
-                               withString:[NSString stringWithFormat:@"%li", self.photoModel.server]
+                               withString:[NSString stringWithFormat:@"%li", (long)self.photoModel.server]
                                   options:NSLiteralSearch range:NSMakeRange(0, urlString.length)];
     [urlString replaceOccurrencesOfString:kSCRPhotoModelWithUrlIdFormat
                                withString:self.photoModel.identifier

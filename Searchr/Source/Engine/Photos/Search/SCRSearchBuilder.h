@@ -6,13 +6,7 @@
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
-
-typedef NS_ENUM(NSInteger, SCRSearchRadiusUnit) {
-    SCRSearchRadiusUnitKilometers,
-    SCRSearchRadiusUnitMiles
-};
+#import "SCRSearch.h"
 
 @interface SCRSearchBuilder : NSObject
 
@@ -28,6 +22,11 @@ typedef NS_ENUM(NSInteger, SCRSearchRadiusUnit) {
 @property (nonatomic, assign) NSInteger locationRadius;
 @property (nonatomic, assign) SCRSearchRadiusUnit locationRadiusUnit;
 
-@property (nonatomic, strong, readonly, nonnull) NSDictionary *components;
+@property (nonatomic, strong, nonnull, readonly) SCRSearch *search;
+
+/**
+ Whether the search is valid
+ */
+- (BOOL)isValid;
 
 @end

@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "SCREngine.h"
+#import "SCRDevice.h"
 
 @interface SCRAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, strong, readonly) SCREngine *engine;
+@property (nonatomic, strong, readonly) SCRDevice *currentDevice;
 
 @end
 
