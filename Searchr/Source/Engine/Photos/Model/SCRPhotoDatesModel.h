@@ -10,9 +10,9 @@
 
 @interface SCRPhotoDatesModel : SCRModel
 
-@property (nonatomic, strong) NSDate *lastUpdated;
-@property (nonatomic, strong) NSDate *posted;
-@property (nonatomic, strong) NSDate *taken;
+@property (nonatomic, strong, nullable) NSDate *lastUpdated;
+@property (nonatomic, strong, nullable) NSDate *posted;
+@property (nonatomic, strong, nullable) NSDate *taken;
 @property (nonatomic, assign) NSInteger takenGranularity;
 @property (nonatomic, assign, getter=takenIsUnknown) BOOL takenUnknown;
 

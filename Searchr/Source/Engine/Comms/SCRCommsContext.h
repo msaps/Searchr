@@ -11,6 +11,8 @@
 #import "SCRFlickrApi.h"
 #import "SCRRequest.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol SCRCommsContext <NSObject>
 
 @property (nonatomic, strong, readonly) OFFlickrAPIContext *flickrContext;
@@ -18,4 +20,6 @@
 @property (nonatomic, strong, readonly) SCRFlickrApi *flickrApi;
 
 @end
+
+NS_ASSUME_NONNULL_END
 

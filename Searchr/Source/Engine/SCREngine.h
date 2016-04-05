@@ -11,6 +11,8 @@
 #import "SCRConfig.h"
 #import "SCRPhotosController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface SCREngine : NSObject
 
 @property (nonatomic, strong, readonly) SCRConfig *config;
@@ -22,3 +24,5 @@
 + (instancetype)engineWithCommsContext:(id<SCRCommsContext>)commsContext
                                 config:(SCRConfig *)config;
 @end
+
+NS_ASSUME_NONNULL_END
