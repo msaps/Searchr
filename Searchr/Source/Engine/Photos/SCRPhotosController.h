@@ -115,10 +115,12 @@ didFailToLoadPhotoInfoForPhoto:(nonnull SCRPhotoModel *)photo
  Load the next interesting photos page from Flickr.
  */
 - (void)getInterestingPhotos;
+
 /**
  Perform a search for photos on Flickr.
  */
 - (void)getSearchResultsForSearch:(nonnull SCRSearch *)search;
+
 /**
  Load information for a photo from Flickr.
  */

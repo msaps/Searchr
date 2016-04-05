@@ -49,8 +49,10 @@
             self.activityIndicator.alpha = 1.0f;
             self.imageView.alpha = 0.0f;
         } completion:^(BOOL finished) {
-            self.imageView.hidden = YES;
-            self.imageView.alpha = 1.0f;
+            if (finished) {
+                self.imageView.hidden = YES;
+                self.imageView.alpha = 1.0f;
+            }
         }];
     } else {
         [self.activityIndicator startAnimating];
@@ -66,8 +68,10 @@
             self.activityIndicator.alpha = 0.0f;
             self.imageView.alpha = 1.0f;
         } completion:^(BOOL finished) {
-            [self.activityIndicator stopAnimating];
-            self.activityIndicator.alpha = 1.0f;
+            if (finished) {
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.alpha = 1.0f;
+            }
         }];
     } else {
         [self.activityIndicator stopAnimating];

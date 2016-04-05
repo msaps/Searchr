@@ -54,6 +54,10 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 #pragma mark - Interaction
 
 - (IBAction)searchButtonPressed:(id)sender {
+    if ([sender isKindOfClass:[UITextField class]]) {
+        [sender resignFirstResponder];
+    }
+    
     [self.engine.photosController addListener:self];
     if ([self.searchBuilder isValid]) {
         
@@ -85,9 +89,11 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
                 self.searchTextField.alpha = 0.0f;
                 self.searchTextField.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
             } completion:^(BOOL finished) {
-                self.searchTextField.hidden = YES;
-                self.searchTextField.alpha = 1.0f;
-                self.searchTextField.transform = CGAffineTransformIdentity;
+                if (finished) {
+                    self.searchTextField.hidden = YES;
+                    self.searchTextField.alpha = 1.0f;
+                    self.searchTextField.transform = CGAffineTransformIdentity;
+                }
             }];
         } else {
             self.searchTextField.hidden = YES;
@@ -106,7 +112,9 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
                 self.searchTextField.alpha = 1.0f;
                 self.searchTextField.transform = CGAffineTransformIdentity;
             } completion:^(BOOL finished) {
-                self.isLoading = NO;
+                if (finished) {
+                    self.isLoading = NO;
+                }
             }];
         } else {
             self.searchTextField.hidden = NO;
@@ -149,7 +157,16 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 
 - (void)photosController:(id<SCRPhotosController>)photosController
   didFailToPerformSearch:(nonnull SCRSearchBuilder *)search withError:(nonnull NSError *)error {
+    [self stopLoadingAnimated:YES];
     
+    // display alert
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Search Failed", nil)
+                                                                             message:NSLocalizedString(@"Could not load photos, please check your connection", nil)
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+    [self.parentViewController presentViewController:alertController
+                                            animated:YES
+                                          completion:nil];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -166,6 +183,16 @@ replacementString:(NSString *)string {
     NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     self.searchBuilder.text = text;
     
+    return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    textField.returnKeyType = UIReturnKeySearch;
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self searchButtonPressed:textField];
     return YES;
 }
 
