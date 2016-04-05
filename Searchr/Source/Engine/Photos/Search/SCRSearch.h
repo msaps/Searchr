@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, SCRSearchRadiusUnit) {
     SCRSearchRadiusUnitMiles
 };
 
-@interface SCRSearch : NSObject
+@interface SCRSearch : NSObject <NSCopying>
 
 /**
  The image related text to search for.

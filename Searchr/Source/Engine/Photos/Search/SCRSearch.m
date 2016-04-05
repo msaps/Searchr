@@ -46,6 +46,21 @@ NSString *const kSCRSearchRadiusUnitMiles = @"mi";
     return NO;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    SCRSearch *search = [SCRSearch new];
+    if (search) {
+        [search setText:self.text];
+        [search setMinimumUploadDate:self.minimumUploadDate];
+        [search setMaximumUploadDate:self.maximumUploadDate];
+        [search setMinimumTakenDate:self.minimumTakenDate];
+        [search setMaximumTakenDate:self.maximumTakenDate];
+        [search setLocationCoordinate:self.locationCoordinate];
+        [search setLocationRadius:self.locationRadius];
+        [search setLocationRadiusUnit:self.locationRadiusUnit];
+    }
+    return search;
+}
+
 #pragma mark - Public
 
 - (SCRPagedList<SCRPhotoModel *> *)results {
@@ -81,21 +96,28 @@ NSString *const kSCRSearchRadiusUnitMiles = @"mi";
 }
 
 - (void)setLocationCoordinate:(CLLocationCoordinate2D)locationCoordinate {
-    _locationCoordinate = locationCoordinate;
-    [self registerComponent:@(locationCoordinate.latitude) forKey:kSCRSearchLatitudeKey];
-    [self registerComponent:@(locationCoordinate.longitude) forKey:kSCRSearchLongitudeKey];
+    if (locationCoordinate.latitude != _locationCoordinate.latitude &&
+        locationCoordinate.longitude != _locationCoordinate.longitude) {
+        _locationCoordinate = locationCoordinate;
+        [self registerComponent:@(locationCoordinate.latitude) forKey:kSCRSearchLatitudeKey];
+        [self registerComponent:@(locationCoordinate.longitude) forKey:kSCRSearchLongitudeKey];
+    }
 }
 
 - (void)setLocationRadius:(NSInteger)locationRadius {
-    _locationRadius = locationRadius;
-    [self registerComponent:@(locationRadius)
-                     forKey:kSCRSearchRadiusKey];
+    if (_locationRadius != locationRadius) {
+        _locationRadius = locationRadius;
+        [self registerComponent:@(locationRadius)
+                         forKey:kSCRSearchRadiusKey];
+    }
 }
 
 - (void)setLocationRadiusUnit:(SCRSearchRadiusUnit)locationRadiusUnit {
-    _locationRadiusUnit = locationRadiusUnit;
-    [self registerComponent:[self locationRadiusUnitStringForRadiusUnit:locationRadiusUnit]
-                     forKey:kSCRSearchRadiusUnitsKey];
+    if (_locationRadiusUnit != locationRadiusUnit) {
+        _locationRadiusUnit = locationRadiusUnit;
+        [self registerComponent:[self locationRadiusUnitStringForRadiusUnit:locationRadiusUnit]
+                         forKey:kSCRSearchRadiusUnitsKey];
+    }
 }
 
 - (NSDictionary *)components {
@@ -105,7 +127,9 @@ NSString *const kSCRSearchRadiusUnitMiles = @"mi";
 #pragma mark - Internal
 
 - (void)registerComponent:(id)data forKey:(NSString *)key {
-    [_components setObject:data forKey:key];
+    if (data && key) {
+        [_components setObject:data forKey:key];
+    }
 }
 
 - (NSString *)locationRadiusUnitStringForRadiusUnit:(SCRSearchRadiusUnit)radiusUnit {

@@ -79,7 +79,7 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
     [self.engine.photosController addListener:self];
     if ([self.searchBuilder isValid]) {
         
-        if ([self.searchBuilder isEqual:[self.engine.photosController currentSearch]]) { // if results already exist for current search
+        if ([self.searchBuilder.search isEqual:[self.engine.photosController currentSearch]]) { // if results already exist for current search
             [self showSearchResultsScreen];
         } else { // new search required
             [self.engine.photosController getSearchResultsForSearch:self.searchBuilder.search];
