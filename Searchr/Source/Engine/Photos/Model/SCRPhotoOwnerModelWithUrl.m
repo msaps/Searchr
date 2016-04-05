@@ -49,10 +49,10 @@ NSString *const kSCRPhotoOwnerModelWithUrlOwnerNsidFormat = @"{nsid}";
         NSMutableString *urlFormat = [self.config.flickrBuddyIconUrlFormat mutableCopy];
         
         [urlFormat replaceOccurrencesOfString:kSCRPhotoOwnerModelWithUrlIconFarmFormat
-                                   withString:[NSString stringWithFormat:@"%li", self.photoOwnerModel.iconFarm]
+                                   withString:[NSString stringWithFormat:@"%li", (long)self.photoOwnerModel.iconFarm]
                                       options:NSLiteralSearch range:NSMakeRange(0, urlFormat.length)];
         [urlFormat replaceOccurrencesOfString:kSCRPhotoOwnerModelWithUrlIconServerFormat
-                                   withString:[NSString stringWithFormat:@"%li", self.photoOwnerModel.iconServer]
+                                   withString:[NSString stringWithFormat:@"%li", (long)self.photoOwnerModel.iconServer]
                                       options:NSLiteralSearch range:NSMakeRange(0, urlFormat.length)];
         [urlFormat replaceOccurrencesOfString:kSCRPhotoOwnerModelWithUrlOwnerNsidFormat
                                    withString:self.photoOwnerModel.identifier
