@@ -140,27 +140,39 @@
                                             <outlet property="imageView" destination="0AE-E0-bNu" id="hDc-yH-lNM"/>
                                         </connections>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dqG-Re-a3g">
-                                        <rect key="frame" x="180" y="181" width="240" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytL-t2-goC" userLabel="Text Field Container">
+                                        <rect key="frame" x="0.0" y="122" width="600" height="143"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dqG-Re-a3g">
+                                                <rect key="frame" x="180" y="52" width="240" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Xui-Cj-MXS"/>
+                                                    <constraint firstAttribute="width" constant="240" id="wbA-bb-Vz8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="RqY-PN-6qk" id="pI0-in-Vvt"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Xui-Cj-MXS"/>
-                                            <constraint firstAttribute="width" constant="240" id="wbA-bb-Vz8"/>
+                                            <constraint firstItem="dqG-Re-a3g" firstAttribute="centerX" secondItem="ytL-t2-goC" secondAttribute="centerX" id="WpO-vW-Nev"/>
+                                            <constraint firstItem="dqG-Re-a3g" firstAttribute="centerY" secondItem="ytL-t2-goC" secondAttribute="centerY" id="b3Y-v8-aqg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="RqY-PN-6qk" id="pI0-in-Vvt"/>
-                                        </connections>
-                                    </textField>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="dqG-Re-a3g" firstAttribute="centerX" secondItem="AgT-ju-OUM" secondAttribute="centerX" id="Ef8-XQ-gMg"/>
+                                    <constraint firstAttribute="trailing" secondItem="ytL-t2-goC" secondAttribute="trailing" id="1pn-Vd-iK9"/>
                                     <constraint firstItem="I0u-GG-rMt" firstAttribute="centerY" secondItem="AgT-ju-OUM" secondAttribute="centerY" id="LbX-WP-dWo"/>
+                                    <constraint firstItem="ytL-t2-goC" firstAttribute="top" secondItem="BdZ-Km-uzv" secondAttribute="bottom" id="PPm-RA-Oe6"/>
                                     <constraint firstItem="I0u-GG-rMt" firstAttribute="centerX" secondItem="AgT-ju-OUM" secondAttribute="centerX" id="S57-G7-uzG"/>
-                                    <constraint firstItem="I0u-GG-rMt" firstAttribute="top" secondItem="dqG-Re-a3g" secondAttribute="bottom" constant="44" id="UK8-pN-yXV"/>
                                     <constraint firstItem="BdZ-Km-uzv" firstAttribute="top" secondItem="AgT-ju-OUM" secondAttribute="top" constant="64" id="WDQ-Jv-Lb6"/>
+                                    <constraint firstItem="I0u-GG-rMt" firstAttribute="top" secondItem="ytL-t2-goC" secondAttribute="bottom" id="bxh-Tw-Ds8"/>
                                     <constraint firstItem="BdZ-Km-uzv" firstAttribute="leading" secondItem="AgT-ju-OUM" secondAttribute="leading" id="hVz-uK-6CF"/>
+                                    <constraint firstItem="ytL-t2-goC" firstAttribute="leading" secondItem="AgT-ju-OUM" secondAttribute="leading" id="xx0-ba-55k"/>
                                     <constraint firstAttribute="trailing" secondItem="BdZ-Km-uzv" secondAttribute="trailing" id="zeU-1R-MS7"/>
                                 </constraints>
                             </view>
