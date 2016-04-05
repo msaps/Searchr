@@ -149,7 +149,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="Xui-Cj-MXS"/>
                                                     <constraint firstAttribute="width" constant="240" id="wbA-bb-Vz8"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="RqY-PN-6qk" id="pI0-in-Vvt"/>

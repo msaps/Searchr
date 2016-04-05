@@ -206,6 +206,7 @@ replacementString:(NSString *)string {
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     textField.returnKeyType = UIReturnKeySearch;
+    textField.autocorrectionType = UITextAutocorrectionTypeNo;
     return YES;
 }
 
