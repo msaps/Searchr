@@ -215,6 +215,7 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *supplementaryView;
     
     if (kind == UICollectionElementKindSectionFooter) {
         SCRSearchResultsFooterView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
@@ -222,9 +223,9 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
                                                                                            forIndexPath:indexPath];
         [footerView.errorButton addTarget:self action:@selector(footerTryAgainButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         _currentFooterView = footerView;
-        return footerView;
+        supplementaryView = footerView;
     }
-    return nil;
+    return supplementaryView;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView

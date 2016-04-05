@@ -17,13 +17,11 @@
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    if (self = [super init]) {
-        _dictionary = dictionary;
-        if (dictionary) {
+    if (dictionary) {
+        if (self = [super init]) {
+            _dictionary = dictionary;
             [self evaluateDataDictionary:dictionary];
         }
-    }
-    if (_dictionary) {
         return self;
     }
     return nil;

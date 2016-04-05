@@ -10,11 +10,11 @@
 
 @interface SCRPhotoOwnerModel : SCRModel
 
-@property (nonatomic, copy) NSString *identifier;
+@property (nonatomic, copy, nullable) NSString *identifier;
 
-@property (nonatomic, copy) NSString *location;
-@property (nonatomic, copy) NSString *username;
-@property (nonatomic, copy) NSString *realName;
+@property (nonatomic, copy, nullable) NSString *location;
+@property (nonatomic, copy, nullable) NSString *username;
+@property (nonatomic, copy, nullable) NSString *realName;
 
 @property (nonatomic, assign) NSInteger iconFarm;
 @property (nonatomic, assign) NSInteger iconServer;
