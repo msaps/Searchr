@@ -37,13 +37,13 @@ CGFloat const kSCRSearchResultsViewControllerFooterHeight = 44.0f;
     
     [self.engine.photosController addListener:self];
     
-    SCRSearchBuilder *currentSearch = [self.engine.photosController currentSearch];
-    SCRPagedList *currentSearchResults = [self.engine.photosController currentSearchResults];
+    SCRSearch *currentSearch = [self.engine.photosController currentSearch];
+    SCRPagedList *currentSearchResults = currentSearch.results;
     self.items = [currentSearchResults.data mutableCopy];
     
     self.title = [NSString stringWithFormat:@"%@ - %li %@",
                   currentSearch.text,
-                  currentSearchResults.totalItems,
+                  (long)currentSearchResults.totalItems,
                   NSLocalizedString(@"results", nil)];
     
     [self registerCollectionViewNibs];
@@ -142,7 +142,7 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController
-        didPerformSearch:(SCRSearchBuilder *)search
+        didPerformSearch:(SCRSearch *)search
              withResults:(SCRPagedList<SCRPhotoModel *> *)searchResults {
 
     CGFloat newItemsOffset = searchResults.data.count - (searchResults.data.count - self.items.count);
@@ -164,7 +164,7 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController
-  didFailToPerformSearch:(SCRSearchBuilder *)search
+  didFailToPerformSearch:(SCRSearch *)search
                withError:(NSError *)error {
     self.isPaging = NO;
     self.currentFooterView.errorViewVisible = YES;
@@ -231,7 +231,7 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
                   layout:(UICollectionViewFlowLayout *)collectionViewLayout
 referenceSizeForFooterInSection:(NSInteger)section {
     
-    SCRPagedList *currentSearchResults = [self.engine.photosController currentSearchResults];
+    SCRPagedList *currentSearchResults = [self.engine.photosController currentSearch].results;
     if (currentSearchResults.page != currentSearchResults.totalPagesAvailable) {
         return CGSizeMake(0.0f, kSCRSearchResultsViewControllerFooterHeight + collectionViewLayout.sectionInset.bottom);
     }

@@ -9,6 +9,7 @@
 #import "SCRControllerBase.h"
 #import "SCRPhotoModel.h"
 #import "SCRPagedList.h"
+#import "SCRSearch.h"
 #import "SCRSearchBuilder.h"
 
 @protocol SCRPhotosController;
@@ -52,7 +53,7 @@ didFailToLoadInterestingPhotos:(nonnull NSError *)error;
  The results from the search.
  */
 - (void)photosController:(nonnull id<SCRPhotosController>)photosController
-        didPerformSearch:(nonnull SCRSearchBuilder *)search
+        didPerformSearch:(nonnull SCRSearch *)search
              withResults:(nonnull SCRPagedList<SCRPhotoModel *> *)searchResults;
 /**
  The photos controller has failed to perform a search
@@ -67,7 +68,7 @@ didFailToLoadInterestingPhotos:(nonnull NSError *)error;
  The error that caused the failure.
  */
 - (void)photosController:(nonnull id<SCRPhotosController>)photosController
-  didFailToPerformSearch:(nonnull SCRSearchBuilder *)search
+  didFailToPerformSearch:(nonnull SCRSearch *)search
                withError:(nonnull NSError *)error;
 
 /**
@@ -105,15 +106,10 @@ didFailToLoadPhotoInfoForPhoto:(nonnull SCRPhotoModel *)photo
  Interesting photos.
  */
 @property (nonatomic, strong, readonly, nullable) SCRPagedList<SCRPhotoModel *> *interestingPhotos;
-
-/**
- The results for the current search.
- */
-@property (nonatomic, strong, readonly, nullable) SCRPagedList<SCRPhotoModel *> *currentSearchResults;
 /**
  The current search.
  */
-@property (nonatomic, strong, readonly, nullable) SCRSearchBuilder *currentSearch;
+@property (nonatomic, strong, readonly, nullable) SCRSearch *currentSearch;
 
 /**
  Load the next interesting photos page from Flickr.
@@ -122,7 +118,7 @@ didFailToLoadPhotoInfoForPhoto:(nonnull SCRPhotoModel *)photo
 /**
  Perform a search for photos on Flickr.
  */
-- (void)getSearchResultsForSearch:(nonnull SCRSearchBuilder *)search;
+- (void)getSearchResultsForSearch:(nonnull SCRSearch *)search;
 /**
  Load information for a photo from Flickr.
  */

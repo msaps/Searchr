@@ -55,12 +55,12 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 
 - (IBAction)searchButtonPressed:(id)sender {
     [self.engine.photosController addListener:self];
-    if (self.searchBuilder.components.count > 0) {
+    if ([self.searchBuilder isValid]) {
         
         if ([self.searchBuilder isEqual:[self.engine.photosController currentSearch]]) { // if results already exist for current search
             [self showSearchResultsScreen];
         } else { // new search required
-            [self.engine.photosController getSearchResultsForSearch:self.searchBuilder];
+            [self.engine.photosController getSearchResultsForSearch:self.searchBuilder.search];
             [self beginLoadingAnimated:YES];
         }
     }
@@ -148,8 +148,7 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController
-  didFailToPerformSearch:(SCRSearchBuilder *)search
-               withError:(NSError *)error {
+  didFailToPerformSearch:(nonnull SCRSearchBuilder *)search withError:(nonnull NSError *)error {
     
 }
 

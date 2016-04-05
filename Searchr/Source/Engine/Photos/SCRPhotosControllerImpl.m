@@ -8,6 +8,7 @@
 
 #import "SCRPhotosControllerImpl.h"
 #import "SCRWeakSelf.h"
+#import "SCRSearchPrivate.h"
 
 NSInteger const kSCRPhotosControllerImplPageSize = 20;
 
@@ -21,7 +22,6 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
 
 @synthesize interestingPhotos = _interestingPhotos;
 @synthesize currentSearch = _currentSearch;
-@synthesize currentSearchResults = _currentSearchResults;
 
 #pragma mark - Public
 
@@ -59,41 +59,43 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
     
 }
 
-- (void)getSearchResultsForSearch:(SCRSearchBuilder *)search {
+- (void)getSearchResultsForSearch:(SCRSearch *)search {
     
     if (![search isEqual:self.currentSearch]) {
         _currentSearch = search;
-        [self.currentSearchResults removeAllData];
     }
     
     SCRWeakSelfCreate;
     [[self.commsContext flickrApi]getSearchResultsForParameters:search.components
-                                                           page:self.currentSearchResults.page + 1
+                                                           page:self.currentSearch.results.page + 1
                                                        pageSize:kSCRPhotosControllerImplPageSize
                                                         success:
      ^(SCRPhotoListModel * _Nullable searchResults) {
          SCRStrongSelfStart;
          
-         strongSelf.currentSearchResults.pageSize = searchResults.perPage;
-         strongSelf.currentSearchResults.totalItems = searchResults.totalItems;
-         strongSelf.currentSearchResults.totalPagesAvailable = searchResults.totalPages;
-         [strongSelf.currentSearchResults addPageWithData:searchResults.data
+         strongSelf.currentSearch.results.pageSize = searchResults.perPage;
+         strongSelf.currentSearch.results.totalItems = searchResults.totalItems;
+         strongSelf.currentSearch.results.totalPagesAvailable = searchResults.totalPages;
+         [strongSelf.currentSearch.results addPageWithData:searchResults.data
                                                pageNumber:searchResults.page];
          
          [strongSelf enumerateListenersWithBlock:^(id  _Nonnull listener, NSUInteger index, BOOL * _Nonnull stop) {
              if ([listener respondsToSelector:@selector(photosController:didPerformSearch:withResults:)]) {
                  [listener photosController:strongSelf
-                           didPerformSearch:search
-                                withResults:strongSelf.currentSearchResults];
+                           didPerformSearch:strongSelf.currentSearch
+                                withResults:strongSelf.currentSearch.results];
              }
          }];
          
          SCRStrongSelfEnd;
      } failure:^(NSError * _Nullable error) {
          SCRStrongSelfStart;
+         
+         [strongSelf.currentSearch setFailed:YES];
+         
          [self enumerateListenersWithBlock:^(id  _Nonnull listener, NSUInteger index, BOOL * _Nonnull stop) {
-             if ([listener respondsToSelector:@selector(photosController:didFailToLoadInterestingPhotos:)]) {
-                 [listener photosController:strongSelf didFailToLoadInterestingPhotos:error];
+             if ([listener respondsToSelector:@selector(photosController:didFailToPerformSearch:withError:)]) {
+                 [listener photosController:strongSelf didFailToPerformSearch:strongSelf.currentSearch withError:error];
              }
          }];
          SCRStrongSelfEnd;
@@ -143,13 +145,6 @@ NSInteger const kSCRPhotosControllerImplPageSize = 20;
         _interestingPhotos = [SCRPagedList new];
     }
     return _interestingPhotos;
-}
-
-- (SCRPagedList<SCRPhotoModel *> *)currentSearchResults {
-    if (!_currentSearchResults) {
-        _currentSearchResults = [SCRPagedList new];
-    }
-    return _currentSearchResults;
 }
 
 - (NSMutableDictionary<NSString *,SCRPhotoModelWithInfo *> *)photoInfo {

@@ -52,6 +52,7 @@
 		469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421CC1CB2E89800A460FF /* SCRNavigationBar.m */; };
 		469421E01CB3028600A460FF /* UIImage+SCRColorDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421DF1CB3028600A460FF /* UIImage+SCRColorDetection.m */; };
 		469421E31CB3033400A460FF /* UIColor+SCRColorDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421E21CB3033400A460FF /* UIColor+SCRColorDetection.m */; };
+		46B198471CB3C5BB0050814D /* SCRSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B198461CB3C5BB0050814D /* SCRSearch.m */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
 		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
@@ -145,6 +146,9 @@
 		469421DF1CB3028600A460FF /* UIImage+SCRColorDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SCRColorDetection.m"; sourceTree = "<group>"; };
 		469421E11CB3033400A460FF /* UIColor+SCRColorDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SCRColorDetection.h"; sourceTree = "<group>"; };
 		469421E21CB3033400A460FF /* UIColor+SCRColorDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SCRColorDetection.m"; sourceTree = "<group>"; };
+		46B198451CB3C5BB0050814D /* SCRSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearch.h; sourceTree = "<group>"; };
+		46B198461CB3C5BB0050814D /* SCRSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearch.m; sourceTree = "<group>"; };
+		46B198481CB3C5D60050814D /* SCRSearchPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRSearchPrivate.h; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +277,9 @@
 			children = (
 				463AE37E1CB0229300D194B0 /* SCRSearchBuilder.h */,
 				463AE37F1CB0229300D194B0 /* SCRSearchBuilder.m */,
+				46B198451CB3C5BB0050814D /* SCRSearch.h */,
+				46B198461CB3C5BB0050814D /* SCRSearch.m */,
+				46B198481CB3C5D60050814D /* SCRSearchPrivate.h */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -618,6 +625,7 @@
 				468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */,
 				463AE3711CB0191600D194B0 /* UIColor+SCRColorPalette.m in Sources */,
 				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
+				46B198471CB3C5BB0050814D /* SCRSearch.m in Sources */,
 				469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */,
 				468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */,
 				468D9CDA1CB127A400AD5452 /* SCRViewSizer.m in Sources */,

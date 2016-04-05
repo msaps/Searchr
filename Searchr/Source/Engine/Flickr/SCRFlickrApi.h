@@ -21,17 +21,71 @@ typedef void(^SCRFlickrApiPhotoInfoSuccessBlock)(SCRPhotoModelWithInfo * _Nullab
 
 - (nonnull instancetype)initWithFlickrContext:(nonnull OFFlickrAPIContext *)flickrContext;
 
+/**
+ Perform a flickr.interestingness.getList request.
+ 
+ @param page
+ The page to request.
+ 
+ @param pageSize
+ The size of the page to request.
+ 
+ @param success
+ The request success block.
+ 
+ @param failure
+ The request failure block.
+ 
+ @return The request.
+ */
 - (nullable SCRRequest *)getInterestingPhotosWithPage:(NSInteger)page
                                              pageSize:(NSInteger)pageSize
                                               success:(nullable SCRFlickrApiPopularPhotoSuccessBlock)success
                                               failure:(nullable SCRFlickrApiFailureBlock)failure;
 
+/**
+ Perform a flickr.photos.search request.
+ 
+ @param parameters
+ The search parameters.
+ 
+ @param page
+ The page to request.
+ 
+ @param pageSize
+ The size of the page to request.
+ 
+ @param success
+ The request success block.
+ 
+ @param failure
+ The request failure block.
+ 
+ @return The request.
+ */
 - (nullable SCRRequest *)getSearchResultsForParameters:(nonnull NSDictionary *)parameters
                                                   page:(NSInteger)page
                                               pageSize:(NSInteger)pageSize
                                                success:(nullable SCRFlickrApiSearchResultsSuccessBlock)success
                                                failure:(nullable SCRFlickrApiFailureBlock)failure;
 
+/**
+ Perform a flickr.photos.getInfo request.
+ 
+ @param photoId
+ The photoId.
+ 
+ @param photoSecret
+ The photoSecret.
+ 
+ @param success
+ The request success block.
+ 
+ @param failure
+ The request failure block.
+ 
+ @return The request.
+ */
 - (nullable SCRRequest *)getPhotoInfoForPhotoWithId:(nonnull NSString *)photoId
                                         photoSecret:(nonnull NSString *)photoSecret
                                             success:(nullable SCRFlickrApiPhotoInfoSuccessBlock)success

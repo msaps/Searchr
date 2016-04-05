@@ -71,33 +71,34 @@ NSString *const kSCRFlickrApiParameterPhotoSecretKey = @"secret";
                                      pageSize:(NSInteger)pageSize
                                       success:(SCRFlickrApiSearchResultsSuccessBlock)success
                                       failure:(SCRFlickrApiFailureBlock)failure {
-    if (!self.searchRequest.isRunning) {
-        
-        NSMutableDictionary *actualParameters = [NSMutableDictionary dictionary];
-        [actualParameters addEntriesFromDictionary:parameters];
-        [actualParameters addEntriesFromDictionary:@{
-                                                     kSCRFlickrApiParameterPerPageKey : @(pageSize),
-                                                     kSCRFlickrApiParameterPageKey : @(page)
-                                                     }];
-        
-        _searchRequest = [SCRRequest requestOfType:SCRRequestTypeGet
-                                       withContext:self.flickrContext
-                                              path:@"flickr.photos.search"
-                                        parameters:actualParameters
-                                           success:
-                          ^(NSDictionary * _Nullable responseData) {
-                              SCRPhotoListModel *model = [SCRPhotoListModel modelWithDictionary:responseData];
-                              if (model && success) {
-                                  success(model);
-                              }
-                          }
-                                           failure:
-                          ^(NSError * _Nullable error) {
-                              if (failure) {
-                                  failure(error);
-                              }
-                          }];
+    if (self.searchRequest.isRunning) {
+        [self.searchRequest cancel];
     }
+    
+    NSMutableDictionary *actualParameters = [NSMutableDictionary dictionary];
+    [actualParameters addEntriesFromDictionary:parameters];
+    [actualParameters addEntriesFromDictionary:@{
+                                                 kSCRFlickrApiParameterPerPageKey : @(pageSize),
+                                                 kSCRFlickrApiParameterPageKey : @(page)
+                                                 }];
+    
+    _searchRequest = [SCRRequest requestOfType:SCRRequestTypeGet
+                                   withContext:self.flickrContext
+                                          path:@"flickr.photos.search"
+                                    parameters:actualParameters
+                                       success:
+                      ^(NSDictionary * _Nullable responseData) {
+                          SCRPhotoListModel *model = [SCRPhotoListModel modelWithDictionary:responseData];
+                          if (model && success) {
+                              success(model);
+                          }
+                      }
+                                       failure:
+                      ^(NSError * _Nullable error) {
+                          if (failure) {
+                              failure(error);
+                          }
+                      }];
     return _searchRequest;
 }
 
