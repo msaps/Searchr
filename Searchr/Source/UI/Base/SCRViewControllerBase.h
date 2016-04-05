@@ -12,12 +12,16 @@
 #import "UIColor+SCRColorPalette.h"
 #import "SCRViewSizer.h"
 #import "UIImage+SCRColorDetection.h"
+#import "SCRDevice.h"
 
 @interface SCRViewControllerBase : UIViewController
 
 @property (nonatomic, strong) SCRViewSizer *viewSizer;
 @property (nonatomic, assign) UIReadableForegroundColor requiredForegroundColor;
 
+- (void)updateViewConstraints:(UIView *)view forDevice:(SCRDevice *)device;
+
 - (SCREngine *)engine;
+- (SCRDevice *)currentDevice;
 
 @end

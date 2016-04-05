@@ -187,8 +187,10 @@
                     </view>
                     <connections>
                         <outlet property="searchButton" destination="I0u-GG-rMt" id="tcb-85-6w4"/>
+                        <outlet property="searchButtonYOrigin" destination="LbX-WP-dWo" id="ZgY-UR-oGK"/>
                         <outlet property="searchTextField" destination="dqG-Re-a3g" id="uFD-A9-U0Y"/>
                         <outlet property="titleLabel" destination="BdZ-Km-uzv" id="Sff-J7-Hhd"/>
+                        <outlet property="titlelabelTopMargin" destination="WDQ-Jv-Lb6" id="3xY-yP-ov8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMh-Me-PNs" userLabel="First Responder" sceneMemberID="firstResponder"/>

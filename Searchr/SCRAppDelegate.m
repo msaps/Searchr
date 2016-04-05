@@ -23,6 +23,8 @@
     SCREngine *engine = [SCREngine engineWithCommsContext:commsContext config:config];
     _engine = engine;
     
+    _currentDevice = [SCRDevice new];
+    
     return YES;
 }
 

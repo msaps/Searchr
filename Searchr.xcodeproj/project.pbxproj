@@ -36,6 +36,7 @@
 		4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5801CADBB13009578F8 /* SCRControllerBaseImpl.m */; };
 		4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5851CADBF34009578F8 /* SCRWeakRef.m */; };
 		4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5891CADC28A009578F8 /* SCRRequest.m */; };
+		467DBC9D1CB3EB0300398104 /* SCRDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBC9C1CB3EB0300398104 /* SCRDevice.m */; };
 		468D9CDA1CB127A400AD5452 /* SCRViewSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CD91CB127A400AD5452 /* SCRViewSizer.m */; };
 		468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */; };
 		468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */; };
@@ -116,6 +117,8 @@
 		4675A5851CADBF34009578F8 /* SCRWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRWeakRef.m; sourceTree = "<group>"; };
 		4675A5881CADC28A009578F8 /* SCRRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRRequest.h; sourceTree = "<group>"; };
 		4675A5891CADC28A009578F8 /* SCRRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRRequest.m; sourceTree = "<group>"; };
+		467DBC9B1CB3EB0300398104 /* SCRDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRDevice.h; sourceTree = "<group>"; };
+		467DBC9C1CB3EB0300398104 /* SCRDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRDevice.m; sourceTree = "<group>"; };
 		468D9CD81CB127A400AD5452 /* SCRViewSizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRViewSizer.h; sourceTree = "<group>"; };
 		468D9CD91CB127A400AD5452 /* SCRViewSizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRViewSizer.m; sourceTree = "<group>"; };
 		468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				469421DF1CB3028600A460FF /* UIImage+SCRColorDetection.m */,
 				469421E11CB3033400A460FF /* UIColor+SCRColorDetection.h */,
 				469421E21CB3033400A460FF /* UIColor+SCRColorDetection.m */,
+				467DBC9B1CB3EB0300398104 /* SCRDevice.h */,
+				467DBC9C1CB3EB0300398104 /* SCRDevice.m */,
 			);
 			name = Utilities;
 			path = Searchr/Source/Utilities;
@@ -636,6 +641,7 @@
 				468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */,
 				463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */,
 				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
+				467DBC9D1CB3EB0300398104 /* SCRDevice.m in Sources */,
 				463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */,
 				4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */,
 				468D9CFC1CB1817500AD5452 /* SCRCircularImageView.m in Sources */,

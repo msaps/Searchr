@@ -21,6 +21,9 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 
 @property (nonatomic, strong) SCRSearchBuilder *searchBuilder;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *searchButtonYOrigin;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *titlelabelTopMargin;
+
 @property (nonatomic, assign) BOOL isLoading;
 
 @end
@@ -49,6 +52,21 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
     [UIView animateWithDuration:0.25f animations:^{
         [self updateTitleLabelForegroundColor];
     }];
+}
+
+- (void)updateViewConstraints:(UIView *)view forDevice:(SCRDevice *)device {
+    [super updateViewConstraints:view forDevice:device];
+    
+    switch (device.screenClassification) {
+
+        case SCRDeviceScreenClassificationSmall:
+        case SCRDeviceScreenClassificationMedium:
+            self.titlelabelTopMargin.constant = 48.0f;
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - Interaction
