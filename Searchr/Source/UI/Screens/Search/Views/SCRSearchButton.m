@@ -19,6 +19,9 @@
     self.imageView.image = [self.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.imageView.tintColor = [UIColor scr_flickrBlue];
     
+    self.layer.borderWidth = 0.5f;
+    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
     self.activityIndicator.color = [UIColor scr_flickrBlue];
 }
 
