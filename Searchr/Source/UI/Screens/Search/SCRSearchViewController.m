@@ -11,17 +11,17 @@
 #import "UIView+SCRKeyboardDismiss.h"
 
 NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchViewControllerStopLoadingNotification";
+CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
 
 @interface SCRSearchViewController () <SCRPhotosControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet SCRSearchButton *searchButton;
 @property (nonatomic, weak) IBOutlet UITextField *searchTextField;
 
 @property (nonatomic, strong) SCRSearchBuilder *searchBuilder;
 
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *searchButtonYOrigin;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *titlelabelTopMargin;
 
 @property (nonatomic, assign) BOOL isLoading;
@@ -35,6 +35,8 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view becomeKeyboardDismissalResponder];
+    
+    self.keyboardDelegate = [SCRKeyboardDelegate keyboardDelegateForResponder:self];
     
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(stopLoadingNotificationReceived:)
@@ -213,6 +215,30 @@ replacementString:(NSString *)string {
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self searchButtonPressed:textField];
     return YES;
+}
+
+#pragma mark - SCRKeyboardDelegate
+
+- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
+    CGFloat searchButtonBottom = CGRectGetMaxY(self.searchButton.frame) + kSCRSearchViewControllerKeyboardPadding;
+    CGFloat keyboardTop = CGRectGetMinY(update.endFrame);
+    
+    if (keyboardTop < searchButtonBottom) { // scroll content up if needed
+        CGFloat yOffset = searchButtonBottom - keyboardTop;
+        
+        [UIView animateWithDuration:update.animationDuration delay:0.0f options:(NSUInteger)update.animationCurve animations:^{
+            [self.scrollView setContentOffset:CGPointMake(0.0f, yOffset) animated:NO];
+        } completion:nil];
+    }
+}
+
+- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
+    
+    if (!CGPointEqualToPoint(self.scrollView.contentOffset, CGPointZero)) {
+        [UIView animateWithDuration:update.animationDuration delay:0.0f options:(NSUInteger)update.animationCurve animations:^{
+            [self.scrollView setContentOffset:CGPointZero animated:NO];
+        } completion:nil];
+    }
 }
 
 @end

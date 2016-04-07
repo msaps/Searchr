@@ -15,10 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SCREngine : NSObject
 
+/**
+ The current configuration for the application.
+ */
 @property (nonatomic, strong, readonly) SCRConfig *config;
-
+/**
+ The communication context for the application.
+ */
 @property (nonatomic, strong, readonly) id<SCRCommsContext> commsContext;
 
+/**
+ The controller responsible for photos.
+ */
 @property (nonatomic, strong, readonly) id<SCRPhotosController> photosController;
 
 + (instancetype)engineWithCommsContext:(id<SCRCommsContext>)commsContext
