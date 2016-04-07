@@ -36,7 +36,7 @@
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         self.transform = highlighted ? CGAffineTransformMakeScale(0.9f, 0.9f) : CGAffineTransformIdentity;
     }];
 }

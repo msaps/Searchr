@@ -95,7 +95,7 @@ didLoadInterestingPhotos:(SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
              strongSelf.requiredForegroundColor = readableColor;
              
              // fade in blur view
-             [UIView animateWithDuration:0.2f animations:^{
+             [UIView animateWithDuration:0.25f animations:^{
                  strongSelf.blurViewContainer.alpha = 1.0f;
              }];
              [strongSelf.imageView setImage:image animated:!fromCache];

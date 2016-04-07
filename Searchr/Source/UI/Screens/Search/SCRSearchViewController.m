@@ -44,9 +44,23 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
     
     [self updateTitleLabelForegroundColor];
     
-    // set text field appearance
+    // set component appearance
+    self.searchTextField.alpha = 0.0f;
     self.searchTextField.placeholder = NSLocalizedString(@"Search Flickr...", nil);
     self.searchTextField.tintColor = [UIColor scr_flickrPink];
+    self.searchButton.alpha = 0.0f;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // fade in components
+    if (self.searchButton.alpha == 0.0f) {
+        [UIView animateWithDuration:0.25f animations:^{
+            self.searchButton.alpha = 1.0f;
+            self.searchTextField.alpha = 1.0f;
+        }];
+    }
 }
 
 - (void)setRequiredForegroundColor:(UIReadableForegroundColor)requiredForegroundColor {
