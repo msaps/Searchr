@@ -15,8 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol SCRCommsContext <NSObject>
 
+/**
+ The active Flickr context.
+ */
 @property (nonatomic, strong, readonly) OFFlickrAPIContext *flickrContext;
-
+/**
+ The active Flickr API.
+ */
 @property (nonatomic, strong, readonly) SCRFlickrApi *flickrApi;
 
 @end

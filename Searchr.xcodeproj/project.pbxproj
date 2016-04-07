@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE34A1CAFDED100D194B0 /* SCRPagedList.m */; };
 		463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE34E1CAFE60300D194B0 /* SCRPhotoListModel.m */; };
-		463AE3521CAFE61500D194B0 /* SCRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3511CAFE61500D194B0 /* SCRModel.m */; };
-		463AE3551CAFE82700D194B0 /* SCRPagedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3541CAFE82700D194B0 /* SCRPagedModel.m */; };
 		463AE3581CAFE96500D194B0 /* SCRPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3571CAFE96500D194B0 /* SCRPhotoModel.m */; };
 		463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE35C1CAFF61B00D194B0 /* SCRViewControllerBase.m */; };
 		463AE3601CAFF6D500D194B0 /* SCRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE35F1CAFF6D500D194B0 /* SCRRootViewController.m */; };
@@ -44,6 +41,9 @@
 		467DBCBC1CB656BB00398104 /* SCRViewSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB21CB656BB00398104 /* SCRViewSizer.m */; };
 		467DBCBD1CB656BB00398104 /* UIView+SCRKeyboardDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */; };
 		467DBCC01CB6571800398104 /* SCRKeyboardDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */; };
+		467DBCCC1CB699F600398104 /* SCRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCC91CB699F600398104 /* SCRModel.m */; };
+		467DBCCD1CB699F600398104 /* SCRPagedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCCB1CB699F600398104 /* SCRPagedModel.m */; };
+		467DBCD11CB69A0500398104 /* SCRPagedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCD01CB69A0500398104 /* SCRPagedList.m */; };
 		468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */; };
 		468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */; };
 		468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE71CB1676900AD5452 /* SCRPhotoOwnerModel.m */; };
@@ -52,7 +52,6 @@
 		468D9CFC1CB1817500AD5452 /* SCRCircularImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CFB1CB1817500AD5452 /* SCRCircularImageView.m */; };
 		468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CFE1CB198D600AD5452 /* SCRSearchResultsFooterView.m */; };
 		468D9D011CB198E100AD5452 /* SCRSearchResultsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9D001CB198E100AD5452 /* SCRSearchResultsFooterView.xib */; };
-		469421BE1CB2D2AC00A460FF /* SCRControlBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421BD1CB2D2AC00A460FF /* SCRControlBase.m */; };
 		469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421CC1CB2E89800A460FF /* SCRNavigationBar.m */; };
 		46B198471CB3C5BB0050814D /* SCRSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B198461CB3C5BB0050814D /* SCRSearch.m */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
@@ -60,14 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		463AE3491CAFDED100D194B0 /* SCRPagedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPagedList.h; sourceTree = "<group>"; };
-		463AE34A1CAFDED100D194B0 /* SCRPagedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedList.m; sourceTree = "<group>"; };
 		463AE34D1CAFE60300D194B0 /* SCRPhotoListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoListModel.h; sourceTree = "<group>"; };
 		463AE34E1CAFE60300D194B0 /* SCRPhotoListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoListModel.m; sourceTree = "<group>"; };
-		463AE3501CAFE61500D194B0 /* SCRModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRModel.h; sourceTree = "<group>"; };
-		463AE3511CAFE61500D194B0 /* SCRModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRModel.m; sourceTree = "<group>"; };
-		463AE3531CAFE82700D194B0 /* SCRPagedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPagedModel.h; sourceTree = "<group>"; };
-		463AE3541CAFE82700D194B0 /* SCRPagedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedModel.m; sourceTree = "<group>"; };
 		463AE3561CAFE96500D194B0 /* SCRPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModel.h; sourceTree = "<group>"; };
 		463AE3571CAFE96500D194B0 /* SCRPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModel.m; sourceTree = "<group>"; };
 		463AE3591CAFF38D00D194B0 /* SCRWeakSelf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRWeakSelf.h; sourceTree = "<group>"; };
@@ -134,6 +127,12 @@
 		467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SCRKeyboardDismiss.m"; sourceTree = "<group>"; };
 		467DBCBE1CB6571800398104 /* SCRKeyboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRKeyboardDelegate.h; sourceTree = "<group>"; };
 		467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRKeyboardDelegate.m; sourceTree = "<group>"; };
+		467DBCC81CB699F600398104 /* SCRModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRModel.h; sourceTree = "<group>"; };
+		467DBCC91CB699F600398104 /* SCRModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRModel.m; sourceTree = "<group>"; };
+		467DBCCA1CB699F600398104 /* SCRPagedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPagedModel.h; sourceTree = "<group>"; };
+		467DBCCB1CB699F600398104 /* SCRPagedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedModel.m; sourceTree = "<group>"; };
+		467DBCCF1CB69A0500398104 /* SCRPagedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPagedList.h; sourceTree = "<group>"; };
+		467DBCD01CB69A0500398104 /* SCRPagedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedList.m; sourceTree = "<group>"; };
 		468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		468D9CE31CB160BA00AD5452 /* SCRPhotoModelWithInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModelWithInfo.h; sourceTree = "<group>"; };
 		468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModelWithInfo.m; sourceTree = "<group>"; };
@@ -148,8 +147,6 @@
 		468D9CFD1CB198D600AD5452 /* SCRSearchResultsFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultsFooterView.h; sourceTree = "<group>"; };
 		468D9CFE1CB198D600AD5452 /* SCRSearchResultsFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultsFooterView.m; sourceTree = "<group>"; };
 		468D9D001CB198E100AD5452 /* SCRSearchResultsFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultsFooterView.xib; sourceTree = "<group>"; };
-		469421BC1CB2D2AC00A460FF /* SCRControlBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRControlBase.h; sourceTree = "<group>"; };
-		469421BD1CB2D2AC00A460FF /* SCRControlBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRControlBase.m; sourceTree = "<group>"; };
 		469421CB1CB2E89800A460FF /* SCRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRNavigationBar.h; sourceTree = "<group>"; };
 		469421CC1CB2E89800A460FF /* SCRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRNavigationBar.m; sourceTree = "<group>"; };
 		46B198451CB3C5BB0050814D /* SCRSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearch.h; sourceTree = "<group>"; };
@@ -210,8 +207,6 @@
 			children = (
 				463AE35B1CAFF61B00D194B0 /* SCRViewControllerBase.h */,
 				463AE35C1CAFF61B00D194B0 /* SCRViewControllerBase.m */,
-				469421BC1CB2D2AC00A460FF /* SCRControlBase.h */,
-				469421BD1CB2D2AC00A460FF /* SCRControlBase.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -333,18 +328,14 @@
 				4675A57E1CADBAFB009578F8 /* Base */,
 				4675A56E1CADA936009578F8 /* Comms */,
 				4675A56F1CADA936009578F8 /* Config */,
+				467DBCCE1CB69A0500398104 /* Data */,
 				4675A5791CADB18F009578F8 /* Photos */,
 				463AE3791CB0201E00D194B0 /* Flickr */,
 				4675A5871CADC284009578F8 /* Requests */,
+				467DBCC71CB699F600398104 /* Model */,
 				4675A5831CADBE90009578F8 /* Utilities */,
 				4675A56B1CADA91F009578F8 /* SCREngine.h */,
 				4675A56C1CADA91F009578F8 /* SCREngine.m */,
-				463AE3491CAFDED100D194B0 /* SCRPagedList.h */,
-				463AE34A1CAFDED100D194B0 /* SCRPagedList.m */,
-				463AE3501CAFE61500D194B0 /* SCRModel.h */,
-				463AE3511CAFE61500D194B0 /* SCRModel.m */,
-				463AE3531CAFE82700D194B0 /* SCRPagedModel.h */,
-				463AE3541CAFE82700D194B0 /* SCRPagedModel.m */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -495,6 +486,26 @@
 				467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		467DBCC71CB699F600398104 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				467DBCC81CB699F600398104 /* SCRModel.h */,
+				467DBCC91CB699F600398104 /* SCRModel.m */,
+				467DBCCA1CB699F600398104 /* SCRPagedModel.h */,
+				467DBCCB1CB699F600398104 /* SCRPagedModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		467DBCCE1CB69A0500398104 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				467DBCCF1CB69A0500398104 /* SCRPagedList.h */,
+				467DBCD01CB69A0500398104 /* SCRPagedList.m */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		468D9CF51CB1815400AD5452 /* Components */ = {
@@ -676,18 +687,17 @@
 				4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */,
 				468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */,
 				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
+				467DBCCD1CB699F600398104 /* SCRPagedModel.m in Sources */,
 				467DBCC01CB6571800398104 /* SCRKeyboardDelegate.m in Sources */,
 				46B198471CB3C5BB0050814D /* SCRSearch.m in Sources */,
 				469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */,
 				468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */,
 				4675A57C1CADB1A1009578F8 /* SCRPhotosControllerImpl.m in Sources */,
 				463AE3741CB01D3700D194B0 /* SCRSearchViewController.m in Sources */,
-				469421BE1CB2D2AC00A460FF /* SCRControlBase.m in Sources */,
 				467DBCB91CB656BB00398104 /* UIImage+SCRColorDetection.m in Sources */,
 				467DBCB71CB656BB00398104 /* NSDate+SCRStringUtilities.m in Sources */,
 				467DBCBB1CB656BB00398104 /* SCRNibLoader.m in Sources */,
 				468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */,
-				463AE34B1CAFDED100D194B0 /* SCRPagedList.m in Sources */,
 				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
 				463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */,
 				467DBCBC1CB656BB00398104 /* SCRViewSizer.m in Sources */,
@@ -698,19 +708,19 @@
 				463AE36E1CB018A900D194B0 /* SCRSearchButton.m in Sources */,
 				468D9CF41CB1789B00AD5452 /* SCRPhotoOwnerModelWithUrl.m in Sources */,
 				4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */,
-				463AE3551CAFE82700D194B0 /* SCRPagedModel.m in Sources */,
 				467DBCBD1CB656BB00398104 /* UIView+SCRKeyboardDismiss.m in Sources */,
 				4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */,
 				467DBCBA1CB656BB00398104 /* UIImageView+SCRFlickrLoading.m in Sources */,
 				467DBCB51CB656BB00398104 /* UIColor+SCRColorDetection.m in Sources */,
 				463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */,
-				463AE3521CAFE61500D194B0 /* SCRModel.m in Sources */,
+				467DBCCC1CB699F600398104 /* SCRModel.m in Sources */,
 				4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */,
 				463AE3601CAFF6D500D194B0 /* SCRRootViewController.m in Sources */,
 				463AE3801CB0229300D194B0 /* SCRSearchBuilder.m in Sources */,
 				467DBCB81CB656BB00398104 /* SCRDevice.m in Sources */,
 				463AE3581CAFE96500D194B0 /* SCRPhotoModel.m in Sources */,
 				4675A5431CADA535009578F8 /* main.m in Sources */,
+				467DBCD11CB69A0500398104 /* SCRPagedList.m in Sources */,
 				4675A5781CADACD9009578F8 /* SCRCommsContextImpl.m in Sources */,
 				463AE37C1CB0202700D194B0 /* SCRFlickrApi.m in Sources */,
 				463AE3671CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.m in Sources */,

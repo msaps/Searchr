@@ -9,10 +9,6 @@
 #import "SCRAppDelegate.h"
 #import "SCRCommsContextImpl.h"
 
-@interface SCRAppDelegate ()
-
-@end
-
 @implementation SCRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
