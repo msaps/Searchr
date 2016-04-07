@@ -35,55 +35,64 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSP-j4-FFJ" userLabel="Background View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d70-dF-7aW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_splash" translatesAutoresizingMaskIntoConstraints="NO" id="d70-dF-7aW">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     </imageView>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-nl-Ykv">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRa-2y-Zzz" userLabel="Blur Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4dK-vP-sYf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZO-ih-Nov">
+                                        <subviews>
+                                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhI-nl-Ykv">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4dK-vP-sYf">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                                    <connections>
-                                                        <segue destination="RqY-PN-6qk" kind="embed" id="uYm-xS-sMo"/>
-                                                    </connections>
-                                                </containerView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="BZO-ih-Nov" firstAttribute="leading" secondItem="4dK-vP-sYf" secondAttribute="leading" id="Dhx-ul-B0r"/>
-                                                <constraint firstAttribute="bottom" secondItem="BZO-ih-Nov" secondAttribute="bottom" id="GZ3-du-lQ5"/>
-                                                <constraint firstAttribute="trailing" secondItem="BZO-ih-Nov" secondAttribute="trailing" id="LbB-yv-gw0"/>
-                                                <constraint firstItem="BZO-ih-Nov" firstAttribute="top" secondItem="4dK-vP-sYf" secondAttribute="top" id="iyN-jy-T4Q"/>
-                                            </constraints>
-                                        </view>
-                                        <blurEffect style="light"/>
-                                    </visualEffectView>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </view>
+                                                <blurEffect style="light"/>
+                                            </visualEffectView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ZhI-nl-Ykv" secondAttribute="trailing" id="1Si-wE-GIl"/>
+                                            <constraint firstItem="ZhI-nl-Ykv" firstAttribute="leading" secondItem="dRa-2y-Zzz" secondAttribute="leading" id="4R9-fH-vPL"/>
+                                            <constraint firstItem="ZhI-nl-Ykv" firstAttribute="top" secondItem="dRa-2y-Zzz" secondAttribute="top" id="XlD-gK-nLK"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZhI-nl-Ykv" secondAttribute="bottom" id="u0A-o5-vbB"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="ZhI-nl-Ykv" firstAttribute="leading" secondItem="kSP-j4-FFJ" secondAttribute="leading" id="05b-0x-hvV"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZhI-nl-Ykv" secondAttribute="trailing" id="M3s-M8-y52"/>
+                                    <constraint firstAttribute="trailing" secondItem="dRa-2y-Zzz" secondAttribute="trailing" id="Nj1-G8-kDM"/>
                                     <constraint firstAttribute="bottom" secondItem="d70-dF-7aW" secondAttribute="bottom" id="Qjb-nD-k1G"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZhI-nl-Ykv" secondAttribute="bottom" id="Va1-sv-5xW"/>
-                                    <constraint firstItem="ZhI-nl-Ykv" firstAttribute="top" secondItem="kSP-j4-FFJ" secondAttribute="top" id="Wx4-mg-UKr"/>
+                                    <constraint firstItem="dRa-2y-Zzz" firstAttribute="top" secondItem="kSP-j4-FFJ" secondAttribute="top" id="e82-KV-57d"/>
+                                    <constraint firstAttribute="bottom" secondItem="dRa-2y-Zzz" secondAttribute="bottom" id="g7p-3Y-mtG"/>
                                     <constraint firstAttribute="trailing" secondItem="d70-dF-7aW" secondAttribute="trailing" id="nUA-gP-7qg"/>
                                     <constraint firstItem="d70-dF-7aW" firstAttribute="top" secondItem="kSP-j4-FFJ" secondAttribute="top" id="xeG-50-Vre"/>
                                     <constraint firstItem="d70-dF-7aW" firstAttribute="leading" secondItem="kSP-j4-FFJ" secondAttribute="leading" id="xyz-XJ-AxW"/>
+                                    <constraint firstItem="dRa-2y-Zzz" firstAttribute="leading" secondItem="kSP-j4-FFJ" secondAttribute="leading" id="y27-ak-ThE"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZO-ih-Nov">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <segue destination="RqY-PN-6qk" kind="embed" id="uYm-xS-sMo"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kSP-j4-FFJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LoH-qY-vAS"/>
                             <constraint firstAttribute="trailing" secondItem="kSP-j4-FFJ" secondAttribute="trailing" id="N6D-Rr-qQo"/>
+                            <constraint firstAttribute="trailing" secondItem="BZO-ih-Nov" secondAttribute="trailing" id="Nn6-Qo-YRo"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kSP-j4-FFJ" secondAttribute="bottom" id="hvP-vF-U6l"/>
                             <constraint firstItem="kSP-j4-FFJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rrG-ZD-wuE"/>
+                            <constraint firstItem="BZO-ih-Nov" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tXI-xS-QzA"/>
+                            <constraint firstItem="BZO-ih-Nov" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wJM-CS-Bhu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="BZO-ih-Nov" secondAttribute="bottom" id="zTZ-aO-gtK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="owR-Rl-JpJ"/>
                     <connections>
+                        <outlet property="blurViewContainer" destination="dRa-2y-Zzz" id="X3t-Ti-RN6"/>
                         <outlet property="imageView" destination="d70-dF-7aW" id="lmW-qG-XDo"/>
                         <segue destination="UMM-wV-g3w" kind="presentation" identifier="showSearchResultsSegue" modalPresentationStyle="overCurrentContext" id="NLi-xx-snH"/>
                     </connections>
@@ -114,16 +123,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searchr Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BdZ-Km-uzv">
-                                                        <rect key="frame" x="0.0" y="64" width="600" height="58"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="48"/>
+                                                        <rect key="frame" x="0.0" y="64" width="600" height="66"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="48"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DpX-Zu-hzr" userLabel="Text Field Container">
-                                                        <rect key="frame" x="0.0" y="122" width="600" height="131"/>
+                                                        <rect key="frame" x="0.0" y="130" width="600" height="123"/>
                                                         <subviews>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RKj-Dm-HiV">
-                                                                <rect key="frame" x="180" y="46" width="240" height="40"/>
+                                                                <rect key="frame" x="180" y="42" width="240" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="240" id="Iv5-R3-7s4"/>
                                                                     <constraint firstAttribute="height" constant="40" id="dHf-aR-hUV"/>
@@ -307,6 +316,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_splash" width="1080" height="1080"/>
         <image name="icon_search" width="70" height="70"/>
     </resources>
 </document>

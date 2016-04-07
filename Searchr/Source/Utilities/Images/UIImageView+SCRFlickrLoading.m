@@ -15,22 +15,25 @@
 - (void)scr_setImageWithModel:(SCRPhotoModelWithUrl *)photoModel {
     
     NSURL *url = photoModel.photoUrl;
-    [self doSetImageWithUrl:url];
+    [self doSetImageWithUrl:url placeholder:nil];
 }
 
 - (void)scr_setImageWithUrl:(NSURL *)url {
-    [self doSetImageWithUrl:url];
+    [self doSetImageWithUrl:url placeholder:nil];
 }
 
-- (void)doSetImageWithUrl:(NSURL *)url {
-    [self scr_loadImageWithUrl:url completion:^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
+- (void)doSetImageWithUrl:(NSURL *)url placeholder:(UIImage *)placeholder {
+    [self scr_loadImageWithUrl:url
+                   placeholder:placeholder
+                    completion:
+     ^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
         if (image) {
             [self setImage:image animated:!fromCache];
         }
     }];
 }
 
-- (void)scr_loadImageWithUrl:(NSURL *)url completion:(SCRFlickrImageLoadingCompletionBlock)completion {
+- (void)scr_loadImageWithUrl:(NSURL *)url placeholder:(UIImage *)placeholder completion:(SCRFlickrImageLoadingCompletionBlock)completion  {
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     UIImage *cachedImage = [[[UIImageView class]sharedImageCache]cachedImageForRequest:urlRequest];
     
@@ -42,10 +45,12 @@
         
         // set placeholder temporarily
         static UIImage *_placeholderImage;
-        if (!_placeholderImage) {
-            _placeholderImage = [UIImage new];
+        if (!placeholder) {
+            if (!_placeholderImage) {
+                _placeholderImage = [UIImage new];
+            }
+            self.image = _placeholderImage;
         }
-        self.image = _placeholderImage;
         
         NSOperationQueue *queue = [[NSOperationQueue alloc]init];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:urlRequest];

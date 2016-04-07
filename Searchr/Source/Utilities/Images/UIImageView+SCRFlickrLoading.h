@@ -17,7 +17,9 @@ typedef void(^SCRFlickrImageLoadingCompletionBlock)(UIImage *_Nullable image, BO
 
 - (void)scr_setImageWithUrl:(nonnull NSURL *)url;
 
-- (void)scr_loadImageWithUrl:(nonnull NSURL *)url completion:(nullable SCRFlickrImageLoadingCompletionBlock)completion;
+- (void)scr_loadImageWithUrl:(nonnull NSURL *)url
+                 placeholder:(nullable UIImage *)placeholder
+                  completion:(nullable SCRFlickrImageLoadingCompletionBlock)completion;
 
 - (void)setImage:(nullable UIImage *)image animated:(BOOL)animated;
 

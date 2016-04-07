@@ -15,6 +15,7 @@
 @interface SCRRootViewController () <SCRPhotosControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIView *blurViewContainer;
 
 @property (nonatomic, assign) UIReadableForegroundColor requiredForegroundColor;
 
@@ -34,7 +35,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (!self.imageView.image) {
+    if ([self.engine.photosController interestingPhotos].data.count == 0) {
         [self.engine.photosController getInterestingPhotos];
     }
 }
@@ -80,18 +81,26 @@ didLoadInterestingPhotos:(SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
     // load the interesting photo
     SCRWeakSelfCreate;
     [self.imageView scr_loadImageWithUrl:photoWithUrl.photoUrl
+                             placeholder:self.imageView.image
                               completion:
      ^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
-         SCRStrongSelfStart;
-         
-         // get the required foreground color from the image
-         UIColor *averageImageColor = [image averageColor];
-         UIReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
-         
-         // display the image
-         strongSelf.requiredForegroundColor = readableColor;
-         [strongSelf.imageView setImage:image animated:!fromCache];
-         SCRStrongSelfEnd;
+        SCRStrongSelfStart;
+        
+         if (!error) {
+             // get the required foreground color from the image
+             UIColor *averageImageColor = [image averageColor];
+             UIReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
+             
+             // display the image
+             strongSelf.requiredForegroundColor = readableColor;
+             
+             // fade in blur view
+             [UIView animateWithDuration:0.2f animations:^{
+                 strongSelf.blurViewContainer.alpha = 1.0f;
+             }];
+             [strongSelf.imageView setImage:image animated:!fromCache];
+         }
+        SCRStrongSelfEnd;
     }];
 }
 

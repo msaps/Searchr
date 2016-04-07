@@ -56,19 +56,8 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
     }];
 }
 
-- (void)updateViewConstraints:(UIView *)view forDevice:(SCRDevice *)device {
-    [super updateViewConstraints:view forDevice:device];
-    
-    switch (device.screenClassification) {
-
-        case SCRDeviceScreenClassificationSmall:
-        case SCRDeviceScreenClassificationMedium:
-            self.titlelabelTopMargin.constant = 48.0f;
-            break;
-            
-        default:
-            break;
-    }
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 #pragma mark - Interaction
