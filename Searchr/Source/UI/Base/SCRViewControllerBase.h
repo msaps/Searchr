@@ -13,9 +13,11 @@
 #import "SCRViewSizer.h"
 #import "UIImage+SCRColorDetection.h"
 #import "SCRDevice.h"
+#import "SCRKeyboardDelegate.h"
 
-@interface SCRViewControllerBase : UIViewController
+@interface SCRViewControllerBase : UIViewController <SCRKeyboardDelegate>
 
+@property (nonatomic, strong) SCRKeyboardDelegate *keyboardDelegate;
 @property (nonatomic, strong) SCRViewSizer *viewSizer;
 @property (nonatomic, assign) UIReadableForegroundColor requiredForegroundColor;
 

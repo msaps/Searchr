@@ -43,6 +43,7 @@
 		467DBCBB1CB656BB00398104 /* SCRNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB01CB656BB00398104 /* SCRNibLoader.m */; };
 		467DBCBC1CB656BB00398104 /* SCRViewSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB21CB656BB00398104 /* SCRViewSizer.m */; };
 		467DBCBD1CB656BB00398104 /* UIView+SCRKeyboardDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */; };
+		467DBCC01CB6571800398104 /* SCRKeyboardDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */; };
 		468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */; };
 		468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */; };
 		468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE71CB1676900AD5452 /* SCRPhotoOwnerModel.m */; };
@@ -131,6 +132,8 @@
 		467DBCB21CB656BB00398104 /* SCRViewSizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRViewSizer.m; sourceTree = "<group>"; };
 		467DBCB31CB656BB00398104 /* UIView+SCRKeyboardDismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SCRKeyboardDismiss.h"; sourceTree = "<group>"; };
 		467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SCRKeyboardDismiss.m"; sourceTree = "<group>"; };
+		467DBCBE1CB6571800398104 /* SCRKeyboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRKeyboardDelegate.h; sourceTree = "<group>"; };
+		467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRKeyboardDelegate.m; sourceTree = "<group>"; };
 		468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		468D9CE31CB160BA00AD5452 /* SCRPhotoModelWithInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModelWithInfo.h; sourceTree = "<group>"; };
 		468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModelWithInfo.m; sourceTree = "<group>"; };
@@ -488,6 +491,8 @@
 				467DBCB21CB656BB00398104 /* SCRViewSizer.m */,
 				467DBCB31CB656BB00398104 /* UIView+SCRKeyboardDismiss.h */,
 				467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */,
+				467DBCBE1CB6571800398104 /* SCRKeyboardDelegate.h */,
+				467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -671,6 +676,7 @@
 				4675A5861CADBF34009578F8 /* SCRWeakRef.m in Sources */,
 				468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */,
 				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
+				467DBCC01CB6571800398104 /* SCRKeyboardDelegate.m in Sources */,
 				46B198471CB3C5BB0050814D /* SCRSearch.m in Sources */,
 				469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */,
 				468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */,

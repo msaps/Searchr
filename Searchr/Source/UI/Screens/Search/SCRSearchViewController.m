@@ -36,6 +36,8 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
     [super viewDidLoad];
     [self.view becomeKeyboardDismissalResponder];
     
+    self.keyboardDelegate = [SCRKeyboardDelegate keyboardDelegateForResponder:self];
+    
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(stopLoadingNotificationReceived:)
                                                 name:SCRSearchViewControllerStopLoadingNotification object:nil];
@@ -213,6 +215,16 @@ replacementString:(NSString *)string {
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self searchButtonPressed:textField];
     return YES;
+}
+
+#pragma mark - SCRKeyboardDelegate
+
+- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
+    
+}
+
+- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
+    
 }
 
 @end
