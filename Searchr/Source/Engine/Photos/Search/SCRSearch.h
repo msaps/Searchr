@@ -13,7 +13,8 @@
 
 typedef NS_ENUM(NSInteger, SCRSearchRadiusUnit) {
     SCRSearchRadiusUnitKilometers,
-    SCRSearchRadiusUnitMiles
+    SCRSearchRadiusUnitMiles,
+    SCRSearchRadiusUnitNone
 };
 
 @interface SCRSearch : NSObject <NSCopying>
