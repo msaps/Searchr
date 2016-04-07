@@ -20,7 +20,6 @@
 		463AE3801CB0229300D194B0 /* SCRSearchBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE37F1CB0229300D194B0 /* SCRSearchBuilder.m */; };
 		463AE3851CB023F800D194B0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463AE3841CB023F800D194B0 /* CoreLocation.framework */; };
 		4675A5431CADA535009578F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5421CADA535009578F8 /* main.m */; };
-		4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4675A5451CADA535009578F8 /* SCRAppDelegate.m */; };
 		4675A55F1CADA5BE009578F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4675A55C1CADA5BE009578F8 /* Main.storyboard */; };
 		4675A5641CADA5C4009578F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4675A5621CADA5C4009578F8 /* Assets.xcassets */; };
 		4675A5651CADA5C4009578F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4675A5631CADA5C4009578F8 /* LaunchScreen.storyboard */; };
@@ -44,6 +43,7 @@
 		467DBCCC1CB699F600398104 /* SCRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCC91CB699F600398104 /* SCRModel.m */; };
 		467DBCCD1CB699F600398104 /* SCRPagedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCCB1CB699F600398104 /* SCRPagedModel.m */; };
 		467DBCD11CB69A0500398104 /* SCRPagedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCD01CB69A0500398104 /* SCRPagedList.m */; };
+		467DBCE31CB6F03200398104 /* SCRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCE21CB6F03200398104 /* SCRAppDelegate.m */; };
 		468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */; };
 		468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */; };
 		468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE71CB1676900AD5452 /* SCRPhotoOwnerModel.m */; };
@@ -84,8 +84,6 @@
 		463AE3841CB023F800D194B0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4675A53E1CADA535009578F8 /* Searchr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4675A5421CADA535009578F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4675A5441CADA535009578F8 /* SCRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRAppDelegate.h; sourceTree = "<group>"; };
-		4675A5451CADA535009578F8 /* SCRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCRAppDelegate.m; sourceTree = "<group>"; };
 		4675A5521CADA535009578F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4675A55C1CADA5BE009578F8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4675A5621CADA5C4009578F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +131,8 @@
 		467DBCCB1CB699F600398104 /* SCRPagedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedModel.m; sourceTree = "<group>"; };
 		467DBCCF1CB69A0500398104 /* SCRPagedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPagedList.h; sourceTree = "<group>"; };
 		467DBCD01CB69A0500398104 /* SCRPagedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedList.m; sourceTree = "<group>"; };
+		467DBCE11CB6F03200398104 /* SCRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRAppDelegate.h; sourceTree = "<group>"; };
+		467DBCE21CB6F03200398104 /* SCRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRAppDelegate.m; sourceTree = "<group>"; };
 		468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		468D9CE31CB160BA00AD5452 /* SCRPhotoModelWithInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModelWithInfo.h; sourceTree = "<group>"; };
 		468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModelWithInfo.m; sourceTree = "<group>"; };
@@ -295,8 +295,6 @@
 		4675A5401CADA535009578F8 /* Searchr */ = {
 			isa = PBXGroup;
 			children = (
-				4675A5441CADA535009578F8 /* SCRAppDelegate.h */,
-				4675A5451CADA535009578F8 /* SCRAppDelegate.m */,
 				4675A5581CADA5BE009578F8 /* Source */,
 				4675A5611CADA5C4009578F8 /* Resource */,
 				4675A5411CADA535009578F8 /* Supporting Files */,
@@ -316,6 +314,8 @@
 		4675A5581CADA5BE009578F8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				467DBCE11CB6F03200398104 /* SCRAppDelegate.h */,
+				467DBCE21CB6F03200398104 /* SCRAppDelegate.m */,
 				4675A5591CADA5BE009578F8 /* Engine */,
 				4675A55A1CADA5BE009578F8 /* UI */,
 			);
@@ -700,6 +700,7 @@
 				468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */,
 				4675A5751CADA951009578F8 /* SCRConfig.m in Sources */,
 				463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */,
+				467DBCE31CB6F03200398104 /* SCRAppDelegate.m in Sources */,
 				467DBCBC1CB656BB00398104 /* SCRViewSizer.m in Sources */,
 				4675A56D1CADA91F009578F8 /* SCREngine.m in Sources */,
 				468D9CFC1CB1817500AD5452 /* SCRCircularImageView.m in Sources */,
@@ -714,7 +715,6 @@
 				467DBCB51CB656BB00398104 /* UIColor+SCRColorDetection.m in Sources */,
 				463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */,
 				467DBCCC1CB699F600398104 /* SCRModel.m in Sources */,
-				4675A5461CADA535009578F8 /* SCRAppDelegate.m in Sources */,
 				463AE3601CAFF6D500D194B0 /* SCRRootViewController.m in Sources */,
 				463AE3801CB0229300D194B0 /* SCRSearchBuilder.m in Sources */,
 				467DBCB81CB656BB00398104 /* SCRDevice.m in Sources */,
