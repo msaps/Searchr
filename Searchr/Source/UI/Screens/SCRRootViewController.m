@@ -79,12 +79,10 @@ didLoadInterestingPhotos:(SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
                                                                             config:self.engine.config];
     
     // load the interesting photo
-    SCRWeakSelfCreate;
     [self.imageView scr_loadImageWithUrl:photoWithUrl.photoUrl
                              placeholder:self.imageView.image
                               completion:
      ^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
-        SCRStrongSelfStart;
         
          if (!error) {
              // get the required foreground color from the image
@@ -92,15 +90,14 @@ didLoadInterestingPhotos:(SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
              UIReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
              
              // display the image
-             strongSelf.requiredForegroundColor = readableColor;
+             self.requiredForegroundColor = readableColor;
              
              // fade in blur view
              [UIView animateWithDuration:0.25f animations:^{
-                 strongSelf.blurViewContainer.alpha = 1.0f;
+                 self.blurViewContainer.alpha = 1.0f;
              }];
-             [strongSelf.imageView setImage:image animated:!fromCache];
+             [self.imageView setImage:image animated:!fromCache];
          }
-        SCRStrongSelfEnd;
     }];
 }
 

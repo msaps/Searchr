@@ -198,16 +198,13 @@ didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
     CGFloat width = collectionView.bounds.size.width - (sectionInset.left + sectionInset.right);
     SCRPhotoModel *photo = self.items[indexPath.row];
     
-    SCRWeakSelfCreate;
     CGSize size = [self.viewSizer autoSizeNibViewWithRequiredWidth:width
                                                       sizeViewType:[SCRSearchResultCollectionViewCell class]
                                                         identifier:indexPath
                                                    populationBlock:
                    ^(UIView * _Nonnull view) {
-                       SCRStrongSelfStart;
                        SCRSearchResultCollectionViewCell *cell = (SCRSearchResultCollectionViewCell *)view;
-                       [strongSelf populateCell:cell withPhotoModel:photo];
-                       SCRStrongSelfEnd;
+                       [self populateCell:cell withPhotoModel:photo];
     }];
     return size;
 }

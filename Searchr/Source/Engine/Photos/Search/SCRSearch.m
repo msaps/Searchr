@@ -72,51 +72,84 @@ NSString *const kSCRSearchRadiusUnitMiles = @"mi";
 
 - (void)setText:(NSString *)text {
     _text = text;
-    [self registerComponent:text forKey:kSCRSearchTextKey];
+    if (text.length > 0) {
+        [self registerComponent:text forKey:kSCRSearchTextKey];
+    } else {
+        [self unregisterComponentForKey:kSCRSearchTextKey];
+    }
 }
 
 - (void)setMinimumUploadDate:(NSDate *)minimumUploadDate {
     _minimumUploadDate = minimumUploadDate;
-    [self registerComponent:minimumUploadDate forKey:kSCRSearchMinimumUploadDateKey];
+    if (minimumUploadDate) {
+        [self registerComponent:minimumUploadDate forKey:kSCRSearchMinimumUploadDateKey];
+    } else {
+        [self unregisterComponentForKey:kSCRSearchMinimumUploadDateKey];
+    }
 }
 
 - (void)setMaximumUploadDate:(NSDate *)maximumUploadDate {
     _maximumUploadDate = maximumUploadDate;
-    [self registerComponent:maximumUploadDate forKey:kSCRSearchMaximumUploadDateKey];
+    if (maximumUploadDate) {
+        [self registerComponent:maximumUploadDate forKey:kSCRSearchMaximumUploadDateKey];
+    } else {
+        [self unregisterComponentForKey:kSCRSearchMaximumUploadDateKey];
+    }
 }
 
 - (void)setMinimumTakenDate:(NSDate *)minimumTakenDate {
     _minimumTakenDate = minimumTakenDate;
-    [self registerComponent:minimumTakenDate forKey:kSCRSearchMinimumTakenDateKey];
+    if (minimumTakenDate) {
+        [self registerComponent:minimumTakenDate forKey:kSCRSearchMinimumTakenDateKey];
+    } else {
+        [self unregisterComponentForKey:kSCRSearchMinimumTakenDateKey];
+    }
 }
 
 - (void)setMaximumTakenDate:(NSDate *)maximumTakenDate {
     _maximumTakenDate = maximumTakenDate;
-    [self registerComponent:maximumTakenDate forKey:kSCRSearchMaximumTakenDateKey];
+    if (maximumTakenDate) {
+        [self registerComponent:maximumTakenDate forKey:kSCRSearchMaximumTakenDateKey];
+    } else {
+        [self unregisterComponentForKey:kSCRSearchMaximumTakenDateKey];
+    }
 }
 
 - (void)setLocationCoordinate:(CLLocationCoordinate2D)locationCoordinate {
-    if (locationCoordinate.latitude != _locationCoordinate.latitude &&
-        locationCoordinate.longitude != _locationCoordinate.longitude) {
-        _locationCoordinate = locationCoordinate;
-        [self registerComponent:@(locationCoordinate.latitude) forKey:kSCRSearchLatitudeKey];
-        [self registerComponent:@(locationCoordinate.longitude) forKey:kSCRSearchLongitudeKey];
+    if (CLLocationCoordinate2DIsValid(locationCoordinate)) {
+        if (locationCoordinate.latitude != _locationCoordinate.latitude &&
+            locationCoordinate.longitude != _locationCoordinate.longitude) {
+            _locationCoordinate = locationCoordinate;
+            [self registerComponent:@(locationCoordinate.latitude) forKey:kSCRSearchLatitudeKey];
+            [self registerComponent:@(locationCoordinate.longitude) forKey:kSCRSearchLongitudeKey];
+        }
+    } else {
+        [self unregisterComponentForKey:kSCRSearchLatitudeKey];
+        [self unregisterComponentForKey:kSCRSearchLongitudeKey];
     }
 }
 
 - (void)setLocationRadius:(NSInteger)locationRadius {
-    if (_locationRadius != locationRadius) {
-        _locationRadius = locationRadius;
-        [self registerComponent:@(locationRadius)
-                         forKey:kSCRSearchRadiusKey];
+    if (locationRadius > 0) {
+        if (_locationRadius != locationRadius) {
+            _locationRadius = locationRadius;
+            [self registerComponent:@(locationRadius)
+                             forKey:kSCRSearchRadiusKey];
+        }
+    } else {
+        [self unregisterComponentForKey:kSCRSearchRadiusKey];
     }
 }
 
 - (void)setLocationRadiusUnit:(SCRSearchRadiusUnit)locationRadiusUnit {
-    if (_locationRadiusUnit != locationRadiusUnit) {
-        _locationRadiusUnit = locationRadiusUnit;
-        [self registerComponent:[self locationRadiusUnitStringForRadiusUnit:locationRadiusUnit]
-                         forKey:kSCRSearchRadiusUnitsKey];
+    if (locationRadiusUnit != SCRSearchRadiusUnitNone) {
+        if (_locationRadiusUnit != locationRadiusUnit) {
+            _locationRadiusUnit = locationRadiusUnit;
+            [self registerComponent:[self locationRadiusUnitStringForRadiusUnit:locationRadiusUnit]
+                             forKey:kSCRSearchRadiusUnitsKey];
+        }
+    } else {
+        [self unregisterComponentForKey:kSCRSearchRadiusUnitsKey];
     }
 }
 
@@ -132,6 +165,12 @@ NSString *const kSCRSearchRadiusUnitMiles = @"mi";
     }
 }
 
+- (void)unregisterComponentForKey:(NSString *)key {
+    if (key) {
+        [_components removeObjectForKey:key];
+    }
+}
+
 - (NSString *)locationRadiusUnitStringForRadiusUnit:(SCRSearchRadiusUnit)radiusUnit {
     switch (self.locationRadiusUnit) {
         case SCRSearchRadiusUnitKilometers:
@@ -140,13 +179,15 @@ NSString *const kSCRSearchRadiusUnitMiles = @"mi";
         case SCRSearchRadiusUnitMiles:
             return kSCRSearchRadiusUnitMiles;
             
+            default:
+            return nil;
     }
 }
 
 #pragma mark - Private
 
 - (void)setFailed:(BOOL)failed {
-    if (!self.results) { // only set failed if we have no results
+    if (self.results.data.count == 0) { // only set failed if we have no results
         _failed = failed;
     }
 }

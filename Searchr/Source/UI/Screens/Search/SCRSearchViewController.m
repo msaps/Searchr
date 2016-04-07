@@ -13,6 +13,8 @@
 NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchViewControllerStopLoadingNotification";
 CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
 
+typedef void(^UIViewAnimationCompletion)(BOOL finished);
+
 @interface SCRSearchViewController () <SCRPhotosControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -84,11 +86,13 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
     [self.engine.photosController addListener:self];
     if ([self.searchBuilder isValid]) {
         
-        if ([self.searchBuilder.search isEqual:[self.engine.photosController currentSearch]]) { // if results already exist for current search
+        if ([self.searchBuilder.search isEqual:[self.engine.photosController currentSearch]] &&
+            ![self.engine.photosController currentSearch].didFailLoad) { // if results already exist for current search
             [self showSearchResultsScreen];
         } else { // new search required
-            [self.engine.photosController getSearchResultsForSearch:self.searchBuilder.search];
-            [self beginLoadingAnimated:YES];
+            [self beginLoadingAnimated:YES completion:^(BOOL finished) {
+                [self.engine.photosController getSearchResultsForSearch:self.searchBuilder.search];
+            }];
         }
     }
 }
@@ -102,12 +106,13 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
     return _searchBuilder;
 }
 
-- (void)beginLoadingAnimated:(BOOL)animated {
+- (void)beginLoadingAnimated:(BOOL)animated completion:(UIViewAnimationCompletion)completion {
     if (!self.isLoading) {
         self.isLoading = YES;
         
         [self.searchButton startLoadingAnimated:animated];
         if (animated) {
+            [self.view.layer removeAllAnimations];
             [UIView animateWithDuration:0.25f animations:^{
                 self.searchTextField.alpha = 0.0f;
                 self.searchTextField.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
@@ -117,6 +122,9 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
                     self.searchTextField.alpha = 1.0f;
                     self.searchTextField.transform = CGAffineTransformIdentity;
                 }
+                if (completion) {
+                    completion(finished);
+                }
             }];
         } else {
             self.searchTextField.hidden = YES;
@@ -124,10 +132,11 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
     }
 }
 
-- (void)stopLoadingAnimated:(BOOL)animated {
+- (void)stopLoadingAnimated:(BOOL)animated completion:(UIViewAnimationCompletion)completion {
     if (self.isLoading) {
         [self.searchButton stopLoadingAnimated:animated];
         if (animated) {
+            [self.view.layer removeAllAnimations];
             self.searchTextField.alpha = 0.0f;
             self.searchTextField.hidden = NO;
             self.searchTextField.transform = CGAffineTransformMakeScale(0.8f, 0.8f);
@@ -138,6 +147,9 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
                 if (finished) {
                     self.isLoading = NO;
                 }
+                if (completion) {
+                    completion(finished);
+                }
             }];
         } else {
             self.searchTextField.hidden = NO;
@@ -147,7 +159,7 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
 }
 
 - (void)stopLoadingNotificationReceived:(NSNotification *)notification {
-    [self stopLoadingAnimated:NO];
+    [self stopLoadingAnimated:NO completion:nil];
 }
 
 - (void)showSearchResultsScreen {
@@ -180,16 +192,16 @@ CGFloat const kSCRSearchViewControllerKeyboardPadding = 24.0f;
 
 - (void)photosController:(id<SCRPhotosController>)photosController
   didFailToPerformSearch:(nonnull SCRSearchBuilder *)search withError:(nonnull NSError *)error {
-    [self stopLoadingAnimated:YES];
-    
-    // display alert
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Search Failed", nil)
-                                                                             message:NSLocalizedString(@"Could not load photos, please check your connection", nil)
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
-    [self.parentViewController presentViewController:alertController
-                                            animated:YES
-                                          completion:nil];
+    [self stopLoadingAnimated:YES completion:^(BOOL finished) {
+        // display alert
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Search Failed", nil)
+                                                                                 message:NSLocalizedString(@"Could not load photos, please check your connection", nil)
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:nil]];
+        [self.parentViewController presentViewController:alertController
+                                                animated:YES
+                                              completion:nil];
+    }];
 }
 
 #pragma mark - UITextFieldDelegate
