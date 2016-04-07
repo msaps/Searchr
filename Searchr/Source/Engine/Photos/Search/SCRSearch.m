@@ -146,7 +146,7 @@ NSString *const kSCRSearchRadiusUnitMiles = @"mi";
 #pragma mark - Private
 
 - (void)setFailed:(BOOL)failed {
-    if (!self.results) { // only set failed if we have no results
+    if (self.results.data.count == 0) { // only set failed if we have no results
         _failed = failed;
     }
 }
