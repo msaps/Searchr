@@ -44,6 +44,7 @@
 		467DBCCD1CB699F600398104 /* SCRPagedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCCB1CB699F600398104 /* SCRPagedModel.m */; };
 		467DBCD11CB69A0500398104 /* SCRPagedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCD01CB69A0500398104 /* SCRPagedList.m */; };
 		467DBCE31CB6F03200398104 /* SCRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCE21CB6F03200398104 /* SCRAppDelegate.m */; };
+		467DBCE51CB6F6FB00398104 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 467DBCE41CB6F6FB00398104 /* iTunesArtwork */; };
 		468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */; };
 		468D9CE51CB160BA00AD5452 /* SCRPhotoModelWithInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */; };
 		468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 468D9CE71CB1676900AD5452 /* SCRPhotoOwnerModel.m */; };
@@ -133,6 +134,7 @@
 		467DBCD01CB69A0500398104 /* SCRPagedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPagedList.m; sourceTree = "<group>"; };
 		467DBCE11CB6F03200398104 /* SCRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRAppDelegate.h; sourceTree = "<group>"; };
 		467DBCE21CB6F03200398104 /* SCRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRAppDelegate.m; sourceTree = "<group>"; };
+		467DBCE41CB6F6FB00398104 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		468D9CDE1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCRSearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		468D9CE31CB160BA00AD5452 /* SCRPhotoModelWithInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModelWithInfo.h; sourceTree = "<group>"; };
 		468D9CE41CB160BA00AD5452 /* SCRPhotoModelWithInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoModelWithInfo.m; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 		4675A5611CADA5C4009578F8 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				467DBCE41CB6F6FB00398104 /* iTunesArtwork */,
 				4675A5621CADA5C4009578F8 /* Assets.xcassets */,
 				4675A5631CADA5C4009578F8 /* LaunchScreen.storyboard */,
 				463AE3681CB014FA00D194B0 /* Localizable.strings */,
@@ -622,6 +625,7 @@
 				468D9CDF1CB12C5700AD5452 /* SCRSearchResultCollectionViewCell.xib in Resources */,
 				468D9D011CB198E100AD5452 /* SCRSearchResultsFooterView.xib in Resources */,
 				4675A5651CADA5C4009578F8 /* LaunchScreen.storyboard in Resources */,
+				467DBCE51CB6F6FB00398104 /* iTunesArtwork in Resources */,
 				463AE3691CB014FA00D194B0 /* Localizable.strings in Resources */,
 				4675A5641CADA5C4009578F8 /* Assets.xcassets in Resources */,
 				4675A55F1CADA5BE009578F8 /* Main.storyboard in Resources */,
