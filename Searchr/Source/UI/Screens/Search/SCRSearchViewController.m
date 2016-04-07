@@ -15,7 +15,7 @@ NSString *const SCRSearchViewControllerStopLoadingNotification = @"SCRSearchView
 @interface SCRSearchViewController () <SCRPhotosControllerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UIView *contentView;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet SCRSearchButton *searchButton;
 @property (nonatomic, weak) IBOutlet UITextField *searchTextField;
 
