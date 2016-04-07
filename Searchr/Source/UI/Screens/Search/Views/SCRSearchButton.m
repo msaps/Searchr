@@ -20,7 +20,9 @@
     self.imageView.tintColor = [UIColor scr_flickrBlue];
     
     self.layer.borderWidth = 0.5f;
-    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.layer.borderColor = [UIColor scr_lightGrayColor].CGColor;
+    self.layer.rasterizationScale = [UIScreen mainScreen].scale;
+    self.layer.shouldRasterize = YES;
     
     self.activityIndicator.color = [UIColor scr_flickrBlue];
 }

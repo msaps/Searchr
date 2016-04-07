@@ -18,4 +18,8 @@
     return [UIColor colorWithRed:0.992 green:0.086 blue:0.522 alpha:1.00];
 }
 
++ (UIColor *)scr_lightGrayColor {
+    return [UIColor colorWithRed:0.8f green:0.8f blue:0.8f alpha:1.0f];
+}
+
 @end
