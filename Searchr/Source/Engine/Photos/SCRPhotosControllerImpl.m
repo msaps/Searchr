@@ -8,7 +8,7 @@
 
 #import "SCRPhotosControllerImpl.h"
 #import "SCRWeakSelf.h"
-#import "SCRSearchPrivate.h"
+#import "SCRSearch+Private.h"
 
 NSInteger const kSCRPhotosControllerImplPageSize = 20;
 

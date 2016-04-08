@@ -7,7 +7,7 @@
 //
 
 #import "SCRSearchBuilder.h"
-#import "SCRSearchPrivate.h"
+#import "SCRSearch+Private.h"
 
 @implementation SCRSearchBuilder
 

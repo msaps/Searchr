@@ -153,7 +153,7 @@
 		469421CC1CB2E89800A460FF /* SCRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRNavigationBar.m; sourceTree = "<group>"; };
 		46B198451CB3C5BB0050814D /* SCRSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearch.h; sourceTree = "<group>"; };
 		46B198461CB3C5BB0050814D /* SCRSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearch.m; sourceTree = "<group>"; };
-		46B198481CB3C5D60050814D /* SCRSearchPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCRSearchPrivate.h; sourceTree = "<group>"; };
+		46B198481CB3C5D60050814D /* SCRSearch+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCRSearch+Private.h"; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,7 +271,7 @@
 				463AE37F1CB0229300D194B0 /* SCRSearchBuilder.m */,
 				46B198451CB3C5BB0050814D /* SCRSearch.h */,
 				46B198461CB3C5BB0050814D /* SCRSearch.m */,
-				46B198481CB3C5D60050814D /* SCRSearchPrivate.h */,
+				46B198481CB3C5D60050814D /* SCRSearch+Private.h */,
 			);
 			path = Search;
 			sourceTree = "<group>";

@@ -7,7 +7,7 @@
 //
 
 #import "SCRSearch.h"
-#import "SCRSearchPrivate.h"
+#import "SCRSearch+Private.h"
 
 NSString *const kSCRSearchTextKey = @"text";
 NSString *const kSCRSearchMinimumUploadDateKey = @"min_upload_date";
