@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AFB815570C7303507E5E6B7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F9A0D212E68DCA33EBE4EE /* libPods-Searchr.a */; };
 		463AE34F1CAFE60300D194B0 /* SCRPhotoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE34E1CAFE60300D194B0 /* SCRPhotoListModel.m */; };
 		463AE3581CAFE96500D194B0 /* SCRPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE3571CAFE96500D194B0 /* SCRPhotoModel.m */; };
 		463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 463AE35C1CAFF61B00D194B0 /* SCRViewControllerBase.m */; };
@@ -54,11 +55,13 @@
 		468D9D011CB198E100AD5452 /* SCRSearchResultsFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 468D9D001CB198E100AD5452 /* SCRSearchResultsFooterView.xib */; };
 		469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 469421CC1CB2E89800A460FF /* SCRNavigationBar.m */; };
 		46B198471CB3C5BB0050814D /* SCRSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B198461CB3C5BB0050814D /* SCRSearch.m */; };
+		46BCDE301CEBB4A500602BA9 /* UIImageView+SCRFlickrLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BCDE2F1CEBB4A500602BA9 /* UIImageView+SCRFlickrLoading.m */; };
 		46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */; };
-		B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C62383E0711E868B112564 /* libPods-Searchr.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38F9A0D212E68DCA33EBE4EE /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B5FCA979B91FBDC81FF83E /* Pods-Searchr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.release.xcconfig"; sourceTree = "<group>"; };
 		463AE34D1CAFE60300D194B0 /* SCRPhotoListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoListModel.h; sourceTree = "<group>"; };
 		463AE34E1CAFE60300D194B0 /* SCRPhotoListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRPhotoListModel.m; sourceTree = "<group>"; };
 		463AE3561CAFE96500D194B0 /* SCRPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPhotoModel.h; sourceTree = "<group>"; };
@@ -151,11 +154,11 @@
 		46B198451CB3C5BB0050814D /* SCRSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearch.h; sourceTree = "<group>"; };
 		46B198461CB3C5BB0050814D /* SCRSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearch.m; sourceTree = "<group>"; };
 		46B198481CB3C5D60050814D /* SCRSearch+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCRSearch+Private.h"; sourceTree = "<group>"; };
+		46BCDE2E1CEBB4A500602BA9 /* UIImageView+SCRFlickrLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SCRFlickrLoading.h"; sourceTree = "<group>"; };
+		46BCDE2F1CEBB4A500602BA9 /* UIImageView+SCRFlickrLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SCRFlickrLoading.m"; sourceTree = "<group>"; };
 		46F1208B1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRSearchResultCollectionViewCell.h; sourceTree = "<group>"; };
 		46F1208C1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRSearchResultCollectionViewCell.m; sourceTree = "<group>"; };
-		84C62383E0711E868B112564 /* libPods-Searchr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Searchr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A94B73588A9BBE7BAD1E25E0 /* Pods-Searchr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.debug.xcconfig"; sourceTree = "<group>"; };
-		AD698C6911E627CB4DF304D4 /* Pods-Searchr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.release.xcconfig"; sourceTree = "<group>"; };
+		6BE923945241DB4CC42C3C89 /* Pods-Searchr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Searchr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Searchr/Pods-Searchr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,18 +167,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				463AE3851CB023F800D194B0 /* CoreLocation.framework in Frameworks */,
-				B27B02EB48ABDEC5249F27C7 /* libPods-Searchr.a in Frameworks */,
+				1AFB815570C7303507E5E6B7 /* libPods-Searchr.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1173FC7A2F115A4C3660E139 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6BE923945241DB4CC42C3C89 /* Pods-Searchr.debug.xcconfig */,
+				45B5FCA979B91FBDC81FF83E /* Pods-Searchr.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2E80C7F319787A77DDE9CA54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				463AE3841CB023F800D194B0 /* CoreLocation.framework */,
-				84C62383E0711E868B112564 /* libPods-Searchr.a */,
+				38F9A0D212E68DCA33EBE4EE /* libPods-Searchr.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,8 +290,8 @@
 			children = (
 				4675A5401CADA535009578F8 /* Searchr */,
 				4675A53F1CADA535009578F8 /* Products */,
-				8022F3D2F76A050FAEA001A6 /* Pods */,
 				2E80C7F319787A77DDE9CA54 /* Frameworks */,
+				1173FC7A2F115A4C3660E139 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -467,6 +479,8 @@
 			children = (
 				467DBCAA1CB656BB00398104 /* UIImage+SCRColorDetection.h */,
 				467DBCAB1CB656BB00398104 /* UIImage+SCRColorDetection.m */,
+				46BCDE2E1CEBB4A500602BA9 /* UIImageView+SCRFlickrLoading.h */,
+				46BCDE2F1CEBB4A500602BA9 /* UIImageView+SCRFlickrLoading.m */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -546,15 +560,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		8022F3D2F76A050FAEA001A6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A94B73588A9BBE7BAD1E25E0 /* Pods-Searchr.debug.xcconfig */,
-				AD698C6911E627CB4DF304D4 /* Pods-Searchr.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -562,12 +567,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4675A5551CADA535009578F8 /* Build configuration list for PBXNativeTarget "Searchr" */;
 			buildPhases = (
-				18CA40173588D3D4449CBCAD /* Check Pods Manifest.lock */,
+				A65270CBB49DD88599CAE1B3 /* 📦 Check Pods Manifest.lock */,
 				4675A53A1CADA535009578F8 /* Sources */,
 				4675A53B1CADA535009578F8 /* Frameworks */,
 				4675A53C1CADA535009578F8 /* Resources */,
-				F47FE77F29908722E2567B89 /* Embed Pods Frameworks */,
-				800221728E85FA28E502FF6E /* Copy Pods Resources */,
+				C5865367BB3B4F96E09B89C0 /* 📦 Embed Pods Frameworks */,
+				59127D6F87DC012B94190A75 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -630,29 +635,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		18CA40173588D3D4449CBCAD /* Check Pods Manifest.lock */ = {
+		59127D6F87DC012B94190A75 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		800221728E85FA28E502FF6E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -660,14 +650,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Searchr/Pods-Searchr-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F47FE77F29908722E2567B89 /* Embed Pods Frameworks */ = {
+		A65270CBB49DD88599CAE1B3 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C5865367BB3B4F96E09B89C0 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,6 +727,7 @@
 				4675A5781CADACD9009578F8 /* SCRCommsContextImpl.m in Sources */,
 				463AE37C1CB0202700D194B0 /* SCRFlickrApi.m in Sources */,
 				463AE3671CAFF9FC00D194B0 /* SCRPhotoModelWithUrl.m in Sources */,
+				46BCDE301CEBB4A500602BA9 /* UIImageView+SCRFlickrLoading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,7 +818,7 @@
 		};
 		4675A5561CADA535009578F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A94B73588A9BBE7BAD1E25E0 /* Pods-Searchr.debug.xcconfig */;
+			baseConfigurationReference = 6BE923945241DB4CC42C3C89 /* Pods-Searchr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -828,7 +834,7 @@
 		};
 		4675A5571CADA535009578F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD698C6911E627CB4DF304D4 /* Pods-Searchr.release.xcconfig */;
+			baseConfigurationReference = 45B5FCA979B91FBDC81FF83E /* Pods-Searchr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
