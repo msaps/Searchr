@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, UIReadableForegroundColor) {
-    UIReadableForegroundColorWhite,
-    UIReadableForegroundColorBlack
+typedef NS_ENUM(NSInteger, SCRReadableForegroundColor) {
+    SCRReadableForegroundColorWhite,
+    SCRReadableForegroundColorBlack
 };
 
 @interface UIColor (SCRColorDetection)
 
-+ (UIReadableForegroundColor)readableForegroundColorForBackgroundColor:(UIColor *)backgroundColor;
++ (SCRReadableForegroundColor)readableForegroundColorForBackgroundColor:(UIColor *)backgroundColor;
 
 @end

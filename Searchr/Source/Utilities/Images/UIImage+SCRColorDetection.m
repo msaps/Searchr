@@ -41,7 +41,7 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  
  */
-- (UIColor *)averageColor {
+- (UIColor *)scr_averageColor {
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     unsigned char rgba[4];

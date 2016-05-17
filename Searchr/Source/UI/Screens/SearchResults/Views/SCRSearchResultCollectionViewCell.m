@@ -7,7 +7,6 @@
 //
 
 #import "SCRSearchResultCollectionViewCell.h"
-#import "UIImageView+SCRFlickrLoading.h"
 #import "NSDate+SCRStringUtilities.h"
 #import "UIImageView+SCRFlickrLoading.h"
 
@@ -51,8 +50,9 @@
 - (void)setPhotoWithUrl:(SCRPhotoModelWithUrl *)photoWithUrl {
     SCRPhotoModel *photo = photoWithUrl.photoModel;
     
-    [self.imageView scr_setImageWithModel:photoWithUrl];
     self.titleLabel.text = photo.title;
+    [self.imageView scr_setImageWithUrl:photoWithUrl.photoUrl
+                                success:nil failure:nil];
 }
 
 - (void)setPhotoWithInfo:(SCRPhotoModelWithInfo *)photoWithInfo {
@@ -63,7 +63,8 @@
 }
 
 - (void)setPhotoOwnerWithUrl:(SCRPhotoOwnerModelWithUrl *)photoOwnerWithUrl {
-    [self.authorImageView scr_setImageWithUrl:photoOwnerWithUrl.iconUrl];
+    [self.authorImageView scr_setImageWithUrl:photoOwnerWithUrl.iconUrl
+                                      success:nil failure:nil];
 }
 
 - (void)startLoadingAnimated:(BOOL)animated {

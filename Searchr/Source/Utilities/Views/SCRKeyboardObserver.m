@@ -6,7 +6,7 @@
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
-#import "SCRKeyboardDelegate.h"
+#import "SCRKeyboardObserver.h"
 
 @implementation SCRKeyboardUpdate
 
@@ -27,15 +27,15 @@
 
 @end
 
-@implementation SCRKeyboardDelegate
+@implementation SCRKeyboardObserver
 
 #pragma mark - Init
 
-+ (instancetype)keyboardDelegateForResponder:(id<SCRKeyboardDelegate>)responder {
++ (instancetype)keyboardObserverForResponder:(id<SCRKeyboardObserverDelegate>)responder {
     return [[[self class]alloc]initWithResponder:responder];
 }
 
-- (instancetype)initWithResponder:(id<SCRKeyboardDelegate>)responder {
+- (instancetype)initWithResponder:(id<SCRKeyboardObserverDelegate>)responder {
     if (self = [super init]) {
         _responder = responder;
         [self registerNotifications];

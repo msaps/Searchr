@@ -2,25 +2,25 @@
 //  UIImageView+SCRFlickrLoading.h
 //  Searchr
 //
-//  Created by Merrick Sapsford on 02/04/2016.
+//  Created by Merrick Sapsford on 17/05/2016.
 //  Copyright © 2016 Merrick Sapsford. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "SCRPhotoModelWithUrl.h"
 
-typedef void(^SCRFlickrImageLoadingCompletionBlock)(UIImage *_Nullable image, BOOL fromCache, NSError *_Nullable error);
+typedef void(^SCRFlickrLoadingSuccessBlock)(UIImage *_Nonnull image);
+typedef void(^SCRFlickrLoadingFailureBlock)(NSError *_Nonnull error);
 
 @interface UIImageView (SCRFlickrLoading)
 
-- (void)scr_setImageWithModel:(nonnull SCRPhotoModelWithUrl *)photoModel;
+- (void)scr_setImageWithUrl:(nonnull NSURL *)url
+                    success:(nullable SCRFlickrLoadingSuccessBlock)success
+                    failure:(nullable SCRFlickrLoadingFailureBlock)failure;
 
-- (void)scr_setImageWithUrl:(nonnull NSURL *)url;
-
-- (void)scr_loadImageWithUrl:(nonnull NSURL *)url
-                 placeholder:(nullable UIImage *)placeholder
-                  completion:(nullable SCRFlickrImageLoadingCompletionBlock)completion;
-
-- (void)setImage:(nullable UIImage *)image animated:(BOOL)animated;
+- (void)scr_setImageWithUrl:(nonnull NSURL *)url
+                   animated:(BOOL)animated
+                clearOnLoad:(BOOL)clearOnLoad
+                    success:(nullable SCRFlickrLoadingSuccessBlock)success
+                    failure:(nullable SCRFlickrLoadingFailureBlock)failure;
 
 @end

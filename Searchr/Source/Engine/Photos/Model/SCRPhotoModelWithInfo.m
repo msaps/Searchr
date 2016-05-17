@@ -16,8 +16,6 @@ NSString *const kSCRPhotoModelWithInfoTextValueKey = @"_text";
 
 @implementation SCRPhotoModelWithInfo
 
-@synthesize description = _description;
-
 - (void)evaluateDataDictionary:(NSDictionary *)dictionary {
     NSDictionary *photoDictionary = [dictionary objectForKey:kSCRPhotoModelWithInfoPhotoKey];
     [super evaluateDataDictionary:photoDictionary];
@@ -26,7 +24,7 @@ NSString *const kSCRPhotoModelWithInfoTextValueKey = @"_text";
     
     NSDictionary *descriptionDictionary = [photoDictionary objectForKey:kSCRPhotoModelWithInfoDescriptionKey];
     if (descriptionDictionary) {
-        _description = [descriptionDictionary objectForKey:kSCRPhotoModelWithInfoTextValueKey];
+        _photoDescription = [descriptionDictionary objectForKey:kSCRPhotoModelWithInfoTextValueKey];
     }
 }
 

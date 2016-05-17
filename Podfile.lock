@@ -24,7 +24,7 @@ PODS:
   - PureLayout (3.0.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.6)
+  - AFNetworking
   - objectiveflickr
   - PureLayout
 
@@ -33,4 +33,6 @@ SPEC CHECKSUMS:
   objectiveflickr: aed169dae1eb5a5550ca78f7efd7ccde2e4c26e5
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: c266826331ceac0ea1ba155800685a6de6e16416
+
+COCOAPODS: 1.0.0

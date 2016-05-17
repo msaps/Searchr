@@ -11,6 +11,6 @@
 
 @interface UIImage (SCRColorDetection)
 
-- (UIColor *)averageColor;
+- (UIColor *)scr_averageColor;
 
 @end

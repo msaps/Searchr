@@ -8,16 +8,15 @@
 
 #import "SCRRootViewController.h"
 #import "SCRPhotoModelWithUrl.h"
-#import "UIImageView+AFNetworking.h"
-#import <AFNetworking/AFNetworking.h>
 #import "SCRWeakSelf.h"
+#import "UIImageView+SCRFlickrLoading.h"
 
 @interface SCRRootViewController () <SCRPhotosControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIView *blurViewContainer;
 
-@property (nonatomic, assign) UIReadableForegroundColor requiredForegroundColor;
+@property (nonatomic, assign) SCRReadableForegroundColor requiredForegroundColor;
 
 @end
 
@@ -42,7 +41,7 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     switch (self.requiredForegroundColor) {
-        case UIReadableForegroundColorWhite:
+        case SCRReadableForegroundColorWhite:
             return UIStatusBarStyleLightContent;
             
         default:
@@ -59,7 +58,7 @@
 
 #pragma mark - Public
 
-- (void)setRequiredForegroundColor:(UIReadableForegroundColor)requiredForegroundColor {
+- (void)setRequiredForegroundColor:(SCRReadableForegroundColor)requiredForegroundColor {
     _requiredForegroundColor = requiredForegroundColor;
     
     for (SCRViewControllerBase *childViewController in self.childViewControllers) {
@@ -78,27 +77,28 @@ didLoadInterestingPhotos:(SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
     SCRPhotoModelWithUrl *photoWithUrl = [SCRPhotoModelWithUrl photoModelWithModel:photo
                                                                             config:self.engine.config];
     
+    
+    
     // load the interesting photo
-    [self.imageView scr_loadImageWithUrl:photoWithUrl.photoUrl
-                             placeholder:self.imageView.image
-                              completion:
-     ^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
-        
-         if (!error) {
-             // get the required foreground color from the image
-             UIColor *averageImageColor = [image averageColor];
-             UIReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
-             
-             // display the image
-             self.requiredForegroundColor = readableColor;
-             
-             // fade in blur view
-             [UIView animateWithDuration:0.25f animations:^{
-                 self.blurViewContainer.alpha = 1.0f;
-             }];
-             [self.imageView setImage:image animated:!fromCache];
-         }
-    }];
+    [self.imageView scr_setImageWithUrl:photoWithUrl.photoUrl
+                               animated:YES
+                            clearOnLoad:NO
+                                success:
+     ^(UIImage * _Nonnull image) {
+         
+         // get the required foreground color from the image
+         UIColor *averageImageColor = [image scr_averageColor];
+         SCRReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
+         
+         // display the image
+         self.requiredForegroundColor = readableColor;
+         
+         // fade in blur view
+         [UIView animateWithDuration:0.15f animations:^{
+             self.blurViewContainer.alpha = 1.0f;
+         }];
+         
+    } failure:nil];
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController didFailToLoadInterestingPhotos:(NSError *)error {

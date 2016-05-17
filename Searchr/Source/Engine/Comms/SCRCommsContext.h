@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <objectiveflickr/ObjectiveFlickr.h>
-#import "SCRFlickrApi.h"
-#import "SCRRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class SCRFlickrApi;
+@class OFFlickrAPIContext;
 
 @protocol SCRCommsContext <NSObject>
 

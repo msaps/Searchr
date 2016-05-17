@@ -38,7 +38,7 @@ typedef void(^UIViewAnimationCompletion)(BOOL finished);
     [super viewDidLoad];
     [self.view becomeKeyboardDismissalResponder];
     
-    self.keyboardDelegate = [SCRKeyboardDelegate keyboardDelegateForResponder:self];
+    self.keyboardDelegate = [SCRKeyboardObserver keyboardObserverForResponder:self];
     
     [[NSNotificationCenter defaultCenter]addObserver:self
                                             selector:@selector(stopLoadingNotificationReceived:)
@@ -65,7 +65,7 @@ typedef void(^UIViewAnimationCompletion)(BOOL finished);
     }
 }
 
-- (void)setRequiredForegroundColor:(UIReadableForegroundColor)requiredForegroundColor {
+- (void)setRequiredForegroundColor:(SCRReadableForegroundColor)requiredForegroundColor {
     [super setRequiredForegroundColor:requiredForegroundColor];
     [UIView animateWithDuration:0.25f animations:^{
         [self updateTitleLabelForegroundColor];
@@ -169,7 +169,7 @@ typedef void(^UIViewAnimationCompletion)(BOOL finished);
 
 - (void)updateTitleLabelForegroundColor {
     
-    BOOL requiresWhite = (self.requiredForegroundColor == UIReadableForegroundColorWhite);
+    BOOL requiresWhite = (self.requiredForegroundColor == SCRReadableForegroundColorWhite);
     
     self.titleLabel.textColor = requiresWhite ? [UIColor whiteColor] : [UIColor scr_flickrBlue];
     if (requiresWhite) {
@@ -234,7 +234,7 @@ replacementString:(NSString *)string {
 
 #pragma mark - SCRKeyboardDelegate
 
-- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
+- (void)keyboardDelegate:(SCRKeyboardObserver *)delegate willShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
     CGFloat searchButtonBottom = CGRectGetMaxY(self.searchButton.frame) + kSCRSearchViewControllerKeyboardPadding;
     CGFloat keyboardTop = CGRectGetMinY(update.endFrame);
     
@@ -247,7 +247,7 @@ replacementString:(NSString *)string {
     }
 }
 
-- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
+- (void)keyboardDelegate:(SCRKeyboardObserver *)delegate willHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update {
     
     if (!CGPointEqualToPoint(self.scrollView.contentOffset, CGPointZero)) {
         [UIView animateWithDuration:update.animationDuration delay:0.0f options:(NSUInteger)update.animationCurve animations:^{

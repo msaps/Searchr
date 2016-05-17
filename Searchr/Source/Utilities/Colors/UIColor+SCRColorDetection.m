@@ -14,7 +14,7 @@
  Inspired by the answer http://stackoverflow.com/questions/2509443/check-if-uicolor-is-dark-or-bright
  on Remy Vanherweghem
  */
-+ (UIReadableForegroundColor)readableForegroundColorForBackgroundColor:(UIColor *)backgroundColor {
++ (SCRReadableForegroundColor)readableForegroundColorForBackgroundColor:(UIColor *)backgroundColor {
     size_t componentCount = CGColorGetNumberOfComponents(backgroundColor.CGColor);
     const CGFloat *componentColors = CGColorGetComponents(backgroundColor.CGColor);
     
@@ -26,9 +26,9 @@
     }
 
     if (darknessScore >= 125.0f) {
-        return UIReadableForegroundColorBlack;
+        return SCRReadableForegroundColorBlack;
     }
-    return UIReadableForegroundColorWhite;
+    return SCRReadableForegroundColorWhite;
 }
 
 @end

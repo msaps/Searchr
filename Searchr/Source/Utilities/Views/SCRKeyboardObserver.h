@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class SCRKeyboardDelegate;
+@class SCRKeyboardObserver;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface SCRKeyboardUpdate : NSObject
@@ -40,57 +40,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@protocol SCRKeyboardDelegate <NSObject>
+@protocol SCRKeyboardObserverDelegate <NSObject>
 @optional
 
 /**
  The keyboard will show.
  
- @param delegate
- The keyboard delegate.
+ @param observer
+ The keyboard observer.
  
  @param update
  The keyboard update
  */
-- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
+- (void)keyboardDelegate:(SCRKeyboardObserver *)delegate willShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
 /**
  The keyboard did show.
  
- @param delegate
- The keyboard delegate.
+ @param observer
+ The keyboard observer.
  
  @param update
  The keyboard update
  */
-- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate didShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
+- (void)keyboardDelegate:(SCRKeyboardObserver *)delegate didShowKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
 /**
  The keyboard will hide.
  
- @param delegate
- The keyboard delegate.
+ @param observer
+ The keyboard observer.
  
  @param update
  The keyboard update
  */
-- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate willHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
+- (void)keyboardDelegate:(SCRKeyboardObserver *)delegate willHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
 /**
  The keyboard did hide.
  
- @param delegate
- The keyboard delegate.
+ @param observer
+ The keyboard observer.
  
  @param update
  The keyboard update
  */
-- (void)keyboardDelegate:(SCRKeyboardDelegate *)delegate didHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
+- (void)keyboardDelegate:(SCRKeyboardObserver *)delegate didHideKeyboardWithUpdate:(SCRKeyboardUpdate *)update;
 
 @end
 
-@interface SCRKeyboardDelegate : NSObject
+@interface SCRKeyboardObserver : NSObject
 
-@property (nonatomic, weak, readonly) id<SCRKeyboardDelegate> responder;
+@property (nonatomic, weak, readonly) id<SCRKeyboardObserverDelegate> responder;
 
-+ (instancetype)keyboardDelegateForResponder:(id<SCRKeyboardDelegate>)responder;
++ (instancetype)keyboardObserverForResponder:(id<SCRKeyboardObserverDelegate>)responder;
 
 @end
 NS_ASSUME_NONNULL_END

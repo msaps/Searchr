@@ -139,6 +139,11 @@ CGFloat const kSCRSearchResultsViewControllerFooterHeight = 44.0f;
 didFailToLoadPhotoInfoForPhoto:(SCRPhotoModel *)photo
                withError:(NSError *)error {
     
+    
+    // stop cell loading
+    NSIndexPath *indexPath = [self indexPathForPhotoWithIdentifier:photo.identifier];
+    SCRSearchResultCollectionViewCell *cell = (SCRSearchResultCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    [cell stopLoadingAnimated:YES];
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController

@@ -11,7 +11,7 @@
 
 @interface SCRControllerBaseImpl ()
 
-@property (nonatomic, copy) NSMutableArray *listeners;
+@property (nonatomic, strong) NSMutableArray *listeners;
 
 @end
 
