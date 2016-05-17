@@ -18,7 +18,7 @@
 #pragma mark - Init
 
 + (instancetype)commsContextWithConfig:(SCRConfig *)config {
-    return [[SCRCommsContextImpl alloc]initWithConfig:config];
+    return [[[self class]alloc]initWithConfig:config];
 }
 
 - (instancetype)initWithConfig:(SCRConfig *)config {
