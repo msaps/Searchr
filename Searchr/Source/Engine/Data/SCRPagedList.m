@@ -22,7 +22,7 @@
 }
 
 - (instancetype)initListWithData:(id)data pageSize:(NSInteger)pageSize currentPage:(NSInteger)currentPage {
-    if (self = [super init]) {
+    if (self = [self init]) {
         _pageSize = pageSize;
         [self addPageWithData:data pageNumber:currentPage];
     }
