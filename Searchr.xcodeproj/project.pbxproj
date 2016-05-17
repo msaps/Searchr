@@ -35,7 +35,6 @@
 		467DBCB71CB656BB00398104 /* NSDate+SCRStringUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCA51CB656BB00398104 /* NSDate+SCRStringUtilities.m */; };
 		467DBCB81CB656BB00398104 /* SCRDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCA81CB656BB00398104 /* SCRDevice.m */; };
 		467DBCB91CB656BB00398104 /* UIImage+SCRColorDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCAB1CB656BB00398104 /* UIImage+SCRColorDetection.m */; };
-		467DBCBA1CB656BB00398104 /* UIImageView+SCRFlickrLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCAD1CB656BB00398104 /* UIImageView+SCRFlickrLoading.m */; };
 		467DBCBB1CB656BB00398104 /* SCRNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB01CB656BB00398104 /* SCRNibLoader.m */; };
 		467DBCBC1CB656BB00398104 /* SCRViewSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB21CB656BB00398104 /* SCRViewSizer.m */; };
 		467DBCBD1CB656BB00398104 /* UIView+SCRKeyboardDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */; };
@@ -116,8 +115,6 @@
 		467DBCA81CB656BB00398104 /* SCRDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRDevice.m; sourceTree = "<group>"; };
 		467DBCAA1CB656BB00398104 /* UIImage+SCRColorDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SCRColorDetection.h"; sourceTree = "<group>"; };
 		467DBCAB1CB656BB00398104 /* UIImage+SCRColorDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SCRColorDetection.m"; sourceTree = "<group>"; };
-		467DBCAC1CB656BB00398104 /* UIImageView+SCRFlickrLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SCRFlickrLoading.h"; sourceTree = "<group>"; };
-		467DBCAD1CB656BB00398104 /* UIImageView+SCRFlickrLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SCRFlickrLoading.m"; sourceTree = "<group>"; };
 		467DBCAF1CB656BB00398104 /* SCRNibLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRNibLoader.h; sourceTree = "<group>"; };
 		467DBCB01CB656BB00398104 /* SCRNibLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRNibLoader.m; sourceTree = "<group>"; };
 		467DBCB11CB656BB00398104 /* SCRViewSizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRViewSizer.h; sourceTree = "<group>"; };
@@ -470,8 +467,6 @@
 			children = (
 				467DBCAA1CB656BB00398104 /* UIImage+SCRColorDetection.h */,
 				467DBCAB1CB656BB00398104 /* UIImage+SCRColorDetection.m */,
-				467DBCAC1CB656BB00398104 /* UIImageView+SCRFlickrLoading.h */,
-				467DBCAD1CB656BB00398104 /* UIImageView+SCRFlickrLoading.m */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -715,7 +710,6 @@
 				4675A58A1CADC28A009578F8 /* SCRRequest.m in Sources */,
 				467DBCBD1CB656BB00398104 /* UIView+SCRKeyboardDismiss.m in Sources */,
 				4675A5811CADBB13009578F8 /* SCRControllerBaseImpl.m in Sources */,
-				467DBCBA1CB656BB00398104 /* UIImageView+SCRFlickrLoading.m in Sources */,
 				467DBCB51CB656BB00398104 /* UIColor+SCRColorDetection.m in Sources */,
 				463AE35D1CAFF61B00D194B0 /* SCRViewControllerBase.m in Sources */,
 				467DBCCC1CB699F600398104 /* SCRModel.m in Sources */,

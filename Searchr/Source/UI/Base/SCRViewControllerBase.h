@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SCREngine.h"
-#import "UIImageView+SCRFlickrLoading.h"
 #import "UIColor+SCRColorPalette.h"
 #import "SCRViewSizer.h"
 #import "UIImage+SCRColorDetection.h"

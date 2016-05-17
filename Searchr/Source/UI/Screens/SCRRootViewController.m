@@ -79,26 +79,26 @@ didLoadInterestingPhotos:(SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
                                                                             config:self.engine.config];
     
     // load the interesting photo
-    [self.imageView scr_loadImageWithUrl:photoWithUrl.photoUrl
-                             placeholder:self.imageView.image
-                              completion:
-     ^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
-        
-         if (!error) {
-             // get the required foreground color from the image
-             UIColor *averageImageColor = [image averageColor];
-             UIReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
-             
-             // display the image
-             self.requiredForegroundColor = readableColor;
-             
-             // fade in blur view
-             [UIView animateWithDuration:0.25f animations:^{
-                 self.blurViewContainer.alpha = 1.0f;
-             }];
-             [self.imageView setImage:image animated:!fromCache];
-         }
-    }];
+//    [self.imageView scr_loadImageWithUrl:photoWithUrl.photoUrl
+//                             placeholder:self.imageView.image
+//                              completion:
+//     ^(UIImage * _Nullable image, BOOL fromCache, NSError * _Nullable error) {
+//        
+//         if (!error) {
+//             // get the required foreground color from the image
+//             UIColor *averageImageColor = [image averageColor];
+//             UIReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
+//             
+//             // display the image
+//             self.requiredForegroundColor = readableColor;
+//             
+//             // fade in blur view
+//             [UIView animateWithDuration:0.25f animations:^{
+//                 self.blurViewContainer.alpha = 1.0f;
+//             }];
+//             [self.imageView setImage:image animated:!fromCache];
+//         }
+//    }];
 }
 
 - (void)photosController:(id<SCRPhotosController>)photosController didFailToLoadInterestingPhotos:(NSError *)error {
