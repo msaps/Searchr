@@ -39,7 +39,7 @@
 		467DBCBB1CB656BB00398104 /* SCRNibLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB01CB656BB00398104 /* SCRNibLoader.m */; };
 		467DBCBC1CB656BB00398104 /* SCRViewSizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB21CB656BB00398104 /* SCRViewSizer.m */; };
 		467DBCBD1CB656BB00398104 /* UIView+SCRKeyboardDismiss.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */; };
-		467DBCC01CB6571800398104 /* SCRKeyboardDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */; };
+		467DBCC01CB6571800398104 /* SCRKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCBF1CB6571800398104 /* SCRKeyboardObserver.m */; };
 		467DBCCC1CB699F600398104 /* SCRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCC91CB699F600398104 /* SCRModel.m */; };
 		467DBCCD1CB699F600398104 /* SCRPagedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCCB1CB699F600398104 /* SCRPagedModel.m */; };
 		467DBCD11CB69A0500398104 /* SCRPagedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 467DBCD01CB69A0500398104 /* SCRPagedList.m */; };
@@ -124,8 +124,8 @@
 		467DBCB21CB656BB00398104 /* SCRViewSizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRViewSizer.m; sourceTree = "<group>"; };
 		467DBCB31CB656BB00398104 /* UIView+SCRKeyboardDismiss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SCRKeyboardDismiss.h"; sourceTree = "<group>"; };
 		467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SCRKeyboardDismiss.m"; sourceTree = "<group>"; };
-		467DBCBE1CB6571800398104 /* SCRKeyboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRKeyboardDelegate.h; sourceTree = "<group>"; };
-		467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRKeyboardDelegate.m; sourceTree = "<group>"; };
+		467DBCBE1CB6571800398104 /* SCRKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRKeyboardObserver.h; sourceTree = "<group>"; };
+		467DBCBF1CB6571800398104 /* SCRKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRKeyboardObserver.m; sourceTree = "<group>"; };
 		467DBCC81CB699F600398104 /* SCRModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRModel.h; sourceTree = "<group>"; };
 		467DBCC91CB699F600398104 /* SCRModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRModel.m; sourceTree = "<group>"; };
 		467DBCCA1CB699F600398104 /* SCRPagedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRPagedModel.h; sourceTree = "<group>"; };
@@ -494,8 +494,8 @@
 				467DBCB21CB656BB00398104 /* SCRViewSizer.m */,
 				467DBCB31CB656BB00398104 /* UIView+SCRKeyboardDismiss.h */,
 				467DBCB41CB656BB00398104 /* UIView+SCRKeyboardDismiss.m */,
-				467DBCBE1CB6571800398104 /* SCRKeyboardDelegate.h */,
-				467DBCBF1CB6571800398104 /* SCRKeyboardDelegate.m */,
+				467DBCBE1CB6571800398104 /* SCRKeyboardObserver.h */,
+				467DBCBF1CB6571800398104 /* SCRKeyboardObserver.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -692,7 +692,7 @@
 				468D9CE81CB1676900AD5452 /* SCRPhotoOwnerModel.m in Sources */,
 				46F1208D1CB06928009A5EAA /* SCRSearchResultCollectionViewCell.m in Sources */,
 				467DBCCD1CB699F600398104 /* SCRPagedModel.m in Sources */,
-				467DBCC01CB6571800398104 /* SCRKeyboardDelegate.m in Sources */,
+				467DBCC01CB6571800398104 /* SCRKeyboardObserver.m in Sources */,
 				46B198471CB3C5BB0050814D /* SCRSearch.m in Sources */,
 				469421CD1CB2E89800A460FF /* SCRNavigationBar.m in Sources */,
 				468D9CFF1CB198D600AD5452 /* SCRSearchResultsFooterView.m in Sources */,

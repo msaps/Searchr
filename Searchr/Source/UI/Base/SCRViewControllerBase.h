@@ -12,14 +12,14 @@
 #import "SCRViewSizer.h"
 #import "UIImage+SCRColorDetection.h"
 #import "SCRDevice.h"
-#import "SCRKeyboardDelegate.h"
+#import "SCRKeyboardObserver.h"
 
-@interface SCRViewControllerBase : UIViewController <SCRKeyboardDelegate>
+@interface SCRViewControllerBase : UIViewController <SCRKeyboardObserverDelegate>
 
 /**
  The object that can provide delegation to the view controller for keyboard updates
  */
-@property (nonatomic, strong) SCRKeyboardDelegate *keyboardDelegate;
+@property (nonatomic, strong) SCRKeyboardObserver *keyboardDelegate;
 /**
  The object that can provide autosizing calculations for a view.
  */
