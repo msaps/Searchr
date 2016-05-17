@@ -19,10 +19,10 @@ NSString *const kSCRPhotoDatesModelTakenUnknownKey = @"takenunknown";
 - (void)evaluateDataDictionary:(NSDictionary *)dictionary {
     
     NSNumber *lastUpdateTimestamp = [dictionary objectForKey:kSCRPhotoDatesModelLastUpdateKey];
-    _lastUpdated = [NSDate dateWithTimeIntervalSince1970:[lastUpdateTimestamp integerValue]];
+    _lastUpdated = [NSDate dateWithTimeIntervalSince1970:[lastUpdateTimestamp doubleValue]];
     
     NSNumber *postedTimestamp = [dictionary objectForKey:kSCRPhotoDatesModelPostedKey];
-    _posted = [NSDate dateWithTimeIntervalSince1970:[postedTimestamp integerValue]];
+    _posted = [NSDate dateWithTimeIntervalSince1970:[postedTimestamp doubleValue]];
     
     _taken = [dictionary objectForKey:kSCRPhotoDatesModelTakenKey];
     
