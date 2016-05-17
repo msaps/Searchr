@@ -8,5 +8,5 @@
 
 #define SCRWeakSelfCreate __typeof__(self) __weak weakSelf = self
 
-#define SCRStrongSelfStart if (weakSelf) {__typeof__(weakSelf) __strong strongSelf = weakSelf;
+#define SCRStrongSelfStart if (self) {__typeof__(weakSelf) __strong strongSelf = weakSelf;
 #define SCRStrongSelfEnd }
