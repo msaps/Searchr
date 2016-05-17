@@ -87,7 +87,7 @@ didLoadInterestingPhotos:(SCRPagedList<SCRPhotoModel *> *)interestingPhotos {
      ^(UIImage * _Nonnull image) {
          
          // get the required foreground color from the image
-         UIColor *averageImageColor = [image averageColor];
+         UIColor *averageImageColor = [image scr_averageColor];
          SCRReadableForegroundColor readableColor = [UIColor readableForegroundColorForBackgroundColor:averageImageColor];
          
          // display the image
