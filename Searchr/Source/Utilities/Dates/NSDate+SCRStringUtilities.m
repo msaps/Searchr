@@ -12,7 +12,6 @@
 
 - (NSString *)scr_shortDateString {
     NSDateFormatter *dateFormatter = [self dateFormatter];
-    dateFormatter.dateFormat = @"dd MMM yyyy";
     return [dateFormatter stringFromDate:self];
 }
 
@@ -20,6 +19,7 @@
     static NSDateFormatter *_dateFormatter;
     if (!_dateFormatter) {
         _dateFormatter = [NSDateFormatter new];
+        _dateFormatter.dateFormat = @"dd MMM yyyy";
     }
     return _dateFormatter;
 }
