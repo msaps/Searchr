@@ -7,6 +7,8 @@
 //
 
 #import "SCRCommsContextImpl.h"
+#import "SCRFlickrApi.h"
+#import <objectiveflickr/ObjectiveFlickr.h>
 
 @implementation SCRCommsContextImpl
 

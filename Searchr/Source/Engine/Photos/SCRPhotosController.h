@@ -11,6 +11,7 @@
 #import "SCRPagedList.h"
 #import "SCRSearch.h"
 #import "SCRSearchBuilder.h"
+#import "SCRFlickrAPI.h"
 
 @protocol SCRPhotosController;
 
