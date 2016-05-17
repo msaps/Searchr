@@ -17,7 +17,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIView *blurViewContainer;
 
-@property (nonatomic, assign) UIReadableForegroundColor requiredForegroundColor;
+@property (nonatomic, assign) SCRReadableForegroundColor requiredForegroundColor;
 
 @end
 
@@ -42,7 +42,7 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     switch (self.requiredForegroundColor) {
-        case UIReadableForegroundColorWhite:
+        case SCRReadableForegroundColorWhite:
             return UIStatusBarStyleLightContent;
             
         default:
@@ -59,7 +59,7 @@
 
 #pragma mark - Public
 
-- (void)setRequiredForegroundColor:(UIReadableForegroundColor)requiredForegroundColor {
+- (void)setRequiredForegroundColor:(SCRReadableForegroundColor)requiredForegroundColor {
     _requiredForegroundColor = requiredForegroundColor;
     
     for (SCRViewControllerBase *childViewController in self.childViewControllers) {

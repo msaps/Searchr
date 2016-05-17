@@ -65,7 +65,7 @@ typedef void(^UIViewAnimationCompletion)(BOOL finished);
     }
 }
 
-- (void)setRequiredForegroundColor:(UIReadableForegroundColor)requiredForegroundColor {
+- (void)setRequiredForegroundColor:(SCRReadableForegroundColor)requiredForegroundColor {
     [super setRequiredForegroundColor:requiredForegroundColor];
     [UIView animateWithDuration:0.25f animations:^{
         [self updateTitleLabelForegroundColor];
@@ -169,7 +169,7 @@ typedef void(^UIViewAnimationCompletion)(BOOL finished);
 
 - (void)updateTitleLabelForegroundColor {
     
-    BOOL requiresWhite = (self.requiredForegroundColor == UIReadableForegroundColorWhite);
+    BOOL requiresWhite = (self.requiredForegroundColor == SCRReadableForegroundColorWhite);
     
     self.titleLabel.textColor = requiresWhite ? [UIColor whiteColor] : [UIColor scr_flickrBlue];
     if (requiresWhite) {

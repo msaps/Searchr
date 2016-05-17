@@ -24,7 +24,7 @@
  The object that can provide autosizing calculations for a view.
  */
 @property (nonatomic, strong) SCRViewSizer *viewSizer;
-@property (nonatomic, assign) UIReadableForegroundColor requiredForegroundColor;
+@property (nonatomic, assign) SCRReadableForegroundColor requiredForegroundColor;
 
 /**
  Update any constraints within the view controller that need adjusting for particular screen sizes.
