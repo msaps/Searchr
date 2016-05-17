@@ -12,7 +12,7 @@
 
 @interface SCRPhotoModelWithInfo : SCRPhotoModel
 
-@property (nonatomic, copy, nullable) NSString *description;
+@property (nonatomic, copy, nullable) NSString *photoDescription;
 
 @property (nonatomic, strong, readonly, nullable) SCRPhotoOwnerModel *ownerModel;
 @property (nonatomic, strong, readonly, nullable) SCRPhotoDatesModel *datesModel;
