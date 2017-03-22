@@ -7,13 +7,13 @@ Simple iOS demo app providing search functionality for Flickr.
 <img src="Images/Searchr_2.png" align="center" height="40%" width="40%" style="margin-left:20px;">
 </div>
 
-####Installation
+#### Installation
 Build and Run Searchr.xcworkspace
 
-####Language
+#### Language
 Objective-C
 
-####Third Party Libraries
+#### Third Party Libraries
 - AFNetworking
 - objectiveflickr
 - PureLayout
